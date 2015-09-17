@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">WeatherDemo</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="menu_settings">Settings</string>
+    <string name="textleftname">左边名称</string>
+    <string name="textrightname">右边名称</string>
+    <string name="iconname">图标名称</string>
+    <string name="icontext">图标文本</string>
+
+</resources>
