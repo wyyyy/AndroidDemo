@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/huise"
+    android:orientation="vertical" >
+
+   
+
+    <FrameLayout
+        android:id="@+id/main_fragment"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="9"
+        android:orientation="vertical" >
+    </FrameLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@color/white"
+        android:orientation="horizontal" >
+        
+        <RadioGroup
+            android:id="@+id/rg"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp" >
+
+            <RadioButton
+                android:id="@+id/rb1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="#00000000"
+                android:button="@null"
+                android:drawableTop="@drawable/zc_selector"
+                android:gravity="center|bottom"
+                android:paddingBottom="5dp"
+                android:paddingTop="5dp"
+                android:text="@string/hudong"
+                android:textColor="@drawable/textcolor"
+                android:textSize="14sp" />
+
+            <RadioButton
+                android:id="@+id/rb2"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="#00000000"
+                android:button="@null"
+                android:drawableTop="@drawable/dl_selector"
+                android:gravity="center|bottom"
+                android:paddingBottom="5dp"
+                android:paddingTop="5dp"
+                android:text="@string/jieyue"
+                android:textColor="@drawable/textcolor"
+                android:textSize="14sp" />
+
+            <RadioButton
+                android:id="@+id/rb3"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="#00000000"
+                android:button="@null"
+                android:drawableTop="@drawable/sy_selector"
+                android:gravity="center|bottom"
+                android:paddingBottom="5dp"
+                android:paddingTop="5dp"
+                android:text="@string/qiangzuo"
+                android:textColor="@drawable/textcolor"
+                android:textSize="14sp" />
+
+            <RadioButton
+                android:id="@+id/rb4"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="#00000000"
+                android:button="@null"
+                android:drawableTop="@drawable/xx_selector"
+                android:gravity="center|bottom"
+                android:paddingBottom="5dp"
+                android:paddingTop="5dp"
+                android:text="@string/xinshengdaohang"
+                android:textColor="@drawable/textcolor"
+                android:textSize="14sp" />
+
+            <RadioButton
+                android:id="@+id/rb5"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="#00000000"
+                android:button="@null"
+                android:drawableTop="@drawable/grzx_selector"
+                android:gravity="center|bottom"
+                android:paddingBottom="5dp"
+                android:paddingTop="5dp"
+                android:text="@string/faxian"
+                android:textColor="@drawable/textcolor"
+                android:textSize="14sp" />
+        </RadioGroup>
+        
+        
+        
+    </LinearLayout>
+
+</LinearLayout>

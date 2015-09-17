@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.library.activity"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="8"
+        android:targetSdkVersion="18" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name="com.library.activity.SplashActivity"
+            android:label="@string/title_activity_splash"
+            android:screenOrientation="portrait" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.library.activity.MainActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.library.activity.SettingActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.library.fragment.XinShengDaoHangFragment"
+            android:label="@string/title_activity_xin_sheng_dao_hang_fragment" >
+        </activity>
+        <activity
+            android:name="com.library.fragment.FaXianFragment"
+            android:label="@string/title_activity_fa_xian_fragment" >
+        </activity>
+        <activity
+            android:name="com.library.fragment.TongZhiFragment"
+            android:label="@string/title_activity_tong_zhi" >
+        </activity>
+        <activity
+            android:name="com.library.fragment.DongTaiFragment"
+            android:label="@string/title_activity_dong_tai" >
+        </activity>
+        <activity
+            android:name="com.library.fragment.HuDongFragment2"
+            android:label="@string/title_activity_hu_dong_fragment2" >
+        </activity>
+        <activity
+            android:name="com.library.fragment.DangQianJieYueFragment"
+            android:label="@string/title_activity_dang_qian_jie_yue_fragment" >
+        </activity>
+        <activity
+            android:name="com.library.fragment.JieYueLiShiFragment"
+            android:label="@string/title_activity_jie_yue_li_shi_fragment" >
+        </activity>
+        <activity
+            android:name="com.library.fragment.WeiZhangJiaoKuanFragment"
+            android:label="@string/title_activity_wei_zhang_jiao_kuan_fragment" >
+        </activity>
+        <activity
+            android:name="com.library.view.MainTopRightDialog"
+            android:theme="@style/MyDialogStyleTop" >
+        </activity>
+        <activity
+            android:name="com.library.activity.BenGuanGaiKuangActivity"
+            android:label="@string/title_activity_ben_guan_gai_kuang" >
+        </activity>
+        <activity
+            android:name="com.library.activity.LiShiYanGeActivity"
+            android:label="@string/title_activity_li_shi_yan_ge" >
+        </activity>
+        <activity
+            android:name="com.library.activity.GuanCangBuJuActivity"
+            android:label="@string/title_activity_guan_cang_bu_ju" >
+        </activity>
+        <activity
+            android:name="com.library.activity.GuiZhangZhiDuActivity"
+            android:label="@string/title_activity_gui_zhang_zhi_du" >
+        </activity>
+        <activity
+            android:name="com.library.activity.KaiFangShiJianActivity"
+            android:label="@string/title_activity_kai_fang_shi_jian" >
+        </activity>
+    </application>
+
+</manifest>

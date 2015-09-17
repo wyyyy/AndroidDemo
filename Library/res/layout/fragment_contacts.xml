@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
+
+    <LinearLayout
+        android:id="@+id/layout_zone"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical" >
+
+        <RelativeLayout
+            android:id="@+id/hair_topic_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/zone_title_bg"
+            android:paddingBottom="10.0dip"
+            android:paddingTop="10.0dip" >
+            
+             <ImageView
+                android:id="@+id/title_bar_left_menu"
+                android:layout_width="44.5dip"
+                android:layout_height="22.5dip"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:paddingLeft="11.0dip"
+                android:paddingRight="11.0dip"
+                android:src="@drawable/icon_profile" 
+                android:onClick="onClickLiftMenu"
+                 />
+            <ImageView
+                android:id="@+id/iv_add"
+               android:layout_width="45.5dip"
+                android:layout_height="23.5dip"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:paddingLeft="11.0dip"
+                android:paddingRight="11.0dip"
+                android:src="@drawable/add"
+                
+                />
+
+            <RadioGroup
+                android:id="@+id/radioGroup_jieyue"
+                android:layout_width="fill_parent"
+                android:layout_height="30.0dip"
+                android:layout_marginBottom="7.5dip"
+                android:layout_toLeftOf="@+id/iv_add"
+                android:layout_toRightOf="@+id/title_bar_left_menu"
+                android:background="@drawable/tab_bg"
+                android:orientation="horizontal" >
+
+                <RadioButton
+                    android:id="@+id/rb_dangqianjieyue"
+                    android:layout_width="0.0dip"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="1.0"
+                    android:background="@drawable/radio_recomm_selector"
+                    android:button="@null"
+                    android:checked="true"
+                    android:gravity="center"
+                    android:text="@string/dangqianjieyue"
+                    android:textColor="@drawable/wp_text_selector"
+                    android:textSize="15.0sp" />
+
+                <RadioButton
+                    android:id="@+id/rb_jieyuelishi"
+                    android:layout_width="0.0dip"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="1.0"
+                    android:background="@drawable/radio_new_selector"
+                    android:button="@null"
+                    android:gravity="center"
+                    android:text="@string/jieyuelishi"
+                    android:textColor="@drawable/wp_text_selector"
+                    android:textSize="15.0sp" />
+
+                <RadioButton
+                    android:id="@+id/rb_weizhangjiaokuan"
+                    android:layout_width="0.0dip"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="1.0"
+                    android:background="@drawable/radio_topic_selector"
+                    android:button="@null"
+                    android:gravity="center"
+                    android:text="@string/weizhangjiaokuan"
+                    android:textColor="@drawable/wp_text_selector"
+                    android:textSize="15.0sp" />
+            </RadioGroup>
+        </RelativeLayout>
+    <android.support.v4.view.ViewPager
+        android:id="@+id/vp_JieYue"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_below="@+id/hair_topic_layout" />
+
+   </LinearLayout>
+
+</RelativeLayout>
