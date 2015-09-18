@@ -8,8 +8,6 @@ import android.support.v4.app.FragmentTransaction;
 import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.View;
-import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.RadioGroup.OnCheckedChangeListener;
@@ -22,7 +20,6 @@ import com.library.fragment.JieYueFragment;
 import com.library.fragment.QiangZuoFragment;
 import com.library.fragment.HuDongFragment;
 import com.library.fragment.XinShengDaoHangFragment;
-import com.library.view.MainTopRightDialog;
 import com.special.ResideMenu.ResideMenu;
 import com.special.ResideMenu.ResideMenuInfo;
 import com.special.ResideMenu.ResideMenuItem;
@@ -71,7 +68,8 @@ public class MainActivity extends FragmentActivity implements
 		rb4 = (RadioButton) findViewById(R.id.rb4);
 		rb5 = (RadioButton) findViewById(R.id.rb5);
 		rg.setOnCheckedChangeListener(this);
-		rb1.setChecked(true);
+		//之前是rb1
+		rb2.setChecked(true);
 
 		// attach to current activity;
 		resideMenu = new ResideMenu(this);
@@ -87,9 +85,9 @@ public class MainActivity extends FragmentActivity implements
 		// create menu items;
 		itemGuanZhangEmail = new ResideMenuItem(this, R.drawable.icon_profile,
 				"馆长信箱");
-		itemGrRenXinXi = new ResideMenuItem(this, "我的信息");
-		itemZhuangban = new ResideMenuItem(this, "当前查看");
-		itemShoucang = new ResideMenuItem(this, "借阅记录");
+		itemGrRenXinXi = new ResideMenuItem(this, R.string.MenuyInfo);
+		itemZhuangban = new ResideMenuItem(this, R.string.Menudqck);
+		itemShoucang = new ResideMenuItem(this, R.string.MenuJyjl);
 		itemXiangce = new ResideMenuItem(this, "预约查询");
 		itemFile = new ResideMenuItem(this, "违章查询");
 
@@ -99,7 +97,7 @@ public class MainActivity extends FragmentActivity implements
 		resideMenu.addMenuItem(itemShoucang, ResideMenu.DIRECTION_LEFT);
 		resideMenu.addMenuItem(itemXiangce, ResideMenu.DIRECTION_LEFT);
 		resideMenu.addMenuItem(itemFile, ResideMenu.DIRECTION_LEFT);
-
+		// 姓名和学号
 		info = new ResideMenuInfo(this, R.drawable.icon_profile, "我我我",
 				"2012012147");
 
@@ -197,6 +195,7 @@ public class MainActivity extends FragmentActivity implements
 	}
 
 	// 监听手机上的BACK键
+	@Override
 	public boolean onKeyDown(int keyCode, KeyEvent event) {
 		if (keyCode == KeyEvent.KEYCODE_BACK) {
 			// 判断菜单是否关闭
