@@ -180,7 +180,9 @@ public class MainActivity extends FragmentActivity implements
 			// leftMenu.setVisibility(View.VISIBLE);
 		}
 	};
-
+/*
+ * change  fragment
+ */
 	private void changeFragment(Fragment targetFragment) {
 		// resideMenu.clearIgnoredViewList();
 		getSupportFragmentManager().beginTransaction()
