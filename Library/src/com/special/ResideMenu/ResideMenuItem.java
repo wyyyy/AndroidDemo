@@ -34,6 +34,14 @@ public class ResideMenuItem extends LinearLayout {
 		tv_title.setText(title);
 	}
 
+	// 新增的WZH
+	public ResideMenuItem(Context context, int title) {
+		super(context);
+		initViews(context);
+		linner2.setVisibility(View.VISIBLE);
+		tv_title.setText(title);
+	}
+
 	public ResideMenuItem(Context context, int icon, int title) {
 		super(context);
 		initViews(context);
