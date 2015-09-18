@@ -1,7 +1,6 @@
 package com.library.fragment;
 
 import com.library.activity.R;
-import com.library.activity.R.layout;
 import com.library.view.AddPopWindow;
 
 import android.os.Bundle;
@@ -11,7 +10,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.View.OnClickListener;
 import android.widget.ImageView;
-
+/*
+ * 底部3.抢座
+ */
 public class QiangZuoFragment extends Fragment {
 
 	private View parentView;

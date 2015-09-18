@@ -7,7 +7,6 @@ import com.library.activity.KaiFangShiJianActivity;
 import com.library.activity.LiShiYanGeActivity;
 import com.library.activity.R;
 
-import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -18,7 +17,6 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup.LayoutParams;
 import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
-import android.widget.Toast;
 
 public class AddPopWindow extends PopupWindow {
 	private View conentView;

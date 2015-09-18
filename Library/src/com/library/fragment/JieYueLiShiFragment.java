@@ -1,16 +1,14 @@
 package com.library.fragment;
 
 import com.library.activity.R;
-import com.library.activity.R.layout;
-
 import android.os.Bundle;
-import android.app.Activity;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
-import android.view.Menu;
 import android.view.View;
 import android.view.ViewGroup;
-
+/*
+ * 顶部-借阅历史
+ */
 public class JieYueLiShiFragment extends Fragment {
 
 	@Override

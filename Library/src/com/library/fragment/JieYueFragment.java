@@ -4,8 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.library.activity.R;
-import com.library.activity.R.layout;
-import com.library.fragment.HuDongFragment.ZxzcAdapter;
 import com.library.view.AddPopWindow;
 
 import android.os.Bundle;
@@ -22,7 +20,9 @@ import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.RadioGroup.OnCheckedChangeListener;
-
+/*
+ * 底部菜单2.借阅
+ */
 public class JieYueFragment extends Fragment implements OnCheckedChangeListener {
 
 	private RadioGroup radioGroup;
@@ -51,7 +51,7 @@ public class JieYueFragment extends Fragment implements OnCheckedChangeListener 
 		list.add(dqjf);
 		list.add(jylf);
 		list.add(wzjf);
-
+//WZH 
 		ZxzcAdapter zxzc = new ZxzcAdapter(getChildFragmentManager(), list);
 		vp.setAdapter(zxzc);
 		zxzc.notifyDataSetChanged();

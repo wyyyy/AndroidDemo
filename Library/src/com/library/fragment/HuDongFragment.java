@@ -3,12 +3,8 @@ package com.library.fragment;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.library.activity.MainActivity;
 import com.library.activity.R;
 import com.library.view.AddPopWindow;
-import com.special.ResideMenu.ResideMenu;
-
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -24,6 +20,10 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.RadioGroup.OnCheckedChangeListener;
 
+
+/*
+ * 底部菜单栏-1.互动
+ */
 public class HuDongFragment extends Fragment implements OnCheckedChangeListener {
 
 	private View parentView;
