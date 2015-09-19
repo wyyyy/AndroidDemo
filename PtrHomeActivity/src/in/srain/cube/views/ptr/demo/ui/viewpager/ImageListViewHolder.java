@@ -3,6 +3,7 @@ package in.srain.cube.views.ptr.demo.ui.viewpager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
+import in.srain.cube.image.CubeImageView;
 import in.srain.cube.image.ImageLoader;
 import in.srain.cube.request.JsonData;
 import in.srain.cube.views.list.ViewHolderBase;

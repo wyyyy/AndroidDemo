@@ -1,6 +1,8 @@
 package in.srain.cube.views.ptr.demo.ui.viewpager;
 
 import android.os.Bundle;
+
+import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,7 +20,9 @@ import in.srain.cube.views.ptr.demo.R;
 import in.srain.cube.views.ptr.demo.data.DemoRequestData;
 
 import java.util.ArrayList;
-
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentStatePagerAdapter;
 public class ViewPagerActivity extends TitleBaseActivity {
 
     private TabPageIndicator mCatTabPageIndicator;
