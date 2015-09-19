@@ -1,8 +1,8 @@
 /**   
  * @Title: GzipUtils.java 
- * @Description: ³£ÓÃ°üµÄ½âÑ¹Ëõ
+ * @Description: ï¿½ï¿½ï¿½Ã°ï¿½ï¿½Ä½ï¿½Ñ¹ï¿½ï¿½
  * @author    
- * @date 2015-9-15 ÉÏÎç9:47:31 
+ * @date 2015-9-15 ï¿½ï¿½ï¿½ï¿½9:47:31 
  * @version V1.0   
  */
 
@@ -25,7 +25,7 @@ public class GzipUtils
 {
 
 	/***
-	 * Ñ¹ËõGZip
+	 * Ñ¹ï¿½ï¿½GZip
 	 * 
 	 * @param data
 	 * @return
@@ -50,7 +50,7 @@ public class GzipUtils
 	}
 
 	/***
-	 * ½âÑ¹GZip
+	 * ï¿½ï¿½Ñ¹GZip
 	 * 
 	 * @param data
 	 * @return
@@ -81,10 +81,8 @@ public class GzipUtils
 		return b;
 	}
 
-	
-	
 	/***
-	 * Ñ¹ËõZip
+	 * Ñ¹ï¿½ï¿½Zip
 	 * 
 	 * @param data
 	 * @return
@@ -112,7 +110,7 @@ public class GzipUtils
 	}
 
 	/***
-	 * ½âÑ¹Zip
+	 * ï¿½ï¿½Ñ¹Zip
 	 * 
 	 * @param data
 	 * @return
@@ -147,7 +145,7 @@ public class GzipUtils
 	}
 
 	/***
-	 * Ñ¹ËõBZip2
+	 * Ñ¹ï¿½ï¿½BZip2
 	 * 
 	 * @param data
 	 * @return
@@ -172,7 +170,7 @@ public class GzipUtils
 	}
 
 	/***
-	 * ½âÑ¹BZip2
+	 * ï¿½ï¿½Ñ¹BZip2
 	 * 
 	 * @param data
 	 * @return
@@ -182,20 +180,20 @@ public class GzipUtils
 		byte[] b = null;
 		try
 		{
-//			ByteArrayInputStream bis = new ByteArrayInputStream(data);
-//			CBZip2InputStream bzip2 = new CBZip2InputStream(bis);
-//			byte[] buf = new byte[1024];
-//			int num = -1;
-//			ByteArrayOutputStream baos = new ByteArrayOutputStream();
-//			while ((num = bzip2.read(buf, 0, buf.length)) != -1)
-//			{
-//				baos.write(buf, 0, num);
-//			}
-//			b = baos.toByteArray();
-//			baos.flush();
-//			baos.close();
-//			bzip2.close();
-//			bis.close();
+			// ByteArrayInputStream bis = new ByteArrayInputStream(data);
+			// CBZip2InputStream bzip2 = new CBZip2InputStream(bis);
+			// byte[] buf = new byte[1024];
+			// int num = -1;
+			// ByteArrayOutputStream baos = new ByteArrayOutputStream();
+			// while ((num = bzip2.read(buf, 0, buf.length)) != -1)
+			// {
+			// baos.write(buf, 0, num);
+			// }
+			// b = baos.toByteArray();
+			// baos.flush();
+			// baos.close();
+			// bzip2.close();
+			// bis.close();
 		} catch (Exception ex)
 		{
 			ex.printStackTrace();
@@ -204,7 +202,7 @@ public class GzipUtils
 	}
 
 	/**
-	 * °Ñ×Ö½ÚÊý×é×ª»»³É16½øÖÆ×Ö·û´®
+	 * ï¿½ï¿½ï¿½Ö½ï¿½ï¿½ï¿½ï¿½ï¿½×ªï¿½ï¿½ï¿½ï¿½16ï¿½ï¿½ï¿½ï¿½ï¿½Ö·ï¿½ï¿½ï¿½
 	 * 
 	 * @param bArray
 	 * @return
@@ -224,7 +222,7 @@ public class GzipUtils
 	}
 
 	/**
-	 * jzlib Ñ¹ËõÊý¾Ý
+	 * jzlib Ñ¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	 * 
 	 * @param object
 	 * @return
@@ -237,13 +235,13 @@ public class GzipUtils
 		try
 		{
 			ByteArrayOutputStream out = new ByteArrayOutputStream();
-//			ZOutputStream zOut = new ZOutputStream(out,
-//					JZlib.Z_DEFAULT_COMPRESSION);
-//			DataOutputStream objOut = new DataOutputStream(zOut);
-//			objOut.write(object);
-//			objOut.flush();
-//			zOut.close();
-//			data = out.toByteArray();
+			// ZOutputStream zOut = new ZOutputStream(out,
+			// JZlib.Z_DEFAULT_COMPRESSION);
+			// DataOutputStream objOut = new DataOutputStream(zOut);
+			// objOut.write(object);
+			// objOut.flush();
+			// zOut.close();
+			// data = out.toByteArray();
 			out.close();
 
 		} catch (IOException e)
@@ -254,7 +252,7 @@ public class GzipUtils
 	}
 
 	/**
-	 * jzLibÑ¹ËõµÄÊý¾Ý
+	 * jzLibÑ¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	 * 
 	 * @param object
 	 * @return
@@ -267,18 +265,18 @@ public class GzipUtils
 		try
 		{
 			ByteArrayInputStream in = new ByteArrayInputStream(object);
-//			ZInputStream zIn = new ZInputStream(in);
-//			byte[] buf = new byte[1024];
-//			int num = -1;
-//			ByteArrayOutputStream baos = new ByteArrayOutputStream();
-//			while ((num = zIn.read(buf, 0, buf.length)) != -1)
-//			{
-//				baos.write(buf, 0, num);
-//			}
-//			data = baos.toByteArray();
-//			baos.flush();
-//			baos.close();
-//			zIn.close();
+			// ZInputStream zIn = new ZInputStream(in);
+			// byte[] buf = new byte[1024];
+			// int num = -1;
+			// ByteArrayOutputStream baos = new ByteArrayOutputStream();
+			// while ((num = zIn.read(buf, 0, buf.length)) != -1)
+			// {
+			// baos.write(buf, 0, num);
+			// }
+			// data = baos.toByteArray();
+			// baos.flush();
+			// baos.close();
+			// zIn.close();
 			in.close();
 
 		} catch (IOException e)

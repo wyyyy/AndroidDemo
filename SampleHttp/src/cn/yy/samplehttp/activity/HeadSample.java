@@ -12,7 +12,7 @@
     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
     See the License for the specific language governing permissions and
     limitations under the License.
-*/
+ */
 package cn.yy.samplehttp.activity;
 
 import org.apache.http.Header;
@@ -23,37 +23,51 @@ import cn.commonhelp.http.help.AsyncHttpResponseHandler;
 import cn.commonhelp.http.help.RequestHandle;
 import cn.commonhelp.http.help.ResponseHandlerInterface;
 
-public class HeadSample extends FileSample {
+public class HeadSample extends FileSample
+{
 
-    private static final String LOG_TAG = "HeadSample";
+	private static final String LOG_TAG = "HeadSample";
 
-    @Override
-    public ResponseHandlerInterface getResponseHandler() {
-        return new AsyncHttpResponseHandler() {
-            @Override
-            public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
-                debugStatusCode(LOG_TAG, statusCode);
-                debugHeaders(LOG_TAG, headers);
-                debugResponse(LOG_TAG, String.format("Response of size: %d", responseBody == null ? 0 : responseBody.length));
-            }
+	@Override
+	public ResponseHandlerInterface getResponseHandler()
+	{
+		return new AsyncHttpResponseHandler()
+		{
+			@Override
+			public void onSuccess(int statusCode, Header[] headers,
+					byte[] responseBody)
+			{
+				debugStatusCode(LOG_TAG, statusCode);
+				debugHeaders(LOG_TAG, headers);
+				debugResponse(LOG_TAG, String.format("Response of size: %d",
+						responseBody == null ? 0 : responseBody.length));
+			}
 
-            @Override
-            public void onProgress(long bytesWritten, long totalSize) {
-                addView(getColoredView(LIGHTRED, String.format("Progress %d from %d", bytesWritten, totalSize)));
-            }
+			@Override
+			public void onProgress(long bytesWritten, long totalSize)
+			{
+				addView(getColoredView(LIGHTRED, String.format(
+						"Progress %d from %d", bytesWritten, totalSize)));
+			}
 
-            @Override
-            public void onFailure(int statusCode, Header[] headers, byte[] responseBody, Throwable throwable) {
-                debugStatusCode(LOG_TAG, statusCode);
-                debugHeaders(LOG_TAG, headers);
-                debugThrowable(LOG_TAG, throwable);
-                debugResponse(LOG_TAG, String.format("Response of size: %d", responseBody == null ? 0 : responseBody.length));
-            }
-        };
-    }
+			@Override
+			public void onFailure(int statusCode, Header[] headers,
+					byte[] responseBody, Throwable throwable)
+			{
+				debugStatusCode(LOG_TAG, statusCode);
+				debugHeaders(LOG_TAG, headers);
+				debugThrowable(LOG_TAG, throwable);
+				debugResponse(LOG_TAG, String.format("Response of size: %d",
+						responseBody == null ? 0 : responseBody.length));
+			}
+		};
+	}
 
-    @Override
-    public RequestHandle executeSample(AsyncHttpClient client, String URL, Header[] headers, HttpEntity entity, ResponseHandlerInterface responseHandler) {
-        return client.head(this, URL, headers, null, responseHandler);
-    }
+	@Override
+	public RequestHandle executeSample(AsyncHttpClient client, String URL,
+			Header[] headers, HttpEntity entity,
+			ResponseHandlerInterface responseHandler)
+	{
+		return client.head(this, URL, headers, null, responseHandler);
+	}
 }

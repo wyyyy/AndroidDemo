@@ -33,14 +33,16 @@ import cn.commonhelp.http.help.RequestHandle;
 import cn.commonhelp.http.help.ResponseHandlerInterface;
 import cn.yy.sample.R;
 
-public class PersistentCookiesSample extends SampleParentActivity {
+public class PersistentCookiesSample extends SampleParentActivity
+{
 
 	private static final String LOG_TAG = "PersistentCookiesSample";
 
 	private CookieStore cookieStore;
 
 	@Override
-	protected void onCreate(Bundle savedInstanceState) {
+	protected void onCreate(Bundle savedInstanceState)
+	{
 		// Use the application's context so that memory leakage doesn't occur.
 		cookieStore = new PersistentCookieStore(getApplicationContext());
 
@@ -51,27 +53,32 @@ public class PersistentCookiesSample extends SampleParentActivity {
 	}
 
 	@Override
-	public int getSampleTitle() {
+	public int getSampleTitle()
+	{
 		return R.string.title_persistent_cookies;
 	}
 
 	@Override
-	public boolean isRequestBodyAllowed() {
+	public boolean isRequestBodyAllowed()
+	{
 		return false;
 	}
 
 	@Override
-	public boolean isRequestHeadersAllowed() {
+	public boolean isRequestHeadersAllowed()
+	{
 		return true;
 	}
 
 	@Override
-	public String getDefaultURL() {
+	public String getDefaultURL()
+	{
 		// The base URL for testing cookies.
 		String url = PROTOCOL + "httpbin.org/cookies";
 
 		// If the cookie store is empty, suggest a cookie.
-		if (cookieStore.getCookies().isEmpty()) {
+		if (cookieStore.getCookies().isEmpty())
+		{
 			url += "/set?time=" + System.currentTimeMillis();
 		}
 
@@ -79,19 +86,24 @@ public class PersistentCookiesSample extends SampleParentActivity {
 	}
 
 	@Override
-	public ResponseHandlerInterface getResponseHandler() {
-		return new BaseJsonHttpResponseHandler<EntityJSON>() {
+	public ResponseHandlerInterface getResponseHandler()
+	{
+		return new BaseJsonHttpResponseHandler<EntityJSON>()
+		{
 			@Override
-			public void onStart() {
+			public void onStart()
+			{
 				clearOutputs();
 			}
 
 			@Override
 			public void onSuccess(int statusCode, Header[] headers,
-					String rawJsonResponse, EntityJSON response) {
+					String rawJsonResponse, EntityJSON response)
+			{
 				debugHeaders(LOG_TAG, headers);
 				debugStatusCode(LOG_TAG, statusCode);
-				if (response != null) {
+				if (response != null)
+				{
 					debugResponse(LOG_TAG, rawJsonResponse);
 				}
 			}
@@ -99,18 +111,21 @@ public class PersistentCookiesSample extends SampleParentActivity {
 			@Override
 			public void onFailure(int statusCode, Header[] headers,
 					Throwable throwable, String rawJsonData,
-					EntityJSON errorResponse) {
+					EntityJSON errorResponse)
+			{
 				debugHeaders(LOG_TAG, headers);
 				debugStatusCode(LOG_TAG, statusCode);
 				debugThrowable(LOG_TAG, throwable);
-				if (errorResponse != null) {
+				if (errorResponse != null)
+				{
 					debugResponse(LOG_TAG, rawJsonData);
 				}
 			}
 
 			@Override
 			protected EntityJSON parseResponse(String rawJsonData,
-					boolean isFailure) throws Throwable {
+					boolean isFailure) throws Throwable
+			{
 				return new ObjectMapper().readValue(
 						new JsonFactory().createJsonParser(rawJsonData),
 						EntityJSON.class);
@@ -121,7 +136,8 @@ public class PersistentCookiesSample extends SampleParentActivity {
 	@Override
 	public RequestHandle executeSample(AsyncHttpClient client, String URL,
 			Header[] headers, HttpEntity entity,
-			ResponseHandlerInterface responseHandler) {
+			ResponseHandlerInterface responseHandler)
+	{
 		client.setEnableRedirects(true);
 		return client.get(this, URL, headers, null, responseHandler);
 	}

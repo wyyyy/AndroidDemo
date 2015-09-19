@@ -37,26 +37,31 @@ import cn.commonhelp.http.help.RequestHandle;
 import cn.commonhelp.http.help.ResponseHandlerInterface;
 import cn.yy.sample.R;
 
-public class AsyncBackgroundThreadActivity extends SampleParentActivity {
+public class AsyncBackgroundThreadActivity extends SampleParentActivity
+{
 	private static final String LOG_TAG = "AsyncBackgroundThreadSample";
 
 	private ExecutorService executor = Executors.newSingleThreadExecutor();
 
 	@Override
-	public void onStop() {
+	public void onStop()
+	{
 		super.onStop();
 	}
 
 	@Override
 	public RequestHandle executeSample(final AsyncHttpClient client,
 			final String URL, final Header[] headers, HttpEntity entity,
-			final ResponseHandlerInterface responseHandler) {
+			final ResponseHandlerInterface responseHandler)
+	{
 
 		final Activity ctx = this;
 		FutureTask<RequestHandle> future = new FutureTask<>(
-				new Callable<RequestHandle>() {
+				new Callable<RequestHandle>()
+				{
 					@Override
-					public RequestHandle call() {
+					public RequestHandle call()
+					{
 						Log.d(LOG_TAG,
 								"Executing GET request on background thread");
 						return client.get(ctx, URL, headers, null,
@@ -67,10 +72,12 @@ public class AsyncBackgroundThreadActivity extends SampleParentActivity {
 		executor.execute(future);
 
 		RequestHandle handle = null;
-		try {
+		try
+		{
 			handle = future.get(5, TimeUnit.SECONDS);
 			Log.d(LOG_TAG, "Background thread for GET request has finished");
-		} catch (Exception e) {
+		} catch (Exception e)
+		{
 			Toast.makeText(ctx, e.getMessage(), Toast.LENGTH_LONG).show();
 			e.printStackTrace();
 		}
@@ -79,46 +86,56 @@ public class AsyncBackgroundThreadActivity extends SampleParentActivity {
 	}
 
 	@Override
-	public int getSampleTitle() {
+	public int getSampleTitle()
+	{
 		return R.string.title_async_background_thread;
 	}
 
 	@Override
-	public boolean isRequestBodyAllowed() {
+	public boolean isRequestBodyAllowed()
+	{
 		return false;
 	}
 
 	@Override
-	public boolean isRequestHeadersAllowed() {
+	public boolean isRequestHeadersAllowed()
+	{
 		return false;
 	}
 
 	@Override
-	public String getDefaultURL() {
+	public String getDefaultURL()
+	{
 		return PROTOCOL + "httpbin.org/get";
 	}
 
 	@Override
-	public ResponseHandlerInterface getResponseHandler() {
+	public ResponseHandlerInterface getResponseHandler()
+	{
 
 		FutureTask<ResponseHandlerInterface> future = new FutureTask<>(
-				new Callable<ResponseHandlerInterface>() {
+				new Callable<ResponseHandlerInterface>()
+				{
 
 					@Override
-					public ResponseHandlerInterface call() throws Exception {
+					public ResponseHandlerInterface call() throws Exception
+					{
 						Log.d(LOG_TAG,
 								"Creating AsyncHttpResponseHandler on background thread");
 						return new AsyncHttpResponseHandler(Looper
-								.getMainLooper()) {
+								.getMainLooper())
+						{
 
 							@Override
-							public void onStart() {
+							public void onStart()
+							{
 								clearOutputs();
 							}
 
 							@Override
 							public void onSuccess(int statusCode,
-									Header[] headers, byte[] response) {
+									Header[] headers, byte[] response)
+							{
 								Log.d(LOG_TAG,
 										String.format(
 												"onSuccess executing on main thread : %B",
@@ -132,7 +149,8 @@ public class AsyncBackgroundThreadActivity extends SampleParentActivity {
 							@Override
 							public void onFailure(int statusCode,
 									Header[] headers, byte[] errorResponse,
-									Throwable e) {
+									Throwable e)
+							{
 								Log.d(LOG_TAG,
 										String.format(
 												"onFailure executing on main thread : %B",
@@ -141,14 +159,16 @@ public class AsyncBackgroundThreadActivity extends SampleParentActivity {
 								debugHeaders(LOG_TAG, headers);
 								debugStatusCode(LOG_TAG, statusCode);
 								debugThrowable(LOG_TAG, e);
-								if (errorResponse != null) {
+								if (errorResponse != null)
+								{
 									debugResponse(LOG_TAG, new String(
 											errorResponse));
 								}
 							}
 
 							@Override
-							public void onRetry(int retryNo) {
+							public void onRetry(int retryNo)
+							{
 								Toast.makeText(
 										AsyncBackgroundThreadActivity.this,
 										String.format(
@@ -163,11 +183,13 @@ public class AsyncBackgroundThreadActivity extends SampleParentActivity {
 		executor.execute(future);
 
 		ResponseHandlerInterface responseHandler = null;
-		try {
+		try
+		{
 			responseHandler = future.get();
 			Log.d(LOG_TAG,
 					"Background thread for AsyncHttpResponseHandler has finished");
-		} catch (Exception e) {
+		} catch (Exception e)
+		{
 			e.printStackTrace();
 		}
 

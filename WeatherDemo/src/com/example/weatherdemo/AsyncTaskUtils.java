@@ -19,9 +19,9 @@ import android.widget.TextView;
 /**
  * @author john
  * @createtime 2015-9-15 john
- * @@1.Æô¶¯ÈÎÎñÖ´ĞĞµÄÊäÈë²ÎÊı
- * @2.ºóÌ¨ÈÎÎñÖ´ĞĞµÄ½ø¶È
- * @3.ºóÌ¨¼ÆËã½á¹ûµÄÀàĞÍ
+ * @@1.ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö´ï¿½Ğµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+ * @2.ï¿½ï¿½Ì¨ï¿½ï¿½ï¿½ï¿½Ö´ï¿½ĞµÄ½ï¿½ï¿½ï¿½
+ * @3.ï¿½ï¿½Ì¨ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
  */
 public class AsyncTaskUtils extends
 		AsyncTask<Map<String, String>, Object, String>
@@ -55,7 +55,7 @@ public class AsyncTaskUtils extends
 	{
 		// TODO Auto-generated method stub
 		String st = HttpUtils.getRequest();
-		// Ö´ĞĞpublishProgress()µ÷ÓÃonProgressUpdate()·½·¨
+		// Ö´ï¿½ï¿½publishProgress()ï¿½ï¿½ï¿½ï¿½onProgressUpdate()ï¿½ï¿½ï¿½ï¿½
 		publishProgress(3);
 		return st;
 	}
@@ -63,7 +63,7 @@ public class AsyncTaskUtils extends
 	/*
 	 * (non-Javadoc)
 	 * 
-	 * @see ·½·¨ÓÃÓÚÔÚÈ¡ÏûÖ´ĞĞÖĞµÄÈÎÎñÊ±¸ü¸ÄUI
+	 * @see ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È¡ï¿½ï¿½Ö´ï¿½ï¿½ï¿½Ğµï¿½ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½UI
 	 */
 	@Override
 	protected void onCancelled()
@@ -87,7 +87,7 @@ public class AsyncTaskUtils extends
 	/*
 	 * (non-Javadoc)
 	 * 
-	 * @see ÓÃÓÚÔÚÖ´ĞĞÍêºóÌ¨ÈÎÎñºó¸üĞÂUI,ÏÔÊ¾½á¹û ²»ÄÜÊÖ¶¯µ÷ÓÃ
+	 * @see ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö´ï¿½ï¿½ï¿½ï¿½ï¿½Ì¨ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½UI,ï¿½ï¿½Ê¾ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ö¶ï¿½ï¿½ï¿½ï¿½ï¿½
 	 */
 	@Override
 	protected void onPostExecute(String result)
@@ -96,15 +96,15 @@ public class AsyncTaskUtils extends
 		super.onPostExecute(result);
 		LayoutInflater factory = LayoutInflater.from(context);
 		View iniView = (View) factory.inflate(R.layout.activity_main, null);
-		//TextView imageView = (TextView) iniView.findViewById(R.id.txtInfo);
+		// TextView imageView = (TextView) iniView.findViewById(R.id.txtInfo);
 	}
 
 	/*
 	 * (non-Javadoc)
 	 * 
-	 * @ÔÚexecute(Params... params)±»µ÷ÓÃºóÁ¢¼´Ö´ĞĞ
+	 * @ï¿½ï¿½execute(Params... params)ï¿½ï¿½ï¿½ï¿½ï¿½Ãºï¿½ï¿½ï¿½ï¿½ï¿½Ö´ï¿½ï¿½
 	 * 
-	 * @ÓÃÓÚÔÚÖ´ĞĞºóÌ¨ÈÎÎñÇ°×öÒ»Ğ©UI²Ù×÷
+	 * @ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö´ï¿½Ğºï¿½Ì¨ï¿½ï¿½ï¿½ï¿½Ç°ï¿½ï¿½Ò»Ğ©UIï¿½ï¿½ï¿½ï¿½
 	 */
 	@Override
 	protected void onPreExecute()
@@ -116,7 +116,7 @@ public class AsyncTaskUtils extends
 	/*
 	 * (non-Javadoc)
 	 * 
-	 * @see ÓÃÓÚ¸üĞÂ½ø¶ÈĞÅÏ¢ loading...
+	 * @see ï¿½ï¿½ï¿½Ú¸ï¿½ï¿½Â½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢ loading...
 	 */
 	@Override
 	protected void onProgressUpdate(Object... progresses)

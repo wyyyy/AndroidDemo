@@ -14,7 +14,7 @@
     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
     See the License for the specific language governing permissions and
     limitations under the License.
-*/
+ */
 
 package cn.yy.samplehttp.activity;
 
@@ -34,67 +34,82 @@ import cn.commonhelp.http.help.ResponseHandlerInterface;
 import cn.yy.sample.R;
 
 /**
- * This sample demonstrates how to upload JSON data using streams, resulting
- * in a low-memory footprint even with extremely large data.
+ * This sample demonstrates how to upload JSON data using streams, resulting in
+ * a low-memory footprint even with extremely large data.
  * <p/>
  * Please note: You must prepare a server-side end-point to consume the uploaded
  * data. This is because the data is uploaded using "application/json" content
  * type and regular methods, expecting a multi-form content type, will fail to
  * retrieve the POST'ed data.
- *
+ * 
  * @author Noor Dawod <github@fineswap.com>
  */
-public class JsonStreamerSample extends PostSample {
+public class JsonStreamerSample extends PostSample
+{
 
-    private static final String LOG_TAG = "JsonStreamSample";
+	private static final String LOG_TAG = "JsonStreamSample";
 
-    @Override
-    public RequestHandle executeSample(AsyncHttpClient client, String URL, Header[] headers, HttpEntity entity, ResponseHandlerInterface responseHandler) {
-        RequestParams params = new RequestParams();
-        params.setUseJsonStreamer(true);
-        JSONObject body;
-        if (isRequestBodyAllowed() && (body = getBodyTextAsJSON()) != null) {
-            try {
-                Iterator keys = body.keys();
-                Log.d(LOG_TAG, "JSON data:");
-                while (keys.hasNext()) {
-                    String key = (String) keys.next();
-                    Log.d(LOG_TAG, "  " + key + ": " + body.get(key));
-                    params.put(key, body.get(key).toString());
-                }
-            } catch (JSONException e) {
-                Log.w(LOG_TAG, "Unable to retrieve a JSON value", e);
-            }
-        }
-        return client.post(this, URL, headers, params,
-                RequestParams.APPLICATION_JSON, responseHandler);
-    }
+	@Override
+	public RequestHandle executeSample(AsyncHttpClient client, String URL,
+			Header[] headers, HttpEntity entity,
+			ResponseHandlerInterface responseHandler)
+	{
+		RequestParams params = new RequestParams();
+		params.setUseJsonStreamer(true);
+		JSONObject body;
+		if (isRequestBodyAllowed() && (body = getBodyTextAsJSON()) != null)
+		{
+			try
+			{
+				Iterator keys = body.keys();
+				Log.d(LOG_TAG, "JSON data:");
+				while (keys.hasNext())
+				{
+					String key = (String) keys.next();
+					Log.d(LOG_TAG, "  " + key + ": " + body.get(key));
+					params.put(key, body.get(key).toString());
+				}
+			} catch (JSONException e)
+			{
+				Log.w(LOG_TAG, "Unable to retrieve a JSON value", e);
+			}
+		}
+		return client.post(this, URL, headers, params,
+				RequestParams.APPLICATION_JSON, responseHandler);
+	}
 
-    @Override
-    public HttpEntity getRequestEntity() {
-        // Unused in this sample.
-        return null;
-    }
+	@Override
+	public HttpEntity getRequestEntity()
+	{
+		// Unused in this sample.
+		return null;
+	}
 
-    @Override
-    public int getSampleTitle() {
-        return R.string.title_json_streamer_sample;
-    }
+	@Override
+	public int getSampleTitle()
+	{
+		return R.string.title_json_streamer_sample;
+	}
 
-    @Override
-    public boolean isRequestHeadersAllowed() {
-        return false;
-    }
+	@Override
+	public boolean isRequestHeadersAllowed()
+	{
+		return false;
+	}
 
-    protected JSONObject getBodyTextAsJSON() {
-        String bodyText = getBodyText();
-        if (bodyText != null && !TextUtils.isEmpty(bodyText)) {
-            try {
-                return new JSONObject(bodyText);
-            } catch (JSONException e) {
-                Log.e(LOG_TAG, "User's data is not a valid JSON object", e);
-            }
-        }
-        return null;
-    }
+	protected JSONObject getBodyTextAsJSON()
+	{
+		String bodyText = getBodyText();
+		if (bodyText != null && !TextUtils.isEmpty(bodyText))
+		{
+			try
+			{
+				return new JSONObject(bodyText);
+			} catch (JSONException e)
+			{
+				Log.e(LOG_TAG, "User's data is not a valid JSON object", e);
+			}
+		}
+		return null;
+	}
 }

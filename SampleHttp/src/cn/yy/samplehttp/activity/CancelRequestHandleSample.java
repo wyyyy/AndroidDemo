@@ -14,7 +14,7 @@
     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
     See the License for the specific language governing permissions and
     limitations under the License.
-*/
+ */
 
 package cn.yy.samplehttp.activity;
 
@@ -22,27 +22,36 @@ import android.util.Log;
 import cn.commonhelp.http.help.RequestHandle;
 import cn.yy.sample.R;
 
-public class CancelRequestHandleSample extends ThreadingTimeoutSample {
+public class CancelRequestHandleSample extends ThreadingTimeoutSample
+{
 
-    private static final String LOG_TAG = "CancelRequestHandleSample";
+	private static final String LOG_TAG = "CancelRequestHandleSample";
 
-    @Override
-    public int getSampleTitle() {
-        return R.string.title_cancel_handle;
-    }
+	@Override
+	public int getSampleTitle()
+	{
+		return R.string.title_cancel_handle;
+	}
 
-    @Override
-    public void onCancelButtonPressed() {
-        Log.d(LOG_TAG, String.format("Number of handles found: %d", getRequestHandles().size()));
-        int counter = 0;
-        for (RequestHandle handle : getRequestHandles()) {
-            if (!handle.isCancelled() && !handle.isFinished()) {
-                Log.d(LOG_TAG, String.format("Cancelling handle %d", counter));
-                Log.d(LOG_TAG, String.format("Handle %d cancel", counter) + (handle.cancel(true) ? " succeeded" : " failed"));
-            } else {
-                Log.d(LOG_TAG, String.format("Handle %d already non-cancellable", counter));
-            }
-            counter++;
-        }
-    }
+	@Override
+	public void onCancelButtonPressed()
+	{
+		Log.d(LOG_TAG, String.format("Number of handles found: %d",
+				getRequestHandles().size()));
+		int counter = 0;
+		for (RequestHandle handle : getRequestHandles())
+		{
+			if (!handle.isCancelled() && !handle.isFinished())
+			{
+				Log.d(LOG_TAG, String.format("Cancelling handle %d", counter));
+				Log.d(LOG_TAG, String.format("Handle %d cancel", counter)
+						+ (handle.cancel(true) ? " succeeded" : " failed"));
+			} else
+			{
+				Log.d(LOG_TAG, String.format(
+						"Handle %d already non-cancellable", counter));
+			}
+			counter++;
+		}
+	}
 }

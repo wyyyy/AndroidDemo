@@ -14,7 +14,7 @@
     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
     See the License for the specific language governing permissions and
     limitations under the License.
-*/
+ */
 
 package cn.yy.samplehttp.activity;
 
@@ -32,39 +32,45 @@ import cn.commonhelp.http.help.AsyncHttpRequest;
 import cn.commonhelp.http.help.RequestHandle;
 import cn.commonhelp.http.help.ResponseHandlerInterface;
 
-public interface SampleInterface {
+public interface SampleInterface
+{
 
-    List<RequestHandle> getRequestHandles();
+	List<RequestHandle> getRequestHandles();
 
-    void addRequestHandle(RequestHandle handle);
+	void addRequestHandle(RequestHandle handle);
 
-    void onRunButtonPressed();
+	void onRunButtonPressed();
 
-    void onCancelButtonPressed();
+	void onCancelButtonPressed();
 
-    Header[] getRequestHeaders();
+	Header[] getRequestHeaders();
 
-    HttpEntity getRequestEntity();
+	HttpEntity getRequestEntity();
 
-    AsyncHttpClient getAsyncHttpClient();
+	AsyncHttpClient getAsyncHttpClient();
 
-    void setAsyncHttpClient(AsyncHttpClient client);
+	void setAsyncHttpClient(AsyncHttpClient client);
 
-    AsyncHttpRequest getHttpRequest(DefaultHttpClient client, HttpContext httpContext, HttpUriRequest uriRequest, String contentType, ResponseHandlerInterface responseHandler, Context context);
+	AsyncHttpRequest getHttpRequest(DefaultHttpClient client,
+			HttpContext httpContext, HttpUriRequest uriRequest,
+			String contentType, ResponseHandlerInterface responseHandler,
+			Context context);
 
-    ResponseHandlerInterface getResponseHandler();
+	ResponseHandlerInterface getResponseHandler();
 
-    String getDefaultURL();
+	String getDefaultURL();
 
-    String getDefaultHeaders();
+	String getDefaultHeaders();
 
-    boolean isRequestHeadersAllowed();
+	boolean isRequestHeadersAllowed();
 
-    boolean isRequestBodyAllowed();
+	boolean isRequestBodyAllowed();
 
-    int getSampleTitle();
+	int getSampleTitle();
 
-    boolean isCancelButtonAllowed();
+	boolean isCancelButtonAllowed();
 
-    RequestHandle executeSample(AsyncHttpClient client, String URL, Header[] headers, HttpEntity entity, ResponseHandlerInterface responseHandler);
+	RequestHandle executeSample(AsyncHttpClient client, String URL,
+			Header[] headers, HttpEntity entity,
+			ResponseHandlerInterface responseHandler);
 }

@@ -14,21 +14,24 @@
     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
     See the License for the specific language governing permissions and
     limitations under the License.
-*/
+ */
 
 package cn.yy.samplehttp.activity;
 
 import cn.yy.sample.R;
 
-public class CancelAllRequestsSample extends ThreadingTimeoutSample {
+public class CancelAllRequestsSample extends ThreadingTimeoutSample
+{
 
-    @Override
-    public int getSampleTitle() {
-        return R.string.title_cancel_all;
-    }
+	@Override
+	public int getSampleTitle()
+	{
+		return R.string.title_cancel_all;
+	}
 
-    @Override
-    public void onCancelButtonPressed() {
-        getAsyncHttpClient().cancelAllRequests(true);
-    }
+	@Override
+	public void onCancelButtonPressed()
+	{
+		getAsyncHttpClient().cancelAllRequests(true);
+	}
 }

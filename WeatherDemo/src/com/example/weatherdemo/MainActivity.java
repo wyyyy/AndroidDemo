@@ -26,14 +26,16 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import com.google.gson.reflect.TypeToken;
 
-public class MainActivity extends Activity implements OnClickListener {
-	private Button mSendReqHandler = null;// ·¢ËÍÇëÇóµÄ°´Å¥
-	private Button mSendRAsync = null;// ·¢ËÍÇëÇóµÄ°´Å¥
-	private Button mSendRAsyncTask = null;// ·¢ËÍÇëÇóµÄ°´Å¥
+public class MainActivity extends Activity implements OnClickListener
+{
+	private Button mSendReqHandler = null;// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä°ï¿½Å¥
+	private Button mSendRAsync = null;// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä°ï¿½Å¥
+	private Button mSendRAsyncTask = null;// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä°ï¿½Å¥
 	private GridView gridview;
 
 	@Override
-	protected void onCreate(Bundle savedInstanceState) {
+	protected void onCreate(Bundle savedInstanceState)
+	{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		mSendReqHandler = (Button) findViewById(R.id.btnHandle);
@@ -48,18 +50,23 @@ public class MainActivity extends Activity implements OnClickListener {
 		gridview = (GridView) findViewById(R.id.gridview);
 	}
 
-	private Handler handler = new Handler() {
+	private Handler handler = new Handler()
+	{
 		@Override
-		public void handleMessage(Message msg) {
+		public void handleMessage(Message msg)
+		{
 			String result = (String) msg.getData().get("value");
 			Gson gson;
 			Root status = new Root();
-			try {
+			try
+			{
 				gson = new Gson();
-				java.lang.reflect.Type type = new TypeToken<Root>() {
+				java.lang.reflect.Type type = new TypeToken<Root>()
+				{
 				}.getType();
 				status = gson.fromJson(result, type);
-			} catch (Exception e) {
+			} catch (Exception e)
+			{
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
@@ -70,9 +77,11 @@ public class MainActivity extends Activity implements OnClickListener {
 			gridview.setAdapter(adapter);
 		}
 	};
-	Runnable runnable = new Runnable() {
+	Runnable runnable = new Runnable()
+	{
 		@Override
-		public void run() {
+		public void run()
+		{
 			// TODO: http request.
 			Message msg = new Message();
 			Bundle data = new Bundle();
@@ -85,7 +94,8 @@ public class MainActivity extends Activity implements OnClickListener {
 	};
 
 	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
+	public boolean onCreateOptionsMenu(Menu menu)
+	{
 		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.main, menu);
 		return true;
@@ -97,26 +107,28 @@ public class MainActivity extends Activity implements OnClickListener {
 	 * @see android.view.View.OnClickListener#onClick(android.view.View)
 	 */
 	@Override
-	public void onClick(View v) {
-		switch (v.getId()) {
+	public void onClick(View v)
+	{
+		switch (v.getId())
+		{
 		case R.id.btnHandle:
 			new Thread(runnable).start();
 			break;
-		// ¸üÐÂÊý¾Ý¿â
+		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ý¿ï¿½
 		case R.id.btnAsync:
 			AsyncHttp2 asyncHttp2 = new AsyncHttp2();
 			asyncHttp2.get(null, null, null);
 			Toast.makeText(getApplicationContext(), asyncHttp2.sb.toString(),
 					Toast.LENGTH_LONG).show();
 			break;
-		// ¸üÐÂÊý¾Ý¿â
+		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ý¿ï¿½
 		case R.id.btnAsyncTask:
 			Map<String, String> map = new HashMap<String, String>();
 			map.put("sa", "dd");
 			AsyncTaskUtils mTask = new AsyncTaskUtils(getApplicationContext());
 			mTask.execute(map);
 			break;
-		// ¸üÐÂÊý¾Ý¿â
+		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ý¿ï¿½
 
 		default:
 			break;

@@ -13,17 +13,20 @@ import org.json.JSONObject;
 import com.example.entity.*;
 import com.example.entity.Forecast;
 
-public class JsonTools {
+public class JsonTools
+{
 	/**
-	 * »ñÈ¡¶ÔÏóÊý¾Ý //²ÉÓÃandroidÄÚÖÃµÄorg.json°ü½âÎö
+	 * ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ //ï¿½ï¿½ï¿½ï¿½androidï¿½ï¿½ï¿½Ãµï¿½org.jsonï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	 * 
 	 * @param key
 	 * @param jsonString
 	 * @return
 	 */
-	public static Root getRoot(String jsonString) {
+	public static Root getRoot(String jsonString)
+	{
 		Root root = new Root();
-		try {
+		try
+		{
 			JSONObject jsonObject = new JSONObject(jsonString);
 
 			String status = jsonObject.getString("status");
@@ -40,10 +43,11 @@ public class JsonTools {
 			dt.setGanmao(ganmao);
 			dt.setAqi(aqi);
 			dt.setCity(city);
-			// ·µ»ØjsonµÄÊý×é
+			// ï¿½ï¿½ï¿½ï¿½jsonï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			JSONArray jsonArray = dataJSON.getJSONArray("forecast");
 			List<Forecast> forecast = new ArrayList<Forecast>();
-			for (int i = 0; i < jsonArray.length(); i++) {
+			for (int i = 0; i < jsonArray.length(); i++)
+			{
 				JSONObject jsonObject2 = jsonArray.getJSONObject(i);
 				Forecast ft = new Forecast();
 				ft.setFengxiang(jsonObject2.getString("fengxiang"));
@@ -56,11 +60,12 @@ public class JsonTools {
 				forecast.add(ft);
 			}
 
-			//dt.setForecast(forecast);
+			// dt.setForecast(forecast);
 
 			root.setData(dt);
 
-		} catch (JSONException e) {
+		} catch (JSONException e)
+		{
 			e.printStackTrace();
 		}
 		return root;

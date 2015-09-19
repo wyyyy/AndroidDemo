@@ -14,7 +14,7 @@
     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
     See the License for the specific language governing permissions and
     limitations under the License.
-*/
+ */
 
 package cn.yy.samplehttp.activity;
 
@@ -45,184 +45,237 @@ import cn.yy.sample.R;
 
 /**
  * This sample demonstrates how to implement HTTP 401 Basic Authentication.
- *
+ * 
  * @author Noor Dawod <github@fineswap.com>
  */
-public class Http401AuthSample extends GetSample {
+public class Http401AuthSample extends GetSample
+{
 
-    private static final String LOG_TAG = "Http401AuthSample";
-    private static final String HEADER_WWW_AUTHENTICATE = "WWW-Authenticate";
-    private static final String HEADER_AUTHORIZATION = "Authorization";
-    private static final String HEADER_REALM_PREFIX = "realm=";
-    private static final String HEADER_BASIC = "basic";
+	private static final String LOG_TAG = "Http401AuthSample";
+	private static final String HEADER_WWW_AUTHENTICATE = "WWW-Authenticate";
+	private static final String HEADER_AUTHORIZATION = "Authorization";
+	private static final String HEADER_REALM_PREFIX = "realm=";
+	private static final String HEADER_BASIC = "basic";
 
-    private static final String SECRET_USERNAME = "ahc";
-    private static final String SECRET_PASSWORD = "LetMeIn";
+	private static final String SECRET_USERNAME = "ahc";
+	private static final String SECRET_PASSWORD = "LetMeIn";
 
-    private String userName;
-    private String passWord;
+	private String userName;
+	private String passWord;
 
-    public void retryRequest() {
-        // File is still smaller than remote file; send a new request.
-        onRunButtonPressed();
-    }
+	public void retryRequest()
+	{
+		// File is still smaller than remote file; send a new request.
+		onRunButtonPressed();
+	}
 
-    @Override
-    public String getDefaultURL() {
-        return PROTOCOL + "httpbin.org/basic-auth/" + SECRET_USERNAME + "/" + SECRET_PASSWORD;
-    }
+	@Override
+	public String getDefaultURL()
+	{
+		return PROTOCOL + "httpbin.org/basic-auth/" + SECRET_USERNAME + "/"
+				+ SECRET_PASSWORD;
+	}
 
-    @Override
-    public int getSampleTitle() {
-        return R.string.title_401_unauth;
-    }
+	@Override
+	public int getSampleTitle()
+	{
+		return R.string.title_401_unauth;
+	}
 
-    @Override
-    public RequestHandle executeSample(AsyncHttpClient client, String URL, Header[] headers, HttpEntity entity, ResponseHandlerInterface responseHandler) {
-        return client.get(this, URL, headers, null, responseHandler);
-    }
+	@Override
+	public RequestHandle executeSample(AsyncHttpClient client, String URL,
+			Header[] headers, HttpEntity entity,
+			ResponseHandlerInterface responseHandler)
+	{
+		return client.get(this, URL, headers, null, responseHandler);
+	}
 
-    @Override
-    public Header[] getRequestHeaders() {
-        List<Header> headers = getRequestHeadersList();
+	@Override
+	public Header[] getRequestHeaders()
+	{
+		List<Header> headers = getRequestHeadersList();
 
-        // Add authentication header.
-        if (userName != null && passWord != null) {
-            byte[] base64bytes = Base64.encode(
-                    (userName + ":" + passWord).getBytes(),
-                    Base64.DEFAULT
-            );
-            String credentials = new String(base64bytes);
-            headers.add(new BasicHeader(HEADER_AUTHORIZATION, HEADER_BASIC + " " + credentials));
-        }
+		// Add authentication header.
+		if (userName != null && passWord != null)
+		{
+			byte[] base64bytes = Base64.encode(
+					(userName + ":" + passWord).getBytes(), Base64.DEFAULT);
+			String credentials = new String(base64bytes);
+			headers.add(new BasicHeader(HEADER_AUTHORIZATION, HEADER_BASIC
+					+ " " + credentials));
+		}
 
-        return headers.toArray(new Header[headers.size()]);
-    }
+		return headers.toArray(new Header[headers.size()]);
+	}
 
-    @Override
-    public ResponseHandlerInterface getResponseHandler() {
-        return new BaseJsonHttpResponseHandler<EntityJSON>() {
+	@Override
+	public ResponseHandlerInterface getResponseHandler()
+	{
+		return new BaseJsonHttpResponseHandler<EntityJSON>()
+		{
 
-            @Override
-            public void onStart() {
-                clearOutputs();
-            }
+			@Override
+			public void onStart()
+			{
+				clearOutputs();
+			}
 
-            @Override
-            public void onSuccess(int statusCode, Header[] headers, String rawJsonResponse, EntityJSON response) {
-                debugHeaders(LOG_TAG, headers);
-                debugStatusCode(LOG_TAG, statusCode);
-                if (response != null) {
-                    debugResponse(LOG_TAG, rawJsonResponse);
-                }
-            }
+			@Override
+			public void onSuccess(int statusCode, Header[] headers,
+					String rawJsonResponse, EntityJSON response)
+			{
+				debugHeaders(LOG_TAG, headers);
+				debugStatusCode(LOG_TAG, statusCode);
+				if (response != null)
+				{
+					debugResponse(LOG_TAG, rawJsonResponse);
+				}
+			}
 
-            @Override
-            public void onFailure(int statusCode, Header[] headers, Throwable throwable, String rawJsonData, EntityJSON errorResponse) {
-                debugHeaders(LOG_TAG, headers);
-                debugStatusCode(LOG_TAG, statusCode);
-                debugThrowable(LOG_TAG, throwable);
+			@Override
+			public void onFailure(int statusCode, Header[] headers,
+					Throwable throwable, String rawJsonData,
+					EntityJSON errorResponse)
+			{
+				debugHeaders(LOG_TAG, headers);
+				debugStatusCode(LOG_TAG, statusCode);
+				debugThrowable(LOG_TAG, throwable);
 
-                // Ask the user for credentials if required by the server.
-                if (statusCode == 401) {
-                    String realm = "Protected Page";
-                    String authType = null;
+				// Ask the user for credentials if required by the server.
+				if (statusCode == 401)
+				{
+					String realm = "Protected Page";
+					String authType = null;
 
-                    // Cycle through the headers and look for the WWW-Authenticate header.
-                    for (Header header : headers) {
-                        String headerName = header.getName();
-                        if (HEADER_WWW_AUTHENTICATE.equalsIgnoreCase(headerName)) {
-                            String headerValue = header.getValue().trim();
-                            String headerValueLowerCase = headerValue.toLowerCase(Locale.US);
+					// Cycle through the headers and look for the
+					// WWW-Authenticate header.
+					for (Header header : headers)
+					{
+						String headerName = header.getName();
+						if (HEADER_WWW_AUTHENTICATE
+								.equalsIgnoreCase(headerName))
+						{
+							String headerValue = header.getValue().trim();
+							String headerValueLowerCase = headerValue
+									.toLowerCase(Locale.US);
 
-                            // Get the type of auth requested.
-                            int charPos = headerValueLowerCase.indexOf(' ');
-                            if (0 < charPos) {
-                                authType = headerValueLowerCase.substring(0, charPos);
+							// Get the type of auth requested.
+							int charPos = headerValueLowerCase.indexOf(' ');
+							if (0 < charPos)
+							{
+								authType = headerValueLowerCase.substring(0,
+										charPos);
 
-                                // The second part should begin with a "realm=" prefix.
-                                if (headerValueLowerCase.substring(1 + charPos).startsWith(HEADER_REALM_PREFIX)) {
-                                    // The new realm value, including any possible wrapping quotation.
-                                    realm = headerValue.substring(1 + charPos + HEADER_REALM_PREFIX.length());
+								// The second part should begin with a "realm="
+								// prefix.
+								if (headerValueLowerCase.substring(1 + charPos)
+										.startsWith(HEADER_REALM_PREFIX))
+								{
+									// The new realm value, including any
+									// possible wrapping quotation.
+									realm = headerValue.substring(1 + charPos
+											+ HEADER_REALM_PREFIX.length());
 
-                                    // If realm starts with a quote, remove surrounding quotes.
-                                    if (realm.charAt(0) == '"' || realm.charAt(0) == '\'') {
-                                        realm = realm.substring(1, realm.length() - 1);
-                                    }
-                                }
-                            }
-                        }
-                    }
+									// If realm starts with a quote, remove
+									// surrounding quotes.
+									if (realm.charAt(0) == '"'
+											|| realm.charAt(0) == '\'')
+									{
+										realm = realm.substring(1,
+												realm.length() - 1);
+									}
+								}
+							}
+						}
+					}
 
-                    // We will support basic auth in this sample.
-                    if (authType != null && HEADER_BASIC.equals(authType)) {
-                        // Show a dialog for the user and request user/pass.
-                        Log.d(LOG_TAG, HEADER_REALM_PREFIX + realm);
+					// We will support basic auth in this sample.
+					if (authType != null && HEADER_BASIC.equals(authType))
+					{
+						// Show a dialog for the user and request user/pass.
+						Log.d(LOG_TAG, HEADER_REALM_PREFIX + realm);
 
-                        // Present the dialog.
-                        postRunnable(new DialogRunnable(realm));
-                    }
-                }
-            }
+						// Present the dialog.
+						postRunnable(new DialogRunnable(realm));
+					}
+				}
+			}
 
-            @Override
-            protected EntityJSON parseResponse(String rawJsonData, boolean isFailure) throws Throwable {
-                return new ObjectMapper().readValue(new JsonFactory().createJsonParser(rawJsonData), EntityJSON.class);
-            }
-        };
-    }
+			@Override
+			protected EntityJSON parseResponse(String rawJsonData,
+					boolean isFailure) throws Throwable
+			{
+				return new ObjectMapper().readValue(
+						new JsonFactory().createJsonParser(rawJsonData),
+						EntityJSON.class);
+			}
+		};
+	}
 
-    private class DialogRunnable implements Runnable, DialogInterface.OnClickListener {
+	private class DialogRunnable implements Runnable,
+			DialogInterface.OnClickListener
+	{
 
-        final String realm;
-        final View dialogView;
+		final String realm;
+		final View dialogView;
 
-        public DialogRunnable(String realm) {
-            this.realm = realm;
-            this.dialogView = LayoutInflater
-                    .from(Http401AuthSample.this)
-                    .inflate(R.layout.credentials, new LinearLayout(Http401AuthSample.this), false);
+		public DialogRunnable(String realm)
+		{
+			this.realm = realm;
+			this.dialogView = LayoutInflater.from(Http401AuthSample.this)
+					.inflate(R.layout.credentials,
+							new LinearLayout(Http401AuthSample.this), false);
 
-            // Update the preface text with correct credentials.
-            TextView preface = (TextView) dialogView.findViewById(R.id.label_credentials);
-            String prefaceText = preface.getText().toString();
+			// Update the preface text with correct credentials.
+			TextView preface = (TextView) dialogView
+					.findViewById(R.id.label_credentials);
+			String prefaceText = preface.getText().toString();
 
-            // Substitute placeholders, and re-set the value.
-            preface.setText(String.format(prefaceText, SECRET_USERNAME, SECRET_PASSWORD));
-        }
+			// Substitute placeholders, and re-set the value.
+			preface.setText(String.format(prefaceText, SECRET_USERNAME,
+					SECRET_PASSWORD));
+		}
 
-        @Override
-        public void run() {
-            AlertDialog.Builder builder = new AlertDialog.Builder(Http401AuthSample.this);
-            builder.setTitle(realm);
-            builder.setView(dialogView);
-            builder.setPositiveButton(android.R.string.ok, this);
-            builder.setNegativeButton(android.R.string.cancel, this);
-            builder.show();
-        }
+		@Override
+		public void run()
+		{
+			AlertDialog.Builder builder = new AlertDialog.Builder(
+					Http401AuthSample.this);
+			builder.setTitle(realm);
+			builder.setView(dialogView);
+			builder.setPositiveButton(android.R.string.ok, this);
+			builder.setNegativeButton(android.R.string.cancel, this);
+			builder.show();
+		}
 
-        @Override
-        public void onClick(DialogInterface dialog, int which) {
-            switch (which) {
-                case DialogInterface.BUTTON_POSITIVE:
-                    // Dismiss the dialog.
-                    dialog.dismiss();
+		@Override
+		public void onClick(DialogInterface dialog, int which)
+		{
+			switch (which)
+			{
+			case DialogInterface.BUTTON_POSITIVE:
+				// Dismiss the dialog.
+				dialog.dismiss();
 
-                    // Update the username and password variables.
-                    userName = ((EditText) dialogView.findViewById(R.id.field_username)).getText().toString();
-                    passWord = ((EditText) dialogView.findViewById(R.id.field_password)).getText().toString();
+				// Update the username and password variables.
+				userName = ((EditText) dialogView
+						.findViewById(R.id.field_username)).getText()
+						.toString();
+				passWord = ((EditText) dialogView
+						.findViewById(R.id.field_password)).getText()
+						.toString();
 
-                    // Refetch the remote file.
-                    retryRequest();
+				// Refetch the remote file.
+				retryRequest();
 
-                    break;
+				break;
 
-                case DialogInterface.BUTTON_NEGATIVE:
-                    // Dismiss the dialog.
-                    dialog.dismiss();
+			case DialogInterface.BUTTON_NEGATIVE:
+				// Dismiss the dialog.
+				dialog.dismiss();
 
-                    break;
-            }
-        }
-    }
+				break;
+			}
+		}
+	}
 }

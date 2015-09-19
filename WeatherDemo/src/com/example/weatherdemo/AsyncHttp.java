@@ -2,7 +2,7 @@
  * @Title: AsyncHttp.java 
  * @Description: TODO
  * @author    
- * @date 2015-9-14 ÏÂÎç7:17:05 
+ * @date 2015-9-14 ï¿½ï¿½ï¿½ï¿½7:17:05 
  * @version V1.0   
  */
 
@@ -41,11 +41,11 @@ public class AsyncHttp
 			// Toast.makeText(_context,
 			// response.getString("result"),
 			// Toast.LENGTH_LONG).show();
-			if (statusCode==200)
+			if (statusCode == 200)
 			{
-				sb.append(GzipUtils.unGZip( response));
+				sb.append(GzipUtils.unGZip(response));
 			}
-			
+
 		}
 
 		@Override
@@ -67,8 +67,8 @@ public class AsyncHttp
 		params.put("callback", "flightHandler");
 		params.put("callback", "flightHandler");
 		params.put("_", System.currentTimeMillis() / 10000L + "");
-		
-		String strtest="http://www.baidu.com";
+
+		String strtest = "http://www.baidu.com";
 		client.get(BASE_URL, params, responseHandler);
 	}
 

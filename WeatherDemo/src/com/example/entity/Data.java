@@ -1,7 +1,9 @@
 package com.example.entity;
 
-public class Data {
-	public Data() {
+public class Data
+{
+	public Data()
+	{
 		super();
 	}
 
@@ -17,51 +19,63 @@ public class Data {
 
 	private String city;
 
-	public void setWendu(String wendu) {
+	public void setWendu(String wendu)
+	{
 		this.wendu = wendu;
 	}
 
-	public String getWendu() {
+	public String getWendu()
+	{
 		return this.wendu;
 	}
 
-	public void setGanmao(String ganmao) {
+	public void setGanmao(String ganmao)
+	{
 		this.ganmao = ganmao;
 	}
 
-	public String getGanmao() {
+	public String getGanmao()
+	{
 		return this.ganmao;
 	}
 
-	public void setForecast(Forecast[] forecast) {
+	public void setForecast(Forecast[] forecast)
+	{
 		this.forecast = forecast;
 	}
 
-	public Forecast[] getForecast() {
+	public Forecast[] getForecast()
+	{
 		return this.forecast;
 	}
 
-	public void setYesterday(Yesterday yesterday) {
+	public void setYesterday(Yesterday yesterday)
+	{
 		this.yesterday = yesterday;
 	}
 
-	public Yesterday getYesterday() {
+	public Yesterday getYesterday()
+	{
 		return this.yesterday;
 	}
 
-	public void setAqi(String aqi) {
+	public void setAqi(String aqi)
+	{
 		this.aqi = aqi;
 	}
 
-	public String getAqi() {
+	public String getAqi()
+	{
 		return this.aqi;
 	}
 
-	public void setCity(String city) {
+	public void setCity(String city)
+	{
 		this.city = city;
 	}
 
-	public String getCity() {
+	public String getCity()
+	{
 		return this.city;
 	}
 

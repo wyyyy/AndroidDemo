@@ -14,7 +14,7 @@
     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
     See the License for the specific language governing permissions and
     limitations under the License.
-*/
+ */
 
 package cn.yy.samplehttp.activity;
 
@@ -33,53 +33,59 @@ import cn.yy.sample.R;
 /**
  * This sample demonstrates use of
  * {@link AsyncHttpClient#allowRetryExceptionClass(java.lang.Class)} and
- * {@link AsyncHttpClient#blockRetryExceptionClass(java.lang.Class)} to whitelist
- * and blacklist certain Exceptions, respectively.
- *
+ * {@link AsyncHttpClient#blockRetryExceptionClass(java.lang.Class)} to
+ * whitelist and blacklist certain Exceptions, respectively.
+ * 
  * @author Noor Dawod <github@fineswap.com>
  */
-public class RetryRequestSample extends GetSample {
+public class RetryRequestSample extends GetSample
+{
 
-    private static boolean wasToastShown;
+	private static boolean wasToastShown;
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+	@Override
+	protected void onCreate(Bundle savedInstanceState)
+	{
+		super.onCreate(savedInstanceState);
 
-        // The following exceptions will be whitelisted, i.e.: When an exception
-        // of this type is raised, the request will be retried.
-        AsyncHttpClient.allowRetryExceptionClass(IOException.class);
-        AsyncHttpClient.allowRetryExceptionClass(SocketTimeoutException.class);
-        AsyncHttpClient.allowRetryExceptionClass(ConnectTimeoutException.class);
+		// The following exceptions will be whitelisted, i.e.: When an exception
+		// of this type is raised, the request will be retried.
+		AsyncHttpClient.allowRetryExceptionClass(IOException.class);
+		AsyncHttpClient.allowRetryExceptionClass(SocketTimeoutException.class);
+		AsyncHttpClient.allowRetryExceptionClass(ConnectTimeoutException.class);
 
-        // The following exceptions will be blacklisted, i.e.: When an exception
-        // of this type is raised, the request will not be retried and it will
-        // fail immediately.
-        AsyncHttpClient.blockRetryExceptionClass(UnknownHostException.class);
-        AsyncHttpClient.blockRetryExceptionClass(ConnectionPoolTimeoutException.class);
-    }
+		// The following exceptions will be blacklisted, i.e.: When an exception
+		// of this type is raised, the request will not be retried and it will
+		// fail immediately.
+		AsyncHttpClient.blockRetryExceptionClass(UnknownHostException.class);
+		AsyncHttpClient
+				.blockRetryExceptionClass(ConnectionPoolTimeoutException.class);
+	}
 
-    @Override
-    protected void onResume() {
-        super.onResume();
+	@Override
+	protected void onResume()
+	{
+		super.onResume();
 
-        if (!wasToastShown) {
-            wasToastShown = true;
-            Toast.makeText(
-                    this,
-                    "Exceptions' whitelist and blacklist updated\nSee RetryRequestSample.java for details",
-                    Toast.LENGTH_LONG
-            ).show();
-        }
-    }
+		if (!wasToastShown)
+		{
+			wasToastShown = true;
+			Toast.makeText(
+					this,
+					"Exceptions' whitelist and blacklist updated\nSee RetryRequestSample.java for details",
+					Toast.LENGTH_LONG).show();
+		}
+	}
 
-    @Override
-    public String getDefaultURL() {
-        return PROTOCOL + "httpbin.org/ip";
-    }
+	@Override
+	public String getDefaultURL()
+	{
+		return PROTOCOL + "httpbin.org/ip";
+	}
 
-    @Override
-    public int getSampleTitle() {
-        return R.string.title_retry_handler;
-    }
+	@Override
+	public int getSampleTitle()
+	{
+		return R.string.title_retry_handler;
+	}
 }

@@ -2,12 +2,11 @@
  * @Title: HttpUtils.java 
  * @Description: TODO
  * @author    
- * @date 2015-9-14 ÏÂÎç9:47:42 
+ * @date 2015-9-14 ï¿½ï¿½ï¿½ï¿½9:47:42 
  * @version V1.0   
  */
 
 package com.example.weatherdemo;
-
 
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -61,9 +60,9 @@ import android.util.Log;
 public class HttpUtils
 {
 	/**
-	 * ¶ÔÍøÂçÁ¬½Ó×´Ì¬½øÐÐÅÐ¶Ï
+	 * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×´Ì¬ï¿½ï¿½ï¿½ï¿½ï¿½Ð¶ï¿½
 	 * 
-	 * @return true, ¿ÉÓÃ£» false£¬ ²»¿ÉÓÃ
+	 * @return true, ï¿½ï¿½ï¿½Ã£ï¿½ falseï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	 */
 	public static boolean isOpenNetwork(Context context)
 	{
@@ -85,19 +84,19 @@ public class HttpUtils
 		String city = "%E4%B8%8A%E6%B5%B7";
 		long age = DataUtils.GetSystemCurrentTimeMillis();
 
-		// Ê¹ÓÃGET·½·¨·¢ËÍÇëÇó,ÐèÒª°Ñ²ÎÊý¼ÓÔÚURLºóÃæ£¬ÓÃ£¿Á¬½Ó£¬²ÎÊýÖ®¼äÓÃ&·Ö¸ô
+		// Ê¹ï¿½ï¿½GETï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½,ï¿½ï¿½Òªï¿½Ñ²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½URLï¿½ï¿½ï¿½æ£¬ï¿½Ã£ï¿½ï¿½ï¿½ï¿½Ó£ï¿½ï¿½ï¿½ï¿½ï¿½Ö®ï¿½ï¿½ï¿½ï¿½&ï¿½Ö¸ï¿½
 		String url = baseURL + "?city=" + city
 				+ "&callback=flightHandler&callback=flightHandler&" + "_="
 				+ System.currentTimeMillis() / 10000L + "";
 		String tag = "URL";
-		// Éú³ÉÇëÇó¶ÔÏó
+		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		Log.d(tag, url);
-			 //	url="http://www.weather.com.cn/adat/cityinfo/101010100.html";
+		// url="http://www.weather.com.cn/adat/cityinfo/101010100.html";
 		HttpGet httpGet = new HttpGet(url);
 		HttpClient httpClient = new DefaultHttpClient();
 		String strResult = "";
 
-		// ·¢ËÍÇëÇó
+		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		try
 		{
 
@@ -109,19 +108,19 @@ public class HttpUtils
 				if (header != null && header.getValue().equals("gzip"))
 				{
 
-					// Èç¹ûÊý¾Ý½øÐÐ¹ýÑ¹Ëõ£¬ÏÈ½øÐÐ½âÑ¹
+					// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ý½ï¿½ï¿½Ð¹ï¿½Ñ¹ï¿½ï¿½ï¿½ï¿½ï¿½È½ï¿½ï¿½Ð½ï¿½Ñ¹
 					byte[] resultstream = EntityUtils
 							.toByteArray(responseEntity);
 					resultstream = GzipUtils.unGZip(resultstream);
 					strResult = new String(resultstream, "UTF-8");
 				} else
 				{
-					// Ã»½øÐÐ¹ýÑ¹Ëõ£¬Ö±½ÓÊ¹ÓÃ
+					// Ã»ï¿½ï¿½ï¿½Ð¹ï¿½Ñ¹ï¿½ï¿½ï¿½ï¿½Ö±ï¿½ï¿½Ê¹ï¿½ï¿½
 					strResult = EntityUtils.toString(responseEntity);
 					sb.append(strResult);
 					return sb.toString();
 				}
-				// base64½âÂë
+				// base64ï¿½ï¿½ï¿½ï¿½
 				// strResult = new String(Base64.decode(strResult), "UTF-8");
 
 				sb.append(strResult);
@@ -134,7 +133,7 @@ public class HttpUtils
 			}
 			return sb.toString();
 
-			// ÏÔÊ¾ÏìÓ¦
+			// ï¿½ï¿½Ê¾ï¿½ï¿½Ó¦
 
 		} catch (Exception e)
 		{
@@ -151,16 +150,16 @@ public class HttpUtils
 		String city = "%E4%B8%8A%E6%B5%B7";
 		long age = DataUtils.GetSystemCurrentTimeMillis();
 
-		// Ê¹ÓÃGET·½·¨·¢ËÍÇëÇó,ÐèÒª°Ñ²ÎÊý¼ÓÔÚURLºóÃæ£¬ÓÃ£¿Á¬½Ó£¬²ÎÊýÖ®¼äÓÃ&·Ö¸ô
+		// Ê¹ï¿½ï¿½GETï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½,ï¿½ï¿½Òªï¿½Ñ²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½URLï¿½ï¿½ï¿½æ£¬ï¿½Ã£ï¿½ï¿½ï¿½ï¿½Ó£ï¿½ï¿½ï¿½ï¿½ï¿½Ö®ï¿½ï¿½ï¿½ï¿½&ï¿½Ö¸ï¿½
 		String url = baseURL + "?city=" + city
 				+ "&callback=flightHandler&callback=flightHandler&" + "_="
 				+ System.currentTimeMillis() / 10000L + "";
 		String tag = "URL";
-		// Éú³ÉÇëÇó¶ÔÏó
+		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		Log.d(tag, url);
 		HttpGet httpGet = new HttpGet(url);
 		HttpClient httpClient = new DefaultHttpClient();
-		// ·¢ËÍÇëÇó
+		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		try
 		{
 
@@ -192,7 +191,7 @@ public class HttpUtils
 			}
 			return sb.toString();
 
-			// ÏÔÊ¾ÏìÓ¦
+			// ï¿½ï¿½Ê¾ï¿½ï¿½Ó¦
 
 		} catch (Exception e)
 		{
@@ -202,7 +201,7 @@ public class HttpUtils
 	}
 
 	/**
-	 * postÇëÇó
+	 * postï¿½ï¿½ï¿½ï¿½
 	 * 
 	 * @param urlString
 	 * @param params
@@ -214,9 +213,9 @@ public class HttpUtils
 
 		try
 		{
-			// 1. ´´½¨HttpClient¶ÔÏó
-			HttpClient client =new DefaultHttpClient();
-			// 2. ·¢getÇëÇó´´½¨HttpGet¶ÔÏó
+			// 1. ï¿½ï¿½ï¿½ï¿½HttpClientï¿½ï¿½ï¿½ï¿½
+			HttpClient client = new DefaultHttpClient();
+			// 2. ï¿½ï¿½getï¿½ï¿½ï¿½ó´´½ï¿½HttpGetï¿½ï¿½ï¿½ï¿½
 			HttpPost postMethod = new HttpPost(urlString);
 			postMethod.setEntity(new UrlEncodedFormEntity(params, HTTP.UTF_8));
 			HttpResponse response = client.execute(postMethod);
@@ -233,34 +232,38 @@ public class HttpUtils
 
 		return null;
 	}
-	private void prpGetUrlPars(String urlString,Map<String, String> params)
+
+	private void prpGetUrlPars(String urlString, Map<String, String> params)
 	{
-		 StringBuilder urlBuilder = new StringBuilder();
-         urlBuilder.append(urlString);
-        if (null != params) {
+		StringBuilder urlBuilder = new StringBuilder();
+		urlBuilder.append(urlString);
+		if (null != params)
+		{
 
-            urlBuilder.append("?");
+			urlBuilder.append("?");
 
-            Iterator<Entry<String, String>> iterator = params.entrySet()
-                    .iterator();
+			Iterator<Entry<String, String>> iterator = params.entrySet()
+					.iterator();
 
-            while (iterator.hasNext()) {
-                Entry<String, String> param = iterator.next();
-                try
+			while (iterator.hasNext())
+			{
+				Entry<String, String> param = iterator.next();
+				try
 				{
 					urlBuilder
-					        .append(URLEncoder.encode(param.getKey(), "UTF-8"))
-					        .append('=')
-					        .append(URLEncoder.encode(param.getValue(), "UTF-8"));
+							.append(URLEncoder.encode(param.getKey(), "UTF-8"))
+							.append('=')
+							.append(URLEncoder.encode(param.getValue(), "UTF-8"));
 				} catch (UnsupportedEncodingException e)
 				{
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
-                if (iterator.hasNext()) {
-                    urlBuilder.append('&');
-                }
-            }
-        }
+				if (iterator.hasNext())
+				{
+					urlBuilder.append('&');
+				}
+			}
+		}
 	}
 }

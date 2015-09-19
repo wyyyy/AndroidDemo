@@ -14,7 +14,7 @@
     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
     See the License for the specific language governing permissions and
     limitations under the License.
-*/
+ */
 
 package cn.yy.samplehttp.activity;
 
@@ -30,68 +30,90 @@ import cn.commonhelp.http.help.RequestHandle;
 import cn.commonhelp.http.help.ResponseHandlerInterface;
 import cn.yy.sample.R;
 
-public class JsonSample extends SampleParentActivity {
+public class JsonSample extends SampleParentActivity
+{
 
-    private static final String LOG_TAG = "JsonSample";
+	private static final String LOG_TAG = "JsonSample";
 
-    @Override
-    public RequestHandle executeSample(AsyncHttpClient client, String URL, Header[] headers, HttpEntity entity, ResponseHandlerInterface responseHandler) {
-        return client.get(this, URL, headers, null, responseHandler);
-    }
+	@Override
+	public RequestHandle executeSample(AsyncHttpClient client, String URL,
+			Header[] headers, HttpEntity entity,
+			ResponseHandlerInterface responseHandler)
+	{
+		return client.get(this, URL, headers, null, responseHandler);
+	}
 
-    @Override
-    public int getSampleTitle() {
-        return R.string.title_json_sample;
-    }
+	@Override
+	public int getSampleTitle()
+	{
+		return R.string.title_json_sample;
+	}
 
-    @Override
-    public boolean isRequestBodyAllowed() {
-        return false;
-    }
+	@Override
+	public boolean isRequestBodyAllowed()
+	{
+		return false;
+	}
 
-    @Override
-    public boolean isRequestHeadersAllowed() {
-        return false;
-    }
+	@Override
+	public boolean isRequestHeadersAllowed()
+	{
+		return false;
+	}
 
-    @Override
-    public String getDefaultURL() {
-        return PROTOCOL + "httpbin.org/headers";
-    }
+	@Override
+	public String getDefaultURL()
+	{
+		return PROTOCOL + "httpbin.org/headers";
+	}
 
-    @Override
-    public ResponseHandlerInterface getResponseHandler() {
-        return new BaseJsonHttpResponseHandler<EntityJSON>() {
+	@Override
+	public ResponseHandlerInterface getResponseHandler()
+	{
+		return new BaseJsonHttpResponseHandler<EntityJSON>()
+		{
 
-            @Override
-            public void onStart() {
-                clearOutputs();
-            }
+			@Override
+			public void onStart()
+			{
+				clearOutputs();
+			}
 
-            @Override
-            public void onSuccess(int statusCode, Header[] headers, String rawJsonResponse, EntityJSON response) {
-                debugHeaders(LOG_TAG, headers);
-                debugStatusCode(LOG_TAG, statusCode);
-                if (response != null) {
-                    debugResponse(LOG_TAG, rawJsonResponse);
-                }
-            }
+			@Override
+			public void onSuccess(int statusCode, Header[] headers,
+					String rawJsonResponse, EntityJSON response)
+			{
+				debugHeaders(LOG_TAG, headers);
+				debugStatusCode(LOG_TAG, statusCode);
+				if (response != null)
+				{
+					debugResponse(LOG_TAG, rawJsonResponse);
+				}
+			}
 
-            @Override
-            public void onFailure(int statusCode, Header[] headers, Throwable throwable, String rawJsonData, EntityJSON errorResponse) {
-                debugHeaders(LOG_TAG, headers);
-                debugStatusCode(LOG_TAG, statusCode);
-                debugThrowable(LOG_TAG, throwable);
-                if (errorResponse != null) {
-                    debugResponse(LOG_TAG, rawJsonData);
-                }
-            }
+			@Override
+			public void onFailure(int statusCode, Header[] headers,
+					Throwable throwable, String rawJsonData,
+					EntityJSON errorResponse)
+			{
+				debugHeaders(LOG_TAG, headers);
+				debugStatusCode(LOG_TAG, statusCode);
+				debugThrowable(LOG_TAG, throwable);
+				if (errorResponse != null)
+				{
+					debugResponse(LOG_TAG, rawJsonData);
+				}
+			}
 
-            @Override
-            protected EntityJSON parseResponse(String rawJsonData, boolean isFailure) throws Throwable {
-                return new ObjectMapper().readValue(new JsonFactory().createJsonParser(rawJsonData), EntityJSON.class);
-            }
+			@Override
+			protected EntityJSON parseResponse(String rawJsonData,
+					boolean isFailure) throws Throwable
+			{
+				return new ObjectMapper().readValue(
+						new JsonFactory().createJsonParser(rawJsonData),
+						EntityJSON.class);
+			}
 
-        };
-    }
+		};
+	}
 }

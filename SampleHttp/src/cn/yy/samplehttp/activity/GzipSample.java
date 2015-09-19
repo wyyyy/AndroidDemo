@@ -14,21 +14,24 @@
     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
     See the License for the specific language governing permissions and
     limitations under the License.
-*/
+ */
 
 package cn.yy.samplehttp.activity;
 
 import cn.yy.sample.R;
 
-public class GzipSample extends JsonSample {
+public class GzipSample extends JsonSample
+{
 
-    @Override
-    public int getSampleTitle() {
-        return R.string.title_gzip_sample;
-    }
+	@Override
+	public int getSampleTitle()
+	{
+		return R.string.title_gzip_sample;
+	}
 
-    @Override
-    public String getDefaultURL() {
-        return PROTOCOL + "httpbin.org/gzip";
-    }
+	@Override
+	public String getDefaultURL()
+	{
+		return PROTOCOL + "httpbin.org/gzip";
+	}
 }

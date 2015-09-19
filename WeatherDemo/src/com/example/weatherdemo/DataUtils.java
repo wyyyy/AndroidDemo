@@ -1,11 +1,10 @@
 /**   
-* @Title: DataUtils.java 
-* @Description: TODO
-* @author    
-* @date 2015-9-14 ÏÂÎç9:36:02 
-* @version V1.0   
-*/
-
+ * @Title: DataUtils.java 
+ * @Description: TODO
+ * @author    
+ * @date 2015-9-14 ï¿½ï¿½ï¿½ï¿½9:36:02 
+ * @version V1.0   
+ */
 
 package com.example.weatherdemo;
 
@@ -15,11 +14,12 @@ package com.example.weatherdemo;
  */
 public class DataUtils
 {
-	/// <summary>
-    /// ´¦ÀíÊ±¼ä
-    /// </summary>
-    /// <returns></returns>
-	public static long GetSystemCurrentTimeMillis() {
-        return (System.currentTimeMillis() - 621355968000000000L) / 10000L;
-    }
+	// / <summary>
+	// / ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½
+	// / </summary>
+	// / <returns></returns>
+	public static long GetSystemCurrentTimeMillis()
+	{
+		return (System.currentTimeMillis() - 621355968000000000L) / 10000L;
+	}
 }

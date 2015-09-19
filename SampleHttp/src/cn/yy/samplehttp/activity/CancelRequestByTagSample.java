@@ -14,7 +14,7 @@
     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
     See the License for the specific language governing permissions and
     limitations under the License.
-*/
+ */
 
 package cn.yy.samplehttp.activity;
 
@@ -28,57 +28,73 @@ import cn.commonhelp.http.help.RequestHandle;
 import cn.commonhelp.http.help.ResponseHandlerInterface;
 import cn.yy.sample.R;
 
-public class CancelRequestByTagSample extends ThreadingTimeoutSample {
+public class CancelRequestByTagSample extends ThreadingTimeoutSample
+{
 
-    private static final String LOG_TAG = "CancelRequestByTagSample";
-    private static final Integer REQUEST_TAG = 132435;
+	private static final String LOG_TAG = "CancelRequestByTagSample";
+	private static final Integer REQUEST_TAG = 132435;
 
-    @Override
-    public int getSampleTitle() {
-        return R.string.title_cancel_tag;
-    }
+	@Override
+	public int getSampleTitle()
+	{
+		return R.string.title_cancel_tag;
+	}
 
-    @Override
-    public void onCancelButtonPressed() {
-        Log.d(LOG_TAG, "Canceling requests by TAG: " + REQUEST_TAG);
-        getAsyncHttpClient().cancelRequestsByTAG(REQUEST_TAG, false);
-    }
+	@Override
+	public void onCancelButtonPressed()
+	{
+		Log.d(LOG_TAG, "Canceling requests by TAG: " + REQUEST_TAG);
+		getAsyncHttpClient().cancelRequestsByTAG(REQUEST_TAG, false);
+	}
 
-    @Override
-    public ResponseHandlerInterface getResponseHandler() {
-        return new AsyncHttpResponseHandler() {
+	@Override
+	public ResponseHandlerInterface getResponseHandler()
+	{
+		return new AsyncHttpResponseHandler()
+		{
 
-            private final int id = counter++;
+			private final int id = counter++;
 
-            @Override
-            public void onStart() {
-                setStatus(id, "TAG:" + getTag() + ", START");
-            }
+			@Override
+			public void onStart()
+			{
+				setStatus(id, "TAG:" + getTag() + ", START");
+			}
 
-            @Override
-            public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
-                setStatus(id, "SUCCESS");
-            }
+			@Override
+			public void onSuccess(int statusCode, Header[] headers,
+					byte[] responseBody)
+			{
+				setStatus(id, "SUCCESS");
+			}
 
-            @Override
-            public void onFinish() {
-                setStatus(id, "FINISH");
-            }
+			@Override
+			public void onFinish()
+			{
+				setStatus(id, "FINISH");
+			}
 
-            @Override
-            public void onFailure(int statusCode, Header[] headers, byte[] responseBody, Throwable error) {
-                setStatus(id, "FAILURE");
-            }
+			@Override
+			public void onFailure(int statusCode, Header[] headers,
+					byte[] responseBody, Throwable error)
+			{
+				setStatus(id, "FAILURE");
+			}
 
-            @Override
-            public void onCancel() {
-                setStatus(id, "CANCEL");
-            }
-        };
-    }
+			@Override
+			public void onCancel()
+			{
+				setStatus(id, "CANCEL");
+			}
+		};
+	}
 
-    @Override
-    public RequestHandle executeSample(AsyncHttpClient client, String URL, Header[] headers, HttpEntity entity, ResponseHandlerInterface responseHandler) {
-        return client.get(this, URL, headers, null, responseHandler).setTag(REQUEST_TAG);
-    }
+	@Override
+	public RequestHandle executeSample(AsyncHttpClient client, String URL,
+			Header[] headers, HttpEntity entity,
+			ResponseHandlerInterface responseHandler)
+	{
+		return client.get(this, URL, headers, null, responseHandler).setTag(
+				REQUEST_TAG);
+	}
 }
