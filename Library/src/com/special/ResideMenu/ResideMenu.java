@@ -21,7 +21,8 @@ import com.nineoldandroids.view.ViewHelper;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ResideMenu extends FrameLayout {
+public class ResideMenu extends FrameLayout
+{
 
 	public static final int DIRECTION_LEFT = 0;
 	public static final int DIRECTION_RIGHT = 1;
@@ -64,12 +65,14 @@ public class ResideMenu extends FrameLayout {
 	// valid scale factor is between 0.0f and 1.0f.
 	private float mScaleValue = 0.5f;
 
-	public ResideMenu(Context context) {
+	public ResideMenu(Context context)
+	{
 		super(context);
 		initViews(context);
 	}
 
-	private void initViews(Context context) {
+	private void initViews(Context context)
+	{
 		LayoutInflater inflater = (LayoutInflater) context
 				.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 		inflater.inflate(R.layout.residemenu, this);
@@ -90,14 +93,16 @@ public class ResideMenu extends FrameLayout {
 	 * 
 	 * @param activity
 	 */
-	public void attachToActivity(Activity activity) {
+	public void attachToActivity(Activity activity)
+	{
 		initValue(activity);
 		setShadowAdjustScaleXByOrientation();
 		viewDecor.addView(this, 0);
 		setViewPadding();
 	}
 
-	private void initValue(Activity activity) {
+	private void initValue(Activity activity)
+	{
 		this.activity = activity;
 		leftMenuItems = new ArrayList<ResideMenuItem>();
 		rightMenuItems = new ArrayList<ResideMenuItem>();
@@ -111,12 +116,15 @@ public class ResideMenu extends FrameLayout {
 		addView(viewActivity);
 	}
 
-	private void setShadowAdjustScaleXByOrientation() {
+	private void setShadowAdjustScaleXByOrientation()
+	{
 		int orientation = getResources().getConfiguration().orientation;
-		if (orientation == Configuration.ORIENTATION_LANDSCAPE) {
+		if (orientation == Configuration.ORIENTATION_LANDSCAPE)
+		{
 			shadowAdjustScaleX = 0.034f;
 			shadowAdjustScaleY = 0.12f;
-		} else if (orientation == Configuration.ORIENTATION_PORTRAIT) {
+		} else if (orientation == Configuration.ORIENTATION_PORTRAIT)
+		{
 			shadowAdjustScaleX = 0.06f;
 			shadowAdjustScaleY = 0.07f;
 		}
@@ -127,7 +135,8 @@ public class ResideMenu extends FrameLayout {
 	 * 
 	 * @param imageResrouce
 	 */
-	public void setBackground(int imageResrouce) {
+	public void setBackground(int imageResrouce)
+	{
 		imageViewBackground.setImageResource(imageResrouce);
 	}
 
@@ -136,7 +145,8 @@ public class ResideMenu extends FrameLayout {
 	 * 
 	 * @param isVisible
 	 */
-	public void setShadowVisible(boolean isVisible) {
+	public void setShadowVisible(boolean isVisible)
+	{
 		if (isVisible)
 			imageViewShadow.setImageResource(R.drawable.shadow);
 		else
@@ -148,7 +158,8 @@ public class ResideMenu extends FrameLayout {
 	 * 
 	 * @param menuInfo
 	 */
-	public void addMenuInfo(ResideMenuInfo menuInfo) {
+	public void addMenuInfo(ResideMenuInfo menuInfo)
+	{
 		layoutInfo.addView(menuInfo);
 	}
 
@@ -158,7 +169,8 @@ public class ResideMenu extends FrameLayout {
 	 * @param menuItem
 	 */
 	@Deprecated
-	public void addMenuItem(ResideMenuItem menuItem) {
+	public void addMenuItem(ResideMenuItem menuItem)
+	{
 		this.leftMenuItems.add(menuItem);
 		layoutLeftMenu.addView(menuItem);
 	}
@@ -169,11 +181,14 @@ public class ResideMenu extends FrameLayout {
 	 * @param menuItem
 	 * @param direction
 	 */
-	public void addMenuItem(ResideMenuItem menuItem, int direction) {
-		if (direction == DIRECTION_LEFT) {
+	public void addMenuItem(ResideMenuItem menuItem, int direction)
+	{
+		if (direction == DIRECTION_LEFT)
+		{
 			this.leftMenuItems.add(menuItem);
 			layoutLeftMenu.addView(menuItem);
-		} else {
+		} else
+		{
 			this.rightMenuItems.add(menuItem);
 			layoutRightMenu.addView(menuItem);
 		}
@@ -185,7 +200,8 @@ public class ResideMenu extends FrameLayout {
 	 * @param menuItems
 	 */
 	@Deprecated
-	public void setMenuItems(List<ResideMenuItem> menuItems) {
+	public void setMenuItems(List<ResideMenuItem> menuItems)
+	{
 		this.leftMenuItems = menuItems;
 		rebuildMenu();
 	}
@@ -196,7 +212,8 @@ public class ResideMenu extends FrameLayout {
 	 * @param menuItems
 	 * @param direction
 	 */
-	public void setMenuItems(List<ResideMenuItem> menuItems, int direction) {
+	public void setMenuItems(List<ResideMenuItem> menuItems, int direction)
+	{
 		if (direction == DIRECTION_LEFT)
 			this.leftMenuItems = menuItems;
 		else
@@ -204,7 +221,8 @@ public class ResideMenu extends FrameLayout {
 		rebuildMenu();
 	}
 
-	private void rebuildMenu() {
+	private void rebuildMenu()
+	{
 		layoutLeftMenu.removeAllViews();
 		layoutRightMenu.removeAllViews();
 		for (int i = 0; i < leftMenuItems.size(); i++)
@@ -219,7 +237,8 @@ public class ResideMenu extends FrameLayout {
 	 * @return
 	 */
 	@Deprecated
-	public List<ResideMenuItem> getMenuItems() {
+	public List<ResideMenuItem> getMenuItems()
+	{
 		return leftMenuItems;
 	}
 
@@ -228,7 +247,8 @@ public class ResideMenu extends FrameLayout {
 	 * 
 	 * @return
 	 */
-	public List<ResideMenuItem> getMenuItems(int direction) {
+	public List<ResideMenuItem> getMenuItems(int direction)
+	{
 		if (direction == DIRECTION_LEFT)
 			return leftMenuItems;
 		else
@@ -241,11 +261,13 @@ public class ResideMenu extends FrameLayout {
 	 * 
 	 * @return
 	 */
-	public void setMenuListener(OnMenuListener menuListener) {
+	public void setMenuListener(OnMenuListener menuListener)
+	{
 		this.menuListener = menuListener;
 	}
 
-	public OnMenuListener getMenuListener() {
+	public OnMenuListener getMenuListener()
+	{
 		return menuListener;
 	}
 
@@ -253,7 +275,8 @@ public class ResideMenu extends FrameLayout {
 	 * we need the call the method before the menu show, because the padding of
 	 * activity can't get at the moment of onCreateView();
 	 */
-	private void setViewPadding() {
+	private void setViewPadding()
+	{
 		this.setPadding(viewActivity.getPaddingLeft(),
 				viewActivity.getPaddingTop(), viewActivity.getPaddingRight(),
 				viewActivity.getPaddingBottom());
@@ -262,7 +285,8 @@ public class ResideMenu extends FrameLayout {
 	/**
 	 * show the reside menu;
 	 */
-	public void openMenu(int direction) {
+	public void openMenu(int direction)
+	{
 
 		setScaleDirection(direction);
 
@@ -282,7 +306,8 @@ public class ResideMenu extends FrameLayout {
 	/**
 	 * close the reslide menu;
 	 */
-	public void closeMenu() {
+	public void closeMenu()
+	{
 
 		isOpened = false;
 		AnimatorSet scaleUp_activity = buildScaleUpAnimation(viewActivity,
@@ -297,28 +322,34 @@ public class ResideMenu extends FrameLayout {
 	}
 
 	@Deprecated
-	public void setDirectionDisable(int direction) {
+	public void setDirectionDisable(int direction)
+	{
 		disabledSwipeDirection.add(direction);
 	}
 
-	public void setSwipeDirectionDisable(int direction) {
+	public void setSwipeDirectionDisable(int direction)
+	{
 		disabledSwipeDirection.add(direction);
 	}
 
-	private boolean isInDisableDirection(int direction) {
+	private boolean isInDisableDirection(int direction)
+	{
 		return disabledSwipeDirection.contains(direction);
 	}
 
-	private void setScaleDirection(int direction) {
+	private void setScaleDirection(int direction)
+	{
 
 		int screenWidth = getScreenWidth();
 		float pivotX;
 		float pivotY = getScreenHeight() * 0.5f;
 
-		if (direction == DIRECTION_LEFT) {
+		if (direction == DIRECTION_LEFT)
+		{
 			scrollViewMenu = leftMenu;
 			pivotX = screenWidth * 2.0f;
-		} else {
+		} else
+		{
 			scrollViewMenu = rightMenu;
 			pivotX = screenWidth * -0.5f;
 		}
@@ -335,22 +366,28 @@ public class ResideMenu extends FrameLayout {
 	 * 
 	 * @return
 	 */
-	public boolean isOpened() {
+	public boolean isOpened()
+	{
 		return isOpened;
 	}
 
-	private OnClickListener viewActivityOnClickListener = new OnClickListener() {
+	private OnClickListener viewActivityOnClickListener = new OnClickListener()
+	{
 		@Override
-		public void onClick(View view) {
+		public void onClick(View view)
+		{
 			if (isOpened())
 				closeMenu();
 		}
 	};
 
-	private Animator.AnimatorListener animationListener = new Animator.AnimatorListener() {
+	private Animator.AnimatorListener animationListener = new Animator.AnimatorListener()
+	{
 		@Override
-		public void onAnimationStart(Animator animation) {
-			if (isOpened()) {
+		public void onAnimationStart(Animator animation)
+		{
+			if (isOpened())
+			{
 				scrollViewMenu.setVisibility(VISIBLE);
 				if (menuListener != null)
 					menuListener.openMenu();
@@ -358,12 +395,15 @@ public class ResideMenu extends FrameLayout {
 		}
 
 		@Override
-		public void onAnimationEnd(Animator animation) {
+		public void onAnimationEnd(Animator animation)
+		{
 			// reset the view;
-			if (isOpened()) {
+			if (isOpened())
+			{
 				viewActivity.setTouchDisable(true);
 				viewActivity.setOnClickListener(viewActivityOnClickListener);
-			} else {
+			} else
+			{
 				viewActivity.setTouchDisable(false);
 				viewActivity.setOnClickListener(null);
 				scrollViewMenu.setVisibility(GONE);
@@ -373,12 +413,14 @@ public class ResideMenu extends FrameLayout {
 		}
 
 		@Override
-		public void onAnimationCancel(Animator animation) {
+		public void onAnimationCancel(Animator animation)
+		{
 
 		}
 
 		@Override
-		public void onAnimationRepeat(Animator animation) {
+		public void onAnimationRepeat(Animator animation)
+		{
 
 		}
 	};
@@ -392,7 +434,8 @@ public class ResideMenu extends FrameLayout {
 	 * @return
 	 */
 	private AnimatorSet buildScaleDownAnimation(View target,
-			float targetScaleX, float targetScaleY) {
+			float targetScaleX, float targetScaleY)
+	{
 
 		AnimatorSet scaleDown = new AnimatorSet();
 		scaleDown.playTogether(
@@ -414,7 +457,8 @@ public class ResideMenu extends FrameLayout {
 	 * @return
 	 */
 	private AnimatorSet buildScaleUpAnimation(View target, float targetScaleX,
-			float targetScaleY) {
+			float targetScaleY)
+	{
 
 		AnimatorSet scaleUp = new AnimatorSet();
 		scaleUp.playTogether(
@@ -425,7 +469,8 @@ public class ResideMenu extends FrameLayout {
 		return scaleUp;
 	}
 
-	private AnimatorSet buildMenuAnimation(View target, float alpha) {
+	private AnimatorSet buildMenuAnimation(View target, float alpha)
+	{
 
 		AnimatorSet alphaAnimation = new AnimatorSet();
 		alphaAnimation.playTogether(ObjectAnimator.ofFloat(target, "alpha",
@@ -441,7 +486,8 @@ public class ResideMenu extends FrameLayout {
 	 * 
 	 * @param v
 	 */
-	public void addIgnoredView(View v) {
+	public void addIgnoredView(View v)
+	{
 		ignoredViews.add(v);
 	}
 
@@ -450,14 +496,16 @@ public class ResideMenu extends FrameLayout {
 	 * 
 	 * @param v
 	 */
-	public void removeIgnoredView(View v) {
+	public void removeIgnoredView(View v)
+	{
 		ignoredViews.remove(v);
 	}
 
 	/**
 	 * clear the ignored view list;
 	 */
-	public void clearIgnoredViewList() {
+	public void clearIgnoredViewList()
+	{
 		ignoredViews.clear();
 	}
 
@@ -468,9 +516,11 @@ public class ResideMenu extends FrameLayout {
 	 * @param ev
 	 * @return
 	 */
-	private boolean isInIgnoredView(MotionEvent ev) {
+	private boolean isInIgnoredView(MotionEvent ev)
+	{
 		Rect rect = new Rect();
-		for (View v : ignoredViews) {
+		for (View v : ignoredViews)
+		{
 			v.getGlobalVisibleRect(rect);
 			if (rect.contains((int) ev.getX(), (int) ev.getY()))
 				return true;
@@ -478,14 +528,16 @@ public class ResideMenu extends FrameLayout {
 		return false;
 	}
 
-	private void setScaleDirectionByRawX(float currentRawX) {
+	private void setScaleDirectionByRawX(float currentRawX)
+	{
 		if (currentRawX < lastRawX)
 			setScaleDirection(DIRECTION_RIGHT);
 		else
 			setScaleDirection(DIRECTION_LEFT);
 	}
 
-	private float getTargetScale(float currentRawX) {
+	private float getTargetScale(float currentRawX)
+	{
 		float scaleFloatX = ((currentRawX - lastRawX) / getScreenWidth()) * 0.75f;
 		scaleFloatX = scaleDirection == DIRECTION_RIGHT ? -scaleFloatX
 				: scaleFloatX;
@@ -499,12 +551,14 @@ public class ResideMenu extends FrameLayout {
 	private float lastActionDownX, lastActionDownY;
 
 	@Override
-	public boolean dispatchTouchEvent(MotionEvent ev) {
+	public boolean dispatchTouchEvent(MotionEvent ev)
+	{
 		float currentActivityScaleX = ViewHelper.getScaleX(viewActivity);
 		if (currentActivityScaleX == 1.0f)
 			setScaleDirectionByRawX(ev.getRawX());
 
-		switch (ev.getAction()) {
+		switch (ev.getAction())
+		{
 		case MotionEvent.ACTION_DOWN:
 			lastActionDownX = ev.getX();
 			lastActionDownY = ev.getY();
@@ -523,16 +577,20 @@ public class ResideMenu extends FrameLayout {
 			int xOffset = (int) (ev.getX() - lastActionDownX);
 			int yOffset = (int) (ev.getY() - lastActionDownY);
 
-			if (pressedState == PRESSED_DOWN) {
-				if (yOffset > 25 || yOffset < -25) {
+			if (pressedState == PRESSED_DOWN)
+			{
+				if (yOffset > 25 || yOffset < -25)
+				{
 					pressedState = PRESSED_MOVE_VERTICAL;
 					break;
 				}
-				if (xOffset < -50 || xOffset > 50) {
+				if (xOffset < -50 || xOffset > 50)
+				{
 					pressedState = PRESSED_MOVE_HORIZANTAL;
 					ev.setAction(MotionEvent.ACTION_CANCEL);
 				}
-			} else if (pressedState == PRESSED_MOVE_HORIZANTAL) {
+			} else if (pressedState == PRESSED_MOVE_HORIZANTAL)
+			{
 				if (currentActivityScaleX < 0.95)
 					scrollViewMenu.setVisibility(VISIBLE);
 
@@ -559,15 +617,19 @@ public class ResideMenu extends FrameLayout {
 				break;
 
 			pressedState = PRESSED_DONE;
-			if (isOpened()) {
+			if (isOpened())
+			{
 				if (currentActivityScaleX > 0.56f)
 					closeMenu();
 				else
 					openMenu(scaleDirection);
-			} else {
-				if (currentActivityScaleX < 0.94f) {
+			} else
+			{
+				if (currentActivityScaleX < 0.94f)
+				{
 					openMenu(scaleDirection);
-				} else {
+				} else
+				{
 					closeMenu();
 				}
 			}
@@ -579,23 +641,27 @@ public class ResideMenu extends FrameLayout {
 		return super.dispatchTouchEvent(ev);
 	}
 
-	public int getScreenHeight() {
+	public int getScreenHeight()
+	{
 		activity.getWindowManager().getDefaultDisplay()
 				.getMetrics(displayMetrics);
 		return displayMetrics.heightPixels;
 	}
 
-	public int getScreenWidth() {
+	public int getScreenWidth()
+	{
 		activity.getWindowManager().getDefaultDisplay()
 				.getMetrics(displayMetrics);
 		return displayMetrics.widthPixels;
 	}
 
-	public void setScaleValue(float scaleValue) {
+	public void setScaleValue(float scaleValue)
+	{
 		this.mScaleValue = scaleValue;
 	}
 
-	public interface OnMenuListener {
+	public interface OnMenuListener
+	{
 
 		/**
 		 * the method will call on the finished time of opening menu's

@@ -12,7 +12,8 @@ import android.widget.TextView;
 /**
  * User: special Date: 13-12-10 Time: 下午11:05 Mail: specialcyci@gmail.com
  */
-public class ResideMenuItem extends LinearLayout {
+public class ResideMenuItem extends LinearLayout
+{
 
 	/** menu item icon */
 	private ImageView iv_icon;
@@ -22,12 +23,14 @@ public class ResideMenuItem extends LinearLayout {
 
 	private LinearLayout linner1, linner2;
 
-	public ResideMenuItem(Context context) {
+	public ResideMenuItem(Context context)
+	{
 		super(context);
 		initViews(context);
 	}
 
-	public ResideMenuItem(Context context, String title) {
+	public ResideMenuItem(Context context, String title)
+	{
 		super(context);
 		initViews(context);
 		linner2.setVisibility(View.VISIBLE);
@@ -35,21 +38,24 @@ public class ResideMenuItem extends LinearLayout {
 	}
 
 	// 新增的WZH
-	public ResideMenuItem(Context context, int title) {
+	public ResideMenuItem(Context context, int title)
+	{
 		super(context);
 		initViews(context);
 		linner2.setVisibility(View.VISIBLE);
 		tv_title.setText(title);
 	}
 
-	public ResideMenuItem(Context context, int icon, int title) {
+	public ResideMenuItem(Context context, int icon, int title)
+	{
 		super(context);
 		initViews(context);
 		iv_icon.setImageResource(icon);
 		tv_title.setText(title);
 	}
 
-	public ResideMenuItem(Context context, int icon, String title) {
+	public ResideMenuItem(Context context, int icon, String title)
+	{
 		super(context);
 		initViews(context);
 		linner1.setVisibility(View.VISIBLE);
@@ -57,7 +63,8 @@ public class ResideMenuItem extends LinearLayout {
 		tv_title_guanzhang.setText(title);
 	}
 
-	private void initViews(Context context) {
+	private void initViews(Context context)
+	{
 		LayoutInflater inflater = (LayoutInflater) context
 				.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 		inflater.inflate(R.layout.residemenu_item, this);
@@ -74,7 +81,8 @@ public class ResideMenuItem extends LinearLayout {
 	 * 
 	 * @param icon
 	 */
-	public void setIcon(int icon) {
+	public void setIcon(int icon)
+	{
 		iv_icon.setImageResource(icon);
 	}
 
@@ -83,7 +91,8 @@ public class ResideMenuItem extends LinearLayout {
 	 * 
 	 * @param title
 	 */
-	public void setTitle(int title) {
+	public void setTitle(int title)
+	{
 		tv_title.setText(title);
 	}
 
@@ -92,15 +101,18 @@ public class ResideMenuItem extends LinearLayout {
 	 * 
 	 * @param title
 	 */
-	public void setTitle(String title) {
+	public void setTitle(String title)
+	{
 		tv_title.setText(title);
 	}
 
-	public TextView getTv_title_guanzhang() {
+	public TextView getTv_title_guanzhang()
+	{
 		return tv_title_guanzhang;
 	}
 
-	public void setTv_title_guanzhang(TextView tv_title_guanzhang) {
+	public void setTv_title_guanzhang(TextView tv_title_guanzhang)
+	{
 		this.tv_title_guanzhang = tv_title_guanzhang;
 	}
 

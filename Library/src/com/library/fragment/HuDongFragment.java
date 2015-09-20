@@ -20,11 +20,11 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.RadioGroup.OnCheckedChangeListener;
 
-
 /*
  * 底部菜单栏-1.互动
  */
-public class HuDongFragment extends Fragment implements OnCheckedChangeListener {
+public class HuDongFragment extends Fragment implements OnCheckedChangeListener
+{
 
 	private View parentView;
 	private RadioGroup radioGroup;
@@ -36,7 +36,8 @@ public class HuDongFragment extends Fragment implements OnCheckedChangeListener 
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
-			Bundle savedInstanceState) {
+			Bundle savedInstanceState)
+	{
 		parentView = inflater.inflate(R.layout.fragment_news, container, false);
 		radioGroup = (RadioGroup) parentView.findViewById(R.id.radioGroup);
 		rbTongZhi = (RadioButton) parentView.findViewById(R.id.rbTongZhi);
@@ -58,10 +59,13 @@ public class HuDongFragment extends Fragment implements OnCheckedChangeListener 
 		rbTongZhi.setChecked(true);
 
 		// 滑动切换
-		vp.setOnPageChangeListener(new OnPageChangeListener() {
+		vp.setOnPageChangeListener(new OnPageChangeListener()
+		{
 			@Override
-			public void onPageSelected(int arg0) {
-				switch (arg0) {
+			public void onPageSelected(int arg0)
+			{
+				switch (arg0)
+				{
 				case 0:
 					rbTongZhi.setChecked(true);
 					break;
@@ -74,21 +78,25 @@ public class HuDongFragment extends Fragment implements OnCheckedChangeListener 
 			}
 
 			@Override
-			public void onPageScrolled(int arg0, float arg1, int arg2) {
+			public void onPageScrolled(int arg0, float arg1, int arg2)
+			{
 
 			}
 
 			@Override
-			public void onPageScrollStateChanged(int arg0) {
+			public void onPageScrollStateChanged(int arg0)
+			{
 
 			}
 		});
 
 		// 点击右边显示
-		iv_add.setOnClickListener(new OnClickListener() {
+		iv_add.setOnClickListener(new OnClickListener()
+		{
 
 			@Override
-			public void onClick(View v) {
+			public void onClick(View v)
+			{
 				AddPopWindow addPopWindow = new AddPopWindow(getActivity());
 				addPopWindow.showPopupWindow(iv_add);
 			}
@@ -99,30 +107,37 @@ public class HuDongFragment extends Fragment implements OnCheckedChangeListener 
 	}
 
 	@Override
-	public void onCheckedChanged(RadioGroup arg0, int cheakedId) {
-		if (cheakedId == rbTongZhi.getId()) {
+	public void onCheckedChanged(RadioGroup arg0, int cheakedId)
+	{
+		if (cheakedId == rbTongZhi.getId())
+		{
 			vp.setCurrentItem(0);
-		} else if (cheakedId == rbDongTai.getId()) {
+		} else if (cheakedId == rbDongTai.getId())
+		{
 			vp.setCurrentItem(1);
 		}
 	}
 
-	class ZxzcAdapter extends FragmentStatePagerAdapter {
+	class ZxzcAdapter extends FragmentStatePagerAdapter
+	{
 
 		List<Fragment> list;
 
-		public ZxzcAdapter(FragmentManager fm, List<Fragment> list) {
+		public ZxzcAdapter(FragmentManager fm, List<Fragment> list)
+		{
 			super(fm);
 			this.list = list;
 		}
 
 		@Override
-		public Fragment getItem(int arg0) {
+		public Fragment getItem(int arg0)
+		{
 			return list.get(arg0);
 		}
 
 		@Override
-		public int getCount() {
+		public int getCount()
+		{
 
 			return list.size();
 		}

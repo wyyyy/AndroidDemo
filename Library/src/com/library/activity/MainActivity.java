@@ -25,7 +25,8 @@ import com.special.ResideMenu.ResideMenuInfo;
 import com.special.ResideMenu.ResideMenuItem;
 
 public class MainActivity extends FragmentActivity implements
-		View.OnClickListener, OnCheckedChangeListener {
+		View.OnClickListener, OnCheckedChangeListener
+{
 
 	public ResideMenu resideMenu;
 
@@ -50,7 +51,8 @@ public class MainActivity extends FragmentActivity implements
 	 * Called when the activity is first created.
 	 */
 	@Override
-	public void onCreate(Bundle savedInstanceState) {
+	public void onCreate(Bundle savedInstanceState)
+	{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 
@@ -59,7 +61,8 @@ public class MainActivity extends FragmentActivity implements
 		setListener();
 	}
 
-	private void setUpMenu() {
+	private void setUpMenu()
+	{
 
 		rg = (RadioGroup) findViewById(R.id.rg);
 		rb1 = (RadioButton) findViewById(R.id.rb1);
@@ -68,7 +71,7 @@ public class MainActivity extends FragmentActivity implements
 		rb4 = (RadioButton) findViewById(R.id.rb4);
 		rb5 = (RadioButton) findViewById(R.id.rb5);
 		rg.setOnCheckedChangeListener(this);
-		//之前是rb1
+		// 之前是rb1
 		rb2.setChecked(true);
 
 		// attach to current activity;
@@ -103,7 +106,8 @@ public class MainActivity extends FragmentActivity implements
 
 	}
 
-	private void setListener() {
+	private void setListener()
+	{
 		resideMenu.addMenuInfo(info);
 
 		itemGuanZhangEmail.setOnClickListener(this);
@@ -118,48 +122,58 @@ public class MainActivity extends FragmentActivity implements
 	}
 
 	// 点击按钮显示左边侧滑栏
-	public void onClickLiftMenu(View v) {
+	public void onClickLiftMenu(View v)
+	{
 		resideMenu.openMenu(ResideMenu.DIRECTION_LEFT);
 	}
 
 	@Override
-	public boolean dispatchTouchEvent(MotionEvent ev) {
+	public boolean dispatchTouchEvent(MotionEvent ev)
+	{
 		return resideMenu.dispatchTouchEvent(ev);
 	}
 
 	@Override
-	public void onClick(View view) {
-		if (view == itemGuanZhangEmail) {
+	public void onClick(View view)
+	{
+		if (view == itemGuanZhangEmail)
+		{
 			Intent intent = new Intent();
 			intent.putExtra("flog", "ss");
 			intent.setClass(getApplicationContext(), SettingActivity.class);
 			startActivity(intent);
-		} else if (view == itemGrRenXinXi) {
+		} else if (view == itemGrRenXinXi)
+		{
 			Intent intent = new Intent();
 			intent.putExtra("flog", "sw");
 			intent.setClass(getApplicationContext(), SettingActivity.class);
 			startActivity(intent);
-		} else if (view == itemZhuangban) {
+		} else if (view == itemZhuangban)
+		{
 			Intent intent = new Intent();
 			intent.putExtra("flog", "aa");
 			intent.setClass(getApplicationContext(), SettingActivity.class);
 			startActivity(intent);
-		} else if (view == itemShoucang) {
+		} else if (view == itemShoucang)
+		{
 			Intent intent = new Intent();
 			intent.putExtra("flog", "bb");
 			intent.setClass(getApplicationContext(), SettingActivity.class);
 			startActivity(intent);
-		} else if (view == itemXiangce) {
+		} else if (view == itemXiangce)
+		{
 			Intent intent = new Intent();
 			intent.putExtra("flog", "cc");
 			intent.setClass(getApplicationContext(), SettingActivity.class);
 			startActivity(intent);
-		} else if (view == itemFile) {
+		} else if (view == itemFile)
+		{
 			Intent intent = new Intent();
 			intent.putExtra("flog", "dd");
 			intent.setClass(getApplicationContext(), SettingActivity.class);
 			startActivity(intent);
-		} else if (view == info) {
+		} else if (view == info)
+		{
 			Intent intent = new Intent();
 			intent.putExtra("flog", "ee");
 			intent.setClass(getApplicationContext(), SettingActivity.class);
@@ -167,23 +181,28 @@ public class MainActivity extends FragmentActivity implements
 		}
 	}
 
-	private ResideMenu.OnMenuListener menuListener = new ResideMenu.OnMenuListener() {
+	private ResideMenu.OnMenuListener menuListener = new ResideMenu.OnMenuListener()
+	{
 		@Override
-		public void openMenu() {
+		public void openMenu()
+		{
 			is_closed = false;
 			// leftMenu.setVisibility(View.GONE);
 		}
 
 		@Override
-		public void closeMenu() {
+		public void closeMenu()
+		{
 			is_closed = true;
 			// leftMenu.setVisibility(View.VISIBLE);
 		}
 	};
-/*
- * change  fragment
- */
-	private void changeFragment(Fragment targetFragment) {
+
+	/*
+	 * change fragment
+	 */
+	private void changeFragment(Fragment targetFragment)
+	{
 		// resideMenu.clearIgnoredViewList();
 		getSupportFragmentManager().beginTransaction()
 				.replace(R.id.main_fragment, targetFragment, "fragment")
@@ -192,27 +211,34 @@ public class MainActivity extends FragmentActivity implements
 	}
 
 	// What good method is to access resideMenu？
-	public ResideMenu getResideMenu() {
+	public ResideMenu getResideMenu()
+	{
 		return resideMenu;
 	}
 
 	// 监听手机上的BACK键
 	@Override
-	public boolean onKeyDown(int keyCode, KeyEvent event) {
-		if (keyCode == KeyEvent.KEYCODE_BACK) {
+	public boolean onKeyDown(int keyCode, KeyEvent event)
+	{
+		if (keyCode == KeyEvent.KEYCODE_BACK)
+		{
 			// 判断菜单是否关闭
-			if (is_closed) {
+			if (is_closed)
+			{
 				// 判断两次点击的时间间隔（默认设置为2秒）
-				if ((System.currentTimeMillis() - mExitTime) > 2000) {
+				if ((System.currentTimeMillis() - mExitTime) > 2000)
+				{
 					Toast.makeText(this, "再按一次退出程序", Toast.LENGTH_SHORT).show();
 
 					mExitTime = System.currentTimeMillis();
-				} else {
+				} else
+				{
 					finish();
 					System.exit(0);
 					super.onBackPressed();
 				}
-			} else {
+			} else
+			{
 				resideMenu.closeMenu();
 			}
 			return true;
@@ -221,17 +247,23 @@ public class MainActivity extends FragmentActivity implements
 	}
 
 	@Override
-	public void onCheckedChanged(RadioGroup arg0, int checkedId) {
+	public void onCheckedChanged(RadioGroup arg0, int checkedId)
+	{
 
-		if (rb1.getId() == checkedId) {
+		if (rb1.getId() == checkedId)
+		{
 			changeFragment(new HuDongFragment());
-		} else if (rb2.getId() == checkedId) {
+		} else if (rb2.getId() == checkedId)
+		{
 			changeFragment(new JieYueFragment());
-		} else if (rb3.getId() == checkedId) {
+		} else if (rb3.getId() == checkedId)
+		{
 			changeFragment(new QiangZuoFragment());
-		} else if (rb4.getId() == checkedId) {
+		} else if (rb4.getId() == checkedId)
+		{
 			changeFragment(new XinShengDaoHangFragment());
-		} else if (rb5.getId() == checkedId) {
+		} else if (rb5.getId() == checkedId)
+		{
 			changeFragment(new FaXianFragment());
 		}
 	}

@@ -17,7 +17,8 @@ import android.widget.Button;
 import android.widget.ImageView;
 
 //点的改变应该根据ViewPager中的View来进行改变,监听ViewPager的改变
-public class SplashActivity extends Activity implements OnPageChangeListener {
+public class SplashActivity extends Activity implements OnPageChangeListener
+{
 
 	private ViewPager vp;
 	// 适配器
@@ -33,7 +34,8 @@ public class SplashActivity extends Activity implements OnPageChangeListener {
 	private Button start_btn;
 
 	@Override
-	protected void onCreate(Bundle savedInstanceState) {
+	protected void onCreate(Bundle savedInstanceState)
+	{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_splash);
 		initViews();
@@ -41,7 +43,8 @@ public class SplashActivity extends Activity implements OnPageChangeListener {
 	}
 
 	// 给Views添加图片
-	private void initViews() {
+	private void initViews()
+	{
 		LayoutInflater inflater = LayoutInflater.from(this);
 		views = new ArrayList<View>();
 		views.add(inflater.inflate(R.layout.one, null));
@@ -55,10 +58,12 @@ public class SplashActivity extends Activity implements OnPageChangeListener {
 
 		// 得到第三个页面的Button
 		start_btn = (Button) views.get(2).findViewById(R.id.start_btn);
-		start_btn.setOnClickListener(new OnClickListener() {
+		start_btn.setOnClickListener(new OnClickListener()
+		{
 
 			@Override
-			public void onClick(View arg0) {
+			public void onClick(View arg0)
+			{
 				Intent intent = new Intent(SplashActivity.this,
 						MainActivity.class);
 				startActivity(intent);
@@ -81,21 +86,24 @@ public class SplashActivity extends Activity implements OnPageChangeListener {
 
 	// 当滑动状态改变的时候调用
 	@Override
-	public void onPageScrollStateChanged(int arg0) {
+	public void onPageScrollStateChanged(int arg0)
+	{
 		// TODO Auto-generated method stub
 
 	}
 
 	// 当页面被滑动时调用
 	@Override
-	public void onPageScrolled(int arg0, float arg1, int arg2) {
+	public void onPageScrolled(int arg0, float arg1, int arg2)
+	{
 		// TODO Auto-generated method stub
 
 	}
 
 	// 当前新的页面被选中的时候调用
 	@Override
-	public void onPageSelected(int arg0) {
+	public void onPageSelected(int arg0)
+	{
 		/*
 		 * for(int i=0;i<ids.length;i++) { //如果当前页面被选中 if(arg0==i) {
 		 * dots[i].setImageResource(R.drawable.shoucang_2); }else {

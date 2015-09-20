@@ -8,7 +8,8 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-public class ResideMenuInfo extends LinearLayout {
+public class ResideMenuInfo extends LinearLayout
+{
 
 	/** menu item icon */
 	private ImageView iv_icon;
@@ -17,12 +18,14 @@ public class ResideMenuInfo extends LinearLayout {
 
 	private TextView tv_dengji;
 
-	public ResideMenuInfo(Context context) {
+	public ResideMenuInfo(Context context)
+	{
 		super(context);
 		initViews(context);
 	}
 
-	public ResideMenuInfo(Context context, int icon, String title, String dengji) {
+	public ResideMenuInfo(Context context, int icon, String title, String dengji)
+	{
 		super(context);
 		initViews(context);
 		iv_icon.setImageResource(icon);
@@ -30,7 +33,8 @@ public class ResideMenuInfo extends LinearLayout {
 		tv_dengji.setText(dengji);
 	}
 
-	private void initViews(Context context) {
+	private void initViews(Context context)
+	{
 		LayoutInflater inflater = (LayoutInflater) context
 				.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 		inflater.inflate(R.layout.residemenu_info, this);
@@ -44,7 +48,8 @@ public class ResideMenuInfo extends LinearLayout {
 	 * 
 	 * @param icon
 	 */
-	public void setIcon(int icon) {
+	public void setIcon(int icon)
+	{
 		iv_icon.setImageResource(icon);
 	}
 
@@ -53,7 +58,8 @@ public class ResideMenuInfo extends LinearLayout {
 	 * 
 	 * @param title
 	 */
-	public void setTitle(String title) {
+	public void setTitle(String title)
+	{
 		tv_username.setText(title);
 	}
 
@@ -62,7 +68,8 @@ public class ResideMenuInfo extends LinearLayout {
 	 * 
 	 * @param dengji
 	 */
-	public void setDengJi(String dengji) {
+	public void setDengJi(String dengji)
+	{
 		tv_dengji.setText(dengji);
 	}
 }

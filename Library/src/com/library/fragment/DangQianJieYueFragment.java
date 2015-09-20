@@ -7,11 +7,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-public class DangQianJieYueFragment extends Fragment {
+public class DangQianJieYueFragment extends Fragment
+{
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
-			Bundle savedInstanceState) {
+			Bundle savedInstanceState)
+	{
 		View view = inflater.inflate(
 				R.layout.activity_dang_qian_jie_yue_fragment, container, false);
 		return view;

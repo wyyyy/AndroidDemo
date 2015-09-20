@@ -5,9 +5,11 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.TextView;
 
-public class SettingActivity extends Activity {
+public class SettingActivity extends Activity
+{
 	@Override
-	protected void onCreate(Bundle savedInstanceState) {
+	protected void onCreate(Bundle savedInstanceState)
+	{
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_settings);
@@ -17,7 +19,7 @@ public class SettingActivity extends Activity {
 		Intent receive = getIntent();
 		String flog = receive.getStringExtra("flog");
 
-		text.setText(flog);
+		text.setText("pass value" + flog);
 
 	}
 }

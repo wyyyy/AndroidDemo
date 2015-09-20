@@ -20,10 +20,12 @@ import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.RadioGroup.OnCheckedChangeListener;
+
 /*
  * 底部菜单2.借阅
  */
-public class JieYueFragment extends Fragment implements OnCheckedChangeListener {
+public class JieYueFragment extends Fragment implements OnCheckedChangeListener
+{
 
 	private RadioGroup radioGroup;
 	private RadioButton rb_DangQian, rb_JieYue, rb_WeiZhang;
@@ -34,7 +36,8 @@ public class JieYueFragment extends Fragment implements OnCheckedChangeListener 
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
-			Bundle savedInstanceState) {
+			Bundle savedInstanceState)
+	{
 		View view = inflater.inflate(R.layout.fragment_contacts, container,
 				false);
 		vp = (ViewPager) view.findViewById(R.id.vp_JieYue);
@@ -51,7 +54,7 @@ public class JieYueFragment extends Fragment implements OnCheckedChangeListener 
 		list.add(dqjf);
 		list.add(jylf);
 		list.add(wzjf);
-//WZH 
+		// WZH
 		ZxzcAdapter zxzc = new ZxzcAdapter(getChildFragmentManager(), list);
 		vp.setAdapter(zxzc);
 		zxzc.notifyDataSetChanged();
@@ -60,10 +63,13 @@ public class JieYueFragment extends Fragment implements OnCheckedChangeListener 
 		rb_DangQian.setChecked(true);
 
 		// 滑动切换
-		vp.setOnPageChangeListener(new OnPageChangeListener() {
+		vp.setOnPageChangeListener(new OnPageChangeListener()
+		{
 			@Override
-			public void onPageSelected(int arg0) {
-				switch (arg0) {
+			public void onPageSelected(int arg0)
+			{
+				switch (arg0)
+				{
 				case 0:
 					rb_DangQian.setChecked(true);
 					break;
@@ -79,21 +85,25 @@ public class JieYueFragment extends Fragment implements OnCheckedChangeListener 
 			}
 
 			@Override
-			public void onPageScrolled(int arg0, float arg1, int arg2) {
+			public void onPageScrolled(int arg0, float arg1, int arg2)
+			{
 
 			}
 
 			@Override
-			public void onPageScrollStateChanged(int arg0) {
+			public void onPageScrollStateChanged(int arg0)
+			{
 
 			}
 		});
 
 		// 点击右边显示
-		iv_add.setOnClickListener(new OnClickListener() {
+		iv_add.setOnClickListener(new OnClickListener()
+		{
 
 			@Override
-			public void onClick(View v) {
+			public void onClick(View v)
+			{
 				AddPopWindow addPopWindow = new AddPopWindow(getActivity());
 				addPopWindow.showPopupWindow(iv_add);
 			}
@@ -102,22 +112,26 @@ public class JieYueFragment extends Fragment implements OnCheckedChangeListener 
 		return view;
 	}
 
-	class ZxzcAdapter extends FragmentStatePagerAdapter {
+	class ZxzcAdapter extends FragmentStatePagerAdapter
+	{
 
 		List<Fragment> list;
 
-		public ZxzcAdapter(FragmentManager fm, List<Fragment> list) {
+		public ZxzcAdapter(FragmentManager fm, List<Fragment> list)
+		{
 			super(fm);
 			this.list = list;
 		}
 
 		@Override
-		public Fragment getItem(int arg0) {
+		public Fragment getItem(int arg0)
+		{
 			return list.get(arg0);
 		}
 
 		@Override
-		public int getCount() {
+		public int getCount()
+		{
 
 			return list.size();
 		}
@@ -125,12 +139,16 @@ public class JieYueFragment extends Fragment implements OnCheckedChangeListener 
 	}
 
 	@Override
-	public void onCheckedChanged(RadioGroup arg0, int checkedId) {
-		if (checkedId == rb_DangQian.getId()) {
+	public void onCheckedChanged(RadioGroup arg0, int checkedId)
+	{
+		if (checkedId == rb_DangQian.getId())
+		{
 			vp.setCurrentItem(0);
-		} else if (checkedId == rb_JieYue.getId()) {
+		} else if (checkedId == rb_JieYue.getId())
+		{
 			vp.setCurrentItem(1);
-		} else if (checkedId == rb_WeiZhang.getId()) {
+		} else if (checkedId == rb_WeiZhang.getId())
+		{
 			vp.setCurrentItem(2);
 		}
 	}

@@ -18,11 +18,13 @@ import android.view.ViewGroup.LayoutParams;
 import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
 
-public class AddPopWindow extends PopupWindow {
+public class AddPopWindow extends PopupWindow
+{
 	private View conentView;
 	RelativeLayout re_layout1, re_layout2, re_layout3, re_layout4, re_layout5;
 
-	public AddPopWindow(final Activity context) {
+	public AddPopWindow(final Activity context)
+	{
 		LayoutInflater inflater = (LayoutInflater) context
 				.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 		conentView = inflater.inflate(R.layout.popupwindow_add, null);
@@ -53,10 +55,12 @@ public class AddPopWindow extends PopupWindow {
 		re_layout4 = (RelativeLayout) conentView.findViewById(R.id.re_layout4);
 		re_layout5 = (RelativeLayout) conentView.findViewById(R.id.re_layout5);
 
-		re_layout1.setOnClickListener(new OnClickListener() {
+		re_layout1.setOnClickListener(new OnClickListener()
+		{
 
 			@Override
-			public void onClick(View v) {
+			public void onClick(View v)
+			{
 				context.startActivity(new Intent(context,
 						BenGuanGaiKuangActivity.class));
 				context.overridePendingTransition(
@@ -67,10 +71,12 @@ public class AddPopWindow extends PopupWindow {
 			}
 
 		});
-		re_layout2.setOnClickListener(new OnClickListener() {
+		re_layout2.setOnClickListener(new OnClickListener()
+		{
 
 			@Override
-			public void onClick(View v) {
+			public void onClick(View v)
+			{
 				context.startActivity(new Intent(context,
 						LiShiYanGeActivity.class));
 				context.overridePendingTransition(
@@ -82,10 +88,12 @@ public class AddPopWindow extends PopupWindow {
 			}
 
 		});
-		re_layout3.setOnClickListener(new OnClickListener() {
+		re_layout3.setOnClickListener(new OnClickListener()
+		{
 
 			@Override
-			public void onClick(View v) {
+			public void onClick(View v)
+			{
 				context.startActivity(new Intent(context,
 						GuanCangBuJuActivity.class));
 				context.overridePendingTransition(
@@ -97,10 +105,12 @@ public class AddPopWindow extends PopupWindow {
 			}
 
 		});
-		re_layout4.setOnClickListener(new OnClickListener() {
+		re_layout4.setOnClickListener(new OnClickListener()
+		{
 
 			@Override
-			public void onClick(View v) {
+			public void onClick(View v)
+			{
 				context.startActivity(new Intent(context,
 						GuiZhangZhiDuActivity.class));
 				context.overridePendingTransition(
@@ -112,10 +122,12 @@ public class AddPopWindow extends PopupWindow {
 			}
 
 		});
-		re_layout5.setOnClickListener(new OnClickListener() {
+		re_layout5.setOnClickListener(new OnClickListener()
+		{
 
 			@Override
-			public void onClick(View v) {
+			public void onClick(View v)
+			{
 				context.startActivity(new Intent(context,
 						KaiFangShiJianActivity.class));
 				context.overridePendingTransition(
@@ -134,14 +146,17 @@ public class AddPopWindow extends PopupWindow {
 	 * 
 	 * @param parent
 	 */
-	public void showPopupWindow(View parent) {
-		if (!this.isShowing()) {
+	public void showPopupWindow(View parent)
+	{
+		if (!this.isShowing())
+		{
 			// 以下拉方式显示popupwindow
 			// mPop.showAsDropDown(anchor, 0,
 			// 0);//设置显示PopupWindow的位置位于View的左下方，x,y表示坐标偏移量
 			this.showAsDropDown(parent, 0, 30);
 
-		} else {
+		} else
+		{
 			this.dismiss();
 		}
 	}

@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
     <color name="splash_fense">#9966FF</color>
     <color name="chengse">#FF6600</color>
     <color name="white">#ffffff</color>
     <color name="huise">#cccccc</color>
-     <color name="transparent">#00000000</color>
-     <color name="hongse">#CC0033</color>
-     <color name="zone_title_bg">#ffee71a1</color>
+    <color name="transparent">#00000000</color>
+    <color name="hongse">#CC0033</color>
+    <color name="zone_title_bg">#ffee71a1</color>
+    <color name="dgv_item_f0ffff">#4876FF</color>
+
 </resources>
