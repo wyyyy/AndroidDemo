@@ -1,13 +1,13 @@
 package com.special.ResideMenu;
 
-import com.library.activity.R;
-
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import com.library.activity.R;
 
 /**
  * User: special Date: 13-12-10 Time: 下午11:05 Mail: specialcyci@gmail.com

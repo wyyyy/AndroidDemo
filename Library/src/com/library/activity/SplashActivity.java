@@ -3,8 +3,6 @@ package com.library.activity;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.library.adapter.ViewPagerAdapter;
-
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -15,6 +13,8 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.ImageView;
+
+import com.library.adapter.ViewPagerAdapter;
 
 //点的改变应该根据ViewPager中的View来进行改变,监听ViewPager的改变
 public class SplashActivity extends Activity implements OnPageChangeListener

@@ -1,33 +1,23 @@
 package com.library.fragment;
 
-import java.util.ArrayList;
-
-import in.srain.cube.image.CubeImageView;
 import in.srain.cube.image.ImageLoader;
-import in.srain.cube.request.JsonData;
-import in.srain.cube.request.RequestFinishHandler;
-import in.srain.cube.views.list.ListViewDataAdapter;
-import in.srain.cube.views.list.ViewHolderBase;
 import in.srain.cube.views.ptr.PtrClassicFrameLayout;
 import in.srain.cube.views.ptr.PtrDefaultHandler;
 import in.srain.cube.views.ptr.PtrFrameLayout;
 import in.srain.cube.views.ptr.PtrHandler;
-import com.library.data.DemoRequestData;
-import com.library.data.MainAdapter;
-import com.library.data.MainAdapterList;
 
-import com.library.activity.R;
+import java.util.ArrayList;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.ImageView;
 import android.widget.ListView;
-import android.widget.TextView;
+
+import com.library.activity.R;
+import com.library.data.MainAdapterList;
 
 public class TongZhiFragment extends Fragment
 {

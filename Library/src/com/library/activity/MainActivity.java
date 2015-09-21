@@ -15,10 +15,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.library.fragment.FaXianFragment;
-
+import com.library.fragment.HuDongFragment;
 import com.library.fragment.JieYueFragment;
 import com.library.fragment.QiangZuoFragment;
-import com.library.fragment.HuDongFragment;
 import com.library.fragment.XinShengDaoHangFragment;
 import com.special.ResideMenu.ResideMenu;
 import com.special.ResideMenu.ResideMenuInfo;

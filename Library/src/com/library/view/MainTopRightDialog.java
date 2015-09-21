@@ -1,14 +1,14 @@
 package com.library.view;
 
-import com.library.activity.R;
-
-import android.os.Bundle;
 import android.app.Activity;
+import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.LinearLayout;
 import android.widget.Toast;
+
+import com.library.activity.R;
 
 public class MainTopRightDialog extends Activity
 {

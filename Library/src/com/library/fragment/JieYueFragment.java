@@ -3,9 +3,6 @@ package com.library.fragment;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.library.activity.R;
-import com.library.view.AddPopWindow;
-
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -14,12 +11,15 @@ import android.support.v4.view.ViewPager;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.View.OnClickListener;
+import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.RadioGroup.OnCheckedChangeListener;
+
+import com.library.activity.R;
+import com.library.view.AddPopWindow;
 
 /*
  * 底部菜单2.借阅

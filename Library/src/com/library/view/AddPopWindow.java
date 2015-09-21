@@ -1,12 +1,5 @@
 package com.library.view;
 
-import com.library.activity.BenGuanGaiKuangActivity;
-import com.library.activity.GuanCangBuJuActivity;
-import com.library.activity.GuiZhangZhiDuActivity;
-import com.library.activity.KaiFangShiJianActivity;
-import com.library.activity.LiShiYanGeActivity;
-import com.library.activity.R;
-
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -17,6 +10,13 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup.LayoutParams;
 import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
+
+import com.library.activity.BenGuanGaiKuangActivity;
+import com.library.activity.GuanCangBuJuActivity;
+import com.library.activity.GuiZhangZhiDuActivity;
+import com.library.activity.KaiFangShiJianActivity;
+import com.library.activity.LiShiYanGeActivity;
+import com.library.activity.R;
 
 public class AddPopWindow extends PopupWindow
 {
