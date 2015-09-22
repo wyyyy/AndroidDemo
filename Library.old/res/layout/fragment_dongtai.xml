@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical" >
+    <LinearLayout
+       
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+         <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/zone_title_bg"
+            android:paddingBottom="10.0dip"
+            android:paddingTop="10.0dip" >
+
+            <ImageView
+                android:id="@+id/title_bar_left_menu"
+                android:layout_width="44.5dip"
+                android:layout_height="22.5dip"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:paddingLeft="11.0dip"
+                android:paddingRight="11.0dip"
+                android:src="@drawable/icon_profile" 
+                android:onClick="onClickLiftMenu"
+                 />
+            <ImageView
+                android:id="@+id/iv_add"
+                android:layout_width="45.5dip"
+                android:layout_height="23.5dip"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:paddingLeft="11.0dip"
+                android:paddingRight="11.0dip"
+                android:src="@drawable/add"
+                
+                />
+            
+            <TextView 
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:text="@string/suijixuanzuo"
+                android:layout_toLeftOf="@+id/iv_add"
+                android:layout_toRightOf="@+id/title_bar_left_menu"
+                android:layout_centerInParent="true"
+                android:gravity="center"
+                android:textColor="@color/white"
+                android:textSize="20dp"
+                />
+
+            
+        </RelativeLayout>
+    </LinearLayout>
+    
+    
+    
+   
+
+</LinearLayout>

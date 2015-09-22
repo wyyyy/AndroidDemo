@@ -25,7 +25,8 @@ public class PhotoUtils {
         return packageManager.hasSystemFeature(PackageManager.FEATURE_CAMERA);
     }
 
-    public static void toCamera(Activity activity, File outputFile, int requestCode) {
+    @SuppressWarnings("null")
+	public static void toCamera(Activity activity, File outputFile, int requestCode) {
         if (!isCameraUseAble(activity)) {
             Toast.makeText(activity, R.string.cube_photo_no_camera, Toast.LENGTH_LONG).show();
             return;

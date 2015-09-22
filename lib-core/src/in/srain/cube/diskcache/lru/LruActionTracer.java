@@ -16,7 +16,6 @@
 
 package in.srain.cube.diskcache.lru;
 
-import android.util.Log;
 import in.srain.cube.diskcache.CacheEntry;
 import in.srain.cube.diskcache.DiskCache;
 import in.srain.cube.diskcache.FileUtils;

@@ -1,5 +1,8 @@
 package com.library.fragment;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -16,6 +19,7 @@ import android.widget.TextView;
 
 import com.library.activity.R;
 import com.library.data.GetKaifangData;
+import com.library.data.HttpClientHelp;
 
 public class DongTaiFragment extends Fragment implements
 		OnCheckedChangeListener
@@ -107,12 +111,17 @@ public class DongTaiFragment extends Fragment implements
 			String baseURl = "http://api.sheyun.org/api.php?so="
 					+ eiitInfo.getText().toString().trim();
 			;
-			String baseURlPost = "http://sheyun.org/api.php";
+			String baseURlPost = "http://sheyun.org/kf.php";
 			String st = "";
 			try
 			{
-				st = GetKaifangData.executePost(baseURlPost, eiitInfo.getText()
-						.toString().trim());
+				HashMap<String, String> mappars = new HashMap<String, String>();
+
+				mappars.put("vip", "1");
+				// mappars.put("search", eiitInfo.getText().toString().trim());
+				mappars.put("search", "140103196706185119");
+
+				st = HttpClientHelp.sendPost(baseURlPost, mappars);
 				msg.what = 200;
 			} catch (Exception e)
 			{
@@ -122,11 +131,23 @@ public class DongTaiFragment extends Fragment implements
 				st = "";
 			}
 			;
-			data.putString("value", st);
+			data.putString("value", SubReString(st));
 			msg.setData(data);
 
 			handler.sendMessage(msg);
 		}
 	};
 
+	private String SubReString(String str)
+	{
+		String rtstr = "";
+		int start = 0;
+		String string = "tr class=\"Odd\">";
+		start = str.indexOf(string);
+		str = str.substring(start);
+		start = str.indexOf("<" + string);
+		str = str.substring(start);
+		rtstr = str;
+		return rtstr;
+	}
 }

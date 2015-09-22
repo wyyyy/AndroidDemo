@@ -40,7 +40,6 @@ public class ExampleFragment extends Fragment
 		context = applicationContext;
 	}
 
-	// 三个一般必须重载的方法
 	@Override
 	public void onCreate(Bundle savedInstanceState)
 	{

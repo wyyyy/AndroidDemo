@@ -219,6 +219,7 @@ public class SecureSocketFactory extends SSLSocketFactory
 	 * @see <a
 	 *      href="https://code.google.com/p/android/issues/detail?id=13117#c14">https://code.google.com/p/android/issues/detail?id=13117#c14</a>
 	 */
+	@SuppressWarnings("deprecation")
 	private void injectHostname(Socket socket, String host)
 	{
 		try

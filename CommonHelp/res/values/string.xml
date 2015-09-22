@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:android="http://schemas.android.com/apk/res/android" xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
     <string name="app_name">DemoFragment</string>
@@ -89,7 +89,5 @@
     <string name="drop_down_list_footer_default_text">More</string>
     <string name="drop_down_list_footer_loading_text">Loading&#8230;</string>
     <string name="drop_down_list_footer_no_more_text">No More</string>
-    
-  
 
 </resources>

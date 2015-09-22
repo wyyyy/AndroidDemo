@@ -471,6 +471,7 @@ public abstract class SampleParentActivity extends Activity implements
 		this.asyncHttpClient = client;
 	}
 
+	@SuppressWarnings("deprecation")
 	@TargetApi(Build.VERSION_CODES.HONEYCOMB)
 	private void setHomeAsUpEnabled()
 	{
