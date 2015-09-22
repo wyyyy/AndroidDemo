@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">SampleQurey</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="hudong">互动</string>
+    <string name="jieyue">借阅</string>
+    <string name="qiangzuo">抢座</string>
+    <string name="xinshengdaohang">今日头条</string>
+    <string name="faxian">发现</string>
+    <string name="title_activity_xin_sheng_dao_hang_fragment">XinShengDaoHangFragment</string>
+    <string name="title_activity_fa_xian_fragment">FaXianFragment</string>
+    <string name="tongzhi">通知</string>
+    <string name="dongtai">动态</string>
+    <string name="txtqueryinfo">请输入要查询的姓名</string>
+
+</resources>
