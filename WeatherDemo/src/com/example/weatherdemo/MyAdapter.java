@@ -2,8 +2,8 @@ package com.example.weatherdemo;
 
 import com.example.entity.Root;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
-import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,7 +11,7 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-public class MyAdapter extends BaseAdapter
+@SuppressLint("ViewHolder") public class MyAdapter extends BaseAdapter
 {
 	private Context mycContext;
 	Root status;
@@ -49,12 +49,12 @@ public class MyAdapter extends BaseAdapter
 		return postion;
 	}
 
-	@Override
+	@SuppressLint("InflateParams") @Override
 	public View getView(int postion, View view, ViewGroup praent)
 	{
 		// TODO Auto-generated method stub
 		LayoutInflater factory = LayoutInflater.from(mycContext);
-		View iniView = (View) factory.inflate(R.layout.gvcell, null);
+		View iniView = factory.inflate(R.layout.gvcell, null);
 		ImageView imageView = (ImageView) iniView.findViewById(R.id.icon);
 		TextView txtCloud = (TextView) iniView.findViewById(R.id.gcTxtCloud);
 		TextView txtTemperature = (TextView) iniView

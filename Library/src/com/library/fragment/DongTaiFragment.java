@@ -1,8 +1,8 @@
 package com.library.fragment;
 
 import java.util.HashMap;
-import java.util.Map;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -18,7 +18,6 @@ import android.widget.RadioGroup.OnCheckedChangeListener;
 import android.widget.TextView;
 
 import com.library.activity.R;
-import com.library.data.GetKaifangData;
 import com.library.data.HttpClientHelp;
 
 public class DongTaiFragment extends Fragment implements
@@ -41,8 +40,6 @@ public class DongTaiFragment extends Fragment implements
 		txtView = (TextView) contentView.findViewById(R.id.txtInfo);
 		btnQuerykf.setOnClickListener(new View.OnClickListener()
 		{
-
-			private String text;
 
 			@Override
 			public void onClick(View v)
@@ -71,7 +68,7 @@ public class DongTaiFragment extends Fragment implements
 
 	}
 
-	private Handler handler = new Handler()
+	@SuppressLint("HandlerLeak") private Handler handler = new Handler()
 	{
 		@Override
 		public void handleMessage(Message msg)
@@ -108,9 +105,6 @@ public class DongTaiFragment extends Fragment implements
 				msg.what = 404;
 				return;
 			}
-			String baseURl = "http://api.sheyun.org/api.php?so="
-					+ eiitInfo.getText().toString().trim();
-			;
 			String baseURlPost = "http://sheyun.org/kf.php";
 			String st = "";
 			try

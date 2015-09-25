@@ -15,7 +15,7 @@ package com.example.weatherdemo;
 public class DataUtils
 {
 	// / <summary>
-	// / ����ʱ��
+	// / TIME
 	// / </summary>
 	// / <returns></returns>
 	public static long GetSystemCurrentTimeMillis()

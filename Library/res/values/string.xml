@@ -5,8 +5,8 @@
     <string name="action_settings">Settings</string>
     <string name="hello_world">Hello world!</string>
     <string name="title_activity_splash">7788</string>
-    <string name="hudong">互动</string>
-    <string name="jieyue">借阅</string>
+    <string name="hudong">查询</string>
+    <string name="jieyue">笑话</string>
     <string name="qiangzuo">抢座</string>
     <string name="xinshengdaohang">今日头条</string>
     <string name="faxian">发现</string>
@@ -17,9 +17,9 @@
     <string name="title_activity_tong_zhi">TongZhiActivity</string>
     <string name="title_activity_dong_tai">DongTaiActivity</string>
     <string name="title_activity_hu_dong_fragment2">HuDongFragment2</string>
-    <string name="dangqianjieyue">当前借阅</string>
-    <string name="jieyuelishi">借阅历史</string>
-    <string name="weizhangjiaokuan">违章缴款</string>
+    <string name="dangqianjieyue">查询1</string>
+    <string name="jieyuelishi">查询2</string>
+    <string name="weizhangjiaokuan">查询3</string>
     <string name="title_activity_dang_qian_jie_yue_fragment">DangQianJieYueFragment</string>
     <string name="title_activity_jie_yue_li_shi_fragment">JieYueLiShiFragment</string>
     <string name="title_activity_wei_zhang_jiao_kuan_fragment">WeiZhangJiaoKuanFragment</string>

@@ -39,6 +39,7 @@ public class ResideMenu extends FrameLayout
 	private LinearLayout layoutLeftMenu;
 	private LinearLayout layoutRightMenu;
 	private LinearLayout layoutInfo;
+	@SuppressWarnings("unused")
 	private LinearLayout layoutSetting;
 	private RelativeLayout leftMenu;
 	private RelativeLayout rightMenu;

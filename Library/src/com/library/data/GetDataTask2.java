@@ -3,6 +3,7 @@ package com.library.data;
 
 import java.text.SimpleDateFormat;
 
+import android.annotation.SuppressLint;
 import android.os.AsyncTask;
 
 
@@ -34,6 +35,7 @@ import android.os.AsyncTask;
 			return mStrings;
 		}
 
+		@SuppressLint("SimpleDateFormat") @SuppressWarnings("unused")
 		@Override
 		protected void onPostExecute(String[] result)
 		{
@@ -45,7 +47,7 @@ import android.os.AsyncTask;
 
 				// should call onDropDownComplete function of DropDownListView
 				// at end of drop down complete.
-				SimpleDateFormat dateFormat = new SimpleDateFormat(
+			SimpleDateFormat dateFormat = new SimpleDateFormat(
 						"MM-dd HH:mm:ss");
 				////listView.onDropDownComplete(getString(R.string.update_at)
 				//		+ dateFormat.format(new Date()));

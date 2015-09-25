@@ -3,34 +3,29 @@ package com.example.weatherdemo;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.annotation.SuppressLint;
 import android.app.Activity;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.GridView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.entity.Root;
 import com.google.gson.Gson;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParser;
 import com.google.gson.reflect.TypeToken;
+import com.loopj.android.http.AsyncHttpClient;
 
+@SuppressLint("HandlerLeak")
 public class MainActivity extends Activity implements OnClickListener
 {
-	private Button mSendReqHandler = null;// ��������İ�ť
-	private Button mSendRAsync = null;// ��������İ�ť
-	private Button mSendRAsyncTask = null;// ��������İ�ť
+	private Button mSendReqHandler = null;
+	private Button mSendRAsync = null;//
+	private Button mSendRAsyncTask = null;//
 	private GridView gridview;
 
 	@Override
@@ -82,7 +77,6 @@ public class MainActivity extends Activity implements OnClickListener
 		@Override
 		public void run()
 		{
-			// TODO: http request.
 			Message msg = new Message();
 			Bundle data = new Bundle();
 
@@ -106,6 +100,7 @@ public class MainActivity extends Activity implements OnClickListener
 	 * 
 	 * @see android.view.View.OnClickListener#onClick(android.view.View)
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void onClick(View v)
 	{
@@ -114,21 +109,28 @@ public class MainActivity extends Activity implements OnClickListener
 		case R.id.btnHandle:
 			new Thread(runnable).start();
 			break;
-		// �������ݿ�
+		//
 		case R.id.btnAsync:
-			AsyncHttp2 asyncHttp2 = new AsyncHttp2();
-			asyncHttp2.get(null, null, null);
-			Toast.makeText(getApplicationContext(), asyncHttp2.sb.toString(),
-					Toast.LENGTH_LONG).show();
+			try
+			{
+				AsyncHttpClient client = new AsyncHttpClient();
+			} catch (Exception e)
+			{
+				Toast.makeText(getApplicationContext(), "",
+						Toast.LENGTH_LONG).show();
+			}
+			
+			/*AsyncHttp asyncHttp2 = new AsyncHttp(getApplicationContext());
+			AsyncHttp.get(null, null, null);*/
+			
 			break;
-		// �������ݿ�
+		//
 		case R.id.btnAsyncTask:
 			Map<String, String> map = new HashMap<String, String>();
 			map.put("sa", "dd");
 			AsyncTaskUtils mTask = new AsyncTaskUtils(getApplicationContext());
 			mTask.execute(map);
 			break;
-		// �������ݿ�
 
 		default:
 			break;

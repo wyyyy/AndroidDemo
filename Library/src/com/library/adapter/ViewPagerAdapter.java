@@ -11,6 +11,7 @@ public class ViewPagerAdapter extends PagerAdapter
 {
 
 	private List<View> views;
+	@SuppressWarnings("unused")
 	private Context context;
 
 	public ViewPagerAdapter(Context context, List<View> views)

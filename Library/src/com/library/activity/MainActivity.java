@@ -38,6 +38,7 @@ public class MainActivity extends FragmentActivity implements
 
 	private ResideMenuInfo info;
 
+	@SuppressWarnings("unused")
 	private TextView text1, text2, text3;
 
 	private boolean is_closed = false;
@@ -60,6 +61,7 @@ public class MainActivity extends FragmentActivity implements
 		setListener();
 	}
 
+	@SuppressWarnings("deprecation")
 	private void setUpMenu()
 	{
 

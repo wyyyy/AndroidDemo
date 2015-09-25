@@ -1,5 +1,6 @@
 package com.library.data;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,8 +13,11 @@ import com.library.activity.R;
 /*
  * for main activity
  */
+@SuppressLint(
+{ "ViewHolder", "InflateParams" })
 public class MainAdapter extends BaseAdapter
 {
+	@SuppressWarnings("unused")
 	private Context mycContext;
 	private String[] itemsStrings;// 标题方案
 	LayoutInflater factory;
@@ -56,8 +60,7 @@ public class MainAdapter extends BaseAdapter
 	{
 		// TODO Auto-generated method stub
 		// LayoutInflater factory = LayoutInflater.from(mycContext);
-		View iniView = factory
-				.inflate(R.layout.list_view_item_str, null);
+		View iniView = factory.inflate(R.layout.list_view_item_str, null);
 		TextView textView = (TextView) iniView.findViewById(R.id.txt_list_str);
 		textView.setText(itemsStrings[position]);// pictureName
 		return iniView;

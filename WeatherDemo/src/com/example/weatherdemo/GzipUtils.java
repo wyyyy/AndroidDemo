@@ -1,13 +1,14 @@
 /**   
  * @Title: GzipUtils.java 
- * @Description: ���ð��Ľ�ѹ��
+ * @Description: 常用包的解压缩
  * @author    
- * @date 2015-9-15 ����9:47:31 
+ * @date 2015-9-15 上午9:47:31 
  * @version V1.0   
  */
 
 package com.example.weatherdemo;
 
+import android.annotation.SuppressLint;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -21,11 +22,11 @@ import java.util.zip.ZipOutputStream;
  * @author john
  * @createtime 2015-9-15 john
  */
-public class GzipUtils
+@SuppressLint("DefaultLocale") public class GzipUtils
 {
 
 	/***
-	 * ѹ��GZip
+	 * 压缩GZip
 	 * 
 	 * @param data
 	 * @return
@@ -50,7 +51,7 @@ public class GzipUtils
 	}
 
 	/***
-	 * ��ѹGZip
+	 * 解压GZip
 	 * 
 	 * @param data
 	 * @return
@@ -82,7 +83,7 @@ public class GzipUtils
 	}
 
 	/***
-	 * ѹ��Zip
+	 * 压缩Zip
 	 * 
 	 * @param data
 	 * @return
@@ -110,7 +111,7 @@ public class GzipUtils
 	}
 
 	/***
-	 * ��ѹZip
+	 * 解压Zip
 	 * 
 	 * @param data
 	 * @return
@@ -145,7 +146,7 @@ public class GzipUtils
 	}
 
 	/***
-	 * ѹ��BZip2
+	 * 压缩BZip2
 	 * 
 	 * @param data
 	 * @return
@@ -170,7 +171,7 @@ public class GzipUtils
 	}
 
 	/***
-	 * ��ѹBZip2
+	 * 解压BZip2
 	 * 
 	 * @param data
 	 * @return
@@ -202,7 +203,7 @@ public class GzipUtils
 	}
 
 	/**
-	 * ���ֽ�����ת����16�����ַ���
+	 * 把字节数组转换成16进制字符串
 	 * 
 	 * @param bArray
 	 * @return
@@ -222,7 +223,7 @@ public class GzipUtils
 	}
 
 	/**
-	 * jzlib ѹ������
+	 * jzlib 压缩数据
 	 * 
 	 * @param object
 	 * @return
@@ -252,7 +253,7 @@ public class GzipUtils
 	}
 
 	/**
-	 * jzLibѹ��������
+	 * jzLib压缩的数据
 	 * 
 	 * @param object
 	 * @return

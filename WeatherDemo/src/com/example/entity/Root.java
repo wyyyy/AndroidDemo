@@ -14,6 +14,7 @@ import java.io.Serializable;
  * @author john
  * @createtime 2015-9-14 john
  */
+@SuppressWarnings("serial")
 public class Root implements Serializable
 {
 	private String desc;

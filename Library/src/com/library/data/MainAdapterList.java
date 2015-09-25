@@ -17,7 +17,9 @@ import com.library.activity.R;
  */
 public class MainAdapterList extends BaseAdapter
 {
+	@SuppressWarnings("unused")
 	private Context mycContext;
+	@SuppressWarnings("unused")
 	private String[] itemsStrings;// 标题方案
 	LayoutInflater factory;
 	ArrayList<String> arrayList=new ArrayList<String>();  
@@ -57,7 +59,7 @@ public class MainAdapterList extends BaseAdapter
 		return position;
 	}
 
-	@SuppressLint("ViewHolder") @Override
+	@SuppressLint({ "ViewHolder", "InflateParams" }) @Override
 	public View getView(int position, View View, ViewGroup parent)
 	{
 		// TODO Auto-generated method stub

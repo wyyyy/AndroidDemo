@@ -3,6 +3,7 @@ package com.library.activity;
 import java.util.ArrayList;
 import java.util.List;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -26,6 +27,7 @@ public class SplashActivity extends Activity implements OnPageChangeListener
 
 	private List<View> views;
 	// 对于点的操作
+	@SuppressWarnings("unused")
 	private ImageView[] dots;
 
 	// private int[] ids={R.id.iv1,R.id.iv2,R.id.iv3};
@@ -43,7 +45,7 @@ public class SplashActivity extends Activity implements OnPageChangeListener
 	}
 
 	// 给Views添加图片
-	private void initViews()
+	@SuppressLint("InflateParams") private void initViews()
 	{
 		LayoutInflater inflater = LayoutInflater.from(this);
 		views = new ArrayList<View>();

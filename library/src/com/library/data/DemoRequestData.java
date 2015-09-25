@@ -8,6 +8,7 @@ import in.srain.cube.request.RequestFinishHandler;
 
 public class DemoRequestData
 {
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public static void getImageList(
 			final RequestFinishHandler<JsonData> requestFinishHandler)
 	{
@@ -31,8 +32,9 @@ public class DemoRequestData
 		request.setAssertInitDataPath("request_init/demo/image-list.json");
 		request.setCacheKey("image-list-1");
 		try
-		{request.send();}
-		catch(Exception ex)
+		{
+			request.send();
+		} catch (Exception ex)
 		{
 			try
 			{
@@ -43,6 +45,6 @@ public class DemoRequestData
 				e.printStackTrace();
 			}
 		}
-		
+
 	}
 }

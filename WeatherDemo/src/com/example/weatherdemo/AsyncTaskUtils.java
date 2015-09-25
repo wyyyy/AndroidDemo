@@ -2,7 +2,7 @@
  * @Title: AsyncTaskUtils.java 
  * @Description: TODO
  * @author    
- * @date 2015-9-15 ÏÂÎç12:43:19 
+ * @date 2015-9-15 12:43:19 
  * @version V1.0   
  */
 
@@ -14,14 +14,13 @@ import android.content.Context;
 import android.os.AsyncTask;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.TextView;
 
 /**
  * @author john
  * @createtime 2015-9-15 john
- * @@1.��������ִ�е��������
- * @2.��̨����ִ�еĽ���
- * @3.��̨������������
+ * @@1.启动任务执行的输入参数
+ * @2.后台任务执行的进度
+ * @3.后台计算结果的类型
  */
 public class AsyncTaskUtils extends
 		AsyncTask<Map<String, String>, Object, String>
@@ -55,7 +54,7 @@ public class AsyncTaskUtils extends
 	{
 		// TODO Auto-generated method stub
 		String st = HttpUtils.getRequest();
-		// ִ��publishProgress()����onProgressUpdate()����
+		// 执行publishProgress()调用onProgressUpdate()方法
 		publishProgress(3);
 		return st;
 	}
@@ -63,7 +62,7 @@ public class AsyncTaskUtils extends
 	/*
 	 * (non-Javadoc)
 	 * 
-	 * @see ����������ȡ��ִ���е�����ʱ����UI
+	 * @see 方法用于在取消执行中的任务时更改UI
 	 */
 	@Override
 	protected void onCancelled()
@@ -87,24 +86,25 @@ public class AsyncTaskUtils extends
 	/*
 	 * (non-Javadoc)
 	 * 
-	 * @see ������ִ�����̨��������UI,��ʾ��� �����ֶ�����
+	 * @see 用于在执行完后台任务后更新UI,显示结果 不能手动调用
 	 */
+	@SuppressWarnings("unused")
 	@Override
 	protected void onPostExecute(String result)
 	{
 		// TODO Auto-generated method stub
 		super.onPostExecute(result);
 		LayoutInflater factory = LayoutInflater.from(context);
-		View iniView = (View) factory.inflate(R.layout.activity_main, null);
+		View iniView = factory.inflate(R.layout.activity_main, null);
 		// TextView imageView = (TextView) iniView.findViewById(R.id.txtInfo);
 	}
 
 	/*
 	 * (non-Javadoc)
 	 * 
-	 * @��execute(Params... params)�����ú�����ִ��
+	 * @在execute(Params... params)被调用后立即执行
 	 * 
-	 * @������ִ�к�̨����ǰ��һЩUI����
+	 * @用于在执行后台任务前做一些UI操作
 	 */
 	@Override
 	protected void onPreExecute()
@@ -116,7 +116,7 @@ public class AsyncTaskUtils extends
 	/*
 	 * (non-Javadoc)
 	 * 
-	 * @see ���ڸ��½�����Ϣ loading...
+	 * @see 用于更新进度信息 loading...
 	 */
 	@Override
 	protected void onProgressUpdate(Object... progresses)

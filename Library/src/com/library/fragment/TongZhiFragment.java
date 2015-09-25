@@ -1,6 +1,5 @@
 package com.library.fragment;
 
-import in.srain.cube.image.ImageLoader;
 import in.srain.cube.views.ptr.PtrClassicFrameLayout;
 import in.srain.cube.views.ptr.PtrDefaultHandler;
 import in.srain.cube.views.ptr.PtrFrameLayout;
@@ -22,24 +21,24 @@ import com.library.data.MainAdapterList;
 public class TongZhiFragment extends Fragment
 {
 
-	private ImageLoader mImageLoader;
 	private MainAdapterList mAdapter;
 	private PtrClassicFrameLayout mPtrFrame;
-	//泛型集合ArrayList  
-    private ArrayList<String> arrayList = new ArrayList<String>();  
-    
+	// 泛型集合ArrayList
+	private ArrayList<String> arrayList = new ArrayList<String>();
+
 	private String[] itemsStrings =
 	{ "拍照上传", "传照片", "写日志", "发状态", "新鲜事", "个人主页", "好友", "地点", "消息", "站内信" };
 	LayoutInflater inflater;
+
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState)
 	{
-		
+
 		prpArrlistData();
 		View contentView = inflater.inflate(R.layout.activity_tong_zhi,
 				container, false);
-		inflater=inflater;
+		this.inflater = inflater;
 		final ListView listView = (ListView) contentView
 				.findViewById(R.id.rotate_header_list_view);
 		listView.setOnItemClickListener(new AdapterView.OnItemClickListener()
@@ -52,16 +51,16 @@ public class TongZhiFragment extends Fragment
 				{
 					if (mAdapter != null)
 					{
-						/*final String url = mAdapter.getItem(position)
-								.optString("pic");
-						if (!TextUtils.isEmpty(url))
-						{
-							// WZh
-							
-							 * getContext().pushFragmentToBackStack(
-							 * MaterialStyleFragment.class, url);
-							 
-						}*/
+						/*
+						 * final String url = mAdapter.getItem(position)
+						 * .optString("pic"); if (!TextUtils.isEmpty(url)) { //
+						 * WZh
+						 * 
+						 * getContext().pushFragmentToBackStack(
+						 * MaterialStyleFragment.class, url);
+						 * 
+						 * }
+						 */
 					}
 
 				}
@@ -112,10 +111,9 @@ public class TongZhiFragment extends Fragment
 	private void prpArrlistData()
 	{
 
-		
 		for (int i = 0; i < itemsStrings.length; i++)
 		{
-			arrayList.add((i+1)+"."+itemsStrings[i]);
+			arrayList.add((i + 1) + "." + itemsStrings[i]);
 		}
 	}
 
@@ -134,11 +132,11 @@ public class TongZhiFragment extends Fragment
 				@Override
 				public void run()
 				{
-					int  index=arrayList.size();
+					int index = arrayList.size();
 					for (int i = 0; i < mStrings.length; i++)
 					{
 						index++;
-						arrayList.add(index+":"+mStrings[i]);
+						arrayList.add(index + ":" + mStrings[i]);
 					}
 					mPtrFrame.refreshComplete();
 					mAdapter.notifyDataSetChanged();

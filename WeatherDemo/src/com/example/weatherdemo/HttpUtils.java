@@ -2,7 +2,7 @@
  * @Title: HttpUtils.java 
  * @Description: TODO
  * @author    
- * @date 2015-9-14 ����9:47:42 
+ * @date 2015-9-14 下午9:47:42 
  * @version V1.0   
  */
 
@@ -12,8 +12,6 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
-import java.security.KeyStore;
-import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
@@ -24,31 +22,15 @@ import org.apache.http.Header;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.HttpStatus;
-import org.apache.http.HttpVersion;
-import org.apache.http.NameValuePair;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
-import org.apache.http.conn.ClientConnectionManager;
-import org.apache.http.conn.scheme.PlainSocketFactory;
-import org.apache.http.conn.scheme.Scheme;
-import org.apache.http.conn.scheme.SchemeRegistry;
-import org.apache.http.conn.ssl.SSLSocketFactory;
 import org.apache.http.impl.client.DefaultHttpClient;
-import org.apache.http.impl.conn.tsccm.ThreadSafeClientConnManager;
 import org.apache.http.message.BasicNameValuePair;
-import org.apache.http.params.BasicHttpParams;
-import org.apache.http.params.HttpParams;
-import org.apache.http.params.HttpProtocolParams;
 import org.apache.http.protocol.HTTP;
 import org.apache.http.util.EntityUtils;
 
-import net.sf.json.JSON;
-import net.sf.json.JSONArray;
-import net.sf.json.JSONObject;
-import net.sf.json.JSONSerializer;
-import android.R.string;
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.util.Log;
@@ -60,9 +42,9 @@ import android.util.Log;
 public class HttpUtils
 {
 	/**
-	 * ����������״̬�����ж�
+	 * 对网络连接状态进行判断
 	 * 
-	 * @return true, ���ã� false�� ������
+	 * @return true, 可用； false， 不可用
 	 */
 	public static boolean isOpenNetwork(Context context)
 	{
@@ -82,21 +64,20 @@ public class HttpUtils
 		StringBuffer sb = new StringBuffer();
 		String baseURL = "http://wthrcdn.etouch.cn/weather_mini";
 		String city = "%E4%B8%8A%E6%B5%B7";
-		long age = DataUtils.GetSystemCurrentTimeMillis();
+		long time = DataUtils.GetSystemCurrentTimeMillis();
 
-		// ʹ��GET������������,��Ҫ�Ѳ�������URL���棬�ã����ӣ�����֮����&�ָ�
+		// 使用GET方法发送请求,需要把参数加在URL后面，用？连接，参数之间用&分隔
 		String url = baseURL + "?city=" + city
 				+ "&callback=flightHandler&callback=flightHandler&" + "_="
-				+ System.currentTimeMillis() / 10000L + "";
+				+ time + "";
 		String tag = "URL";
-		// �����������
+		// 生成请求对象
 		Log.d(tag, url);
-		// url="http://www.weather.com.cn/adat/cityinfo/101010100.html";
 		HttpGet httpGet = new HttpGet(url);
 		HttpClient httpClient = new DefaultHttpClient();
 		String strResult = "";
 
-		// ��������
+		// 发送请求
 		try
 		{
 
@@ -108,32 +89,30 @@ public class HttpUtils
 				if (header != null && header.getValue().equals("gzip"))
 				{
 
-					// ������ݽ��й�ѹ�����Ƚ��н�ѹ
+					// 如果数据进行过压缩，先进行解压
 					byte[] resultstream = EntityUtils
 							.toByteArray(responseEntity);
 					resultstream = GzipUtils.unGZip(resultstream);
 					strResult = new String(resultstream, "UTF-8");
 				} else
 				{
-					// û���й�ѹ����ֱ��ʹ��
+					// 没进行过压缩，直接使用
 					strResult = EntityUtils.toString(responseEntity);
-					sb.append(strResult);
-					return sb.toString();
 				}
-				// base64����
+				// base64解码
 				// strResult = new String(Base64.decode(strResult), "UTF-8");
 
 				sb.append(strResult);
 				String stTempString = sb.toString().substring(14,
 						sb.toString().length());
 				stTempString = stTempString.substring(0,
-						stTempString.length() - 2);
+						stTempString.length() - 4);
 				sb = new StringBuffer();
 				sb.append(stTempString);
 			}
 			return sb.toString();
 
-			// ��ʾ��Ӧ
+			// 显示响应
 
 		} catch (Exception e)
 		{
@@ -148,18 +127,17 @@ public class HttpUtils
 		StringBuffer sb = new StringBuffer();
 		String baseURL = "http://wthrcdn.etouch.cn/weather_mini";
 		String city = "%E4%B8%8A%E6%B5%B7";
-		long age = DataUtils.GetSystemCurrentTimeMillis();
 
-		// ʹ��GET������������,��Ҫ�Ѳ�������URL���棬�ã����ӣ�����֮����&�ָ�
+		// 使用GET方法发送请求,需要把参数加在URL后面，用？连接，参数之间用&分隔
 		String url = baseURL + "?city=" + city
 				+ "&callback=flightHandler&callback=flightHandler&" + "_="
 				+ System.currentTimeMillis() / 10000L + "";
 		String tag = "URL";
-		// �����������
+		// 生成请求对象
 		Log.d(tag, url);
 		HttpGet httpGet = new HttpGet(url);
 		HttpClient httpClient = new DefaultHttpClient();
-		// ��������
+		// 发送请求
 		try
 		{
 
@@ -191,7 +169,7 @@ public class HttpUtils
 			}
 			return sb.toString();
 
-			// ��ʾ��Ӧ
+			// 显示响应
 
 		} catch (Exception e)
 		{
@@ -201,7 +179,7 @@ public class HttpUtils
 	}
 
 	/**
-	 * post����
+	 * post请求
 	 * 
 	 * @param urlString
 	 * @param params
@@ -213,9 +191,9 @@ public class HttpUtils
 
 		try
 		{
-			// 1. ����HttpClient����
+			// 1. 创建HttpClient对象
 			HttpClient client = new DefaultHttpClient();
-			// 2. ��get���󴴽�HttpGet����
+			// 2. 发get请求创建HttpGet对象
 			HttpPost postMethod = new HttpPost(urlString);
 			postMethod.setEntity(new UrlEncodedFormEntity(params, HTTP.UTF_8));
 			HttpResponse response = client.execute(postMethod);
@@ -233,6 +211,7 @@ public class HttpUtils
 		return null;
 	}
 
+	@SuppressWarnings("unused")
 	private void prpGetUrlPars(String urlString, Map<String, String> params)
 	{
 		StringBuilder urlBuilder = new StringBuilder();
