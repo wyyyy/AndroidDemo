@@ -66,10 +66,9 @@ public class HttpClientHelp
 		return httpClient;
 	}
 
-	public String sendPost()
+	public String sendPost(String uriAPI)
 	{
 		String strResult = "";
-		String uriAPI = "http://172.20.0.206:8082//TestServelt/login.do";
 		/* 建立HTTP Post连线 */
 		HttpPost httpRequest = new HttpPost(uriAPI);
 		// Post运作传送变数必须用NameValuePair[]阵列储存
