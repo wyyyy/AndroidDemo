@@ -107,6 +107,7 @@ public class HttpClientHelp
 		return strResult;
 	}
 
+	@SuppressWarnings("rawtypes")
 	public String sendGet(String baseUrl, Map params)
 	{
 

@@ -8,8 +8,8 @@ public class API8Util
 	@SuppressWarnings("unchecked")
 	public static <T> T[] copyOfRange(T[] original, int start, int end)
 	{
-		int originalLength = original.length; // For exception priority
-												// compatibility.
+		int originalLength = original.length;
+
 		if (start > end)
 		{
 			throw new IllegalArgumentException();

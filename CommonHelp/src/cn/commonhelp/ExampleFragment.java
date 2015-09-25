@@ -5,6 +5,7 @@ import java.util.Arrays;
 import java.util.Date;
 import java.util.LinkedList;
 
+import android.annotation.SuppressLint;
 import android.app.Fragment;
 import android.content.Context;
 import android.os.AsyncTask;
@@ -152,7 +153,7 @@ public class ExampleFragment extends Fragment
 			return mStrings;
 		}
 
-		@Override
+		@SuppressLint("SimpleDateFormat") @Override
 		protected void onPostExecute(String[] result)
 		{
 

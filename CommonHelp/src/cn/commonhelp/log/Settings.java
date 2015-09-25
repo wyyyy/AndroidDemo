@@ -1,7 +1,7 @@
 package cn.commonhelp.log;
 
 /**
- * @author Orhan Obut
+ * @author LogHelp
  */
 public final class Settings
 {

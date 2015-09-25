@@ -1,5 +1,6 @@
 package cn.commonhelp.ddlistview;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.util.AttributeSet;
@@ -386,7 +387,7 @@ public class DropDownListView extends ListView implements OnScrollListener
 		footerButton.setOnClickListener(onBottomListener);
 	}
 
-	@Override
+	@SuppressLint("ClickableViewAccessibility") @Override
 	public boolean onTouchEvent(MotionEvent event)
 	{
 		if (!isDropDownStyle)

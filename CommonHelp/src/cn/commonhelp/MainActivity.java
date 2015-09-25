@@ -4,6 +4,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.LinkedList;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
@@ -73,6 +74,7 @@ public class MainActivity extends Activity
 		 */
 	}
 
+	@SuppressWarnings("unused")
 	private class GetDataTask extends AsyncTask<Void, Void, String[]>
 	{
 
@@ -96,7 +98,7 @@ public class MainActivity extends Activity
 			return mStrings;
 		}
 
-		@Override
+		@SuppressLint("SimpleDateFormat") @Override
 		protected void onPostExecute(String[] result)
 		{
 
