@@ -32,11 +32,9 @@ public class Network
 		{
 			return Network.NONETWORK;
 		}
-		ConnectivityManager cm = (ConnectivityManager) context
-				.getSystemService(Context.CONNECTIVITY_SERVICE);
+		ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
 		// cm.getNetworkInfo(ConnectivityManager.TYPE_MOBILE);
-		if (cm.getNetworkInfo(ConnectivityManager.TYPE_WIFI)
-				.isConnectedOrConnecting())
+		if (cm.getNetworkInfo(ConnectivityManager.TYPE_WIFI).isConnectedOrConnecting())
 			return Network.WIFI;
 		else
 			return Network.NOWIFI;
@@ -51,8 +49,7 @@ public class Network
 	public static boolean checkNetWork(Context context)
 	{
 		// 1.获得连接设备管理器
-		ConnectivityManager cm = (ConnectivityManager) context
-				.getSystemService(Context.CONNECTIVITY_SERVICE);
+		ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
 		if (cm == null)
 		{
 			return false;

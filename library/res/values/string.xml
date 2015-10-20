@@ -61,6 +61,6 @@
     <!-- end -->
     <string name="strimagedesc">图片描述</string>
     <string name="swipe_to_refresh">refresh</string>
-    <string name="imgLoading">loading...</string>
+    <string name="imgLoading">loading</string>
 
 </resources>
