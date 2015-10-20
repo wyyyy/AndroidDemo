@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:tc="http://schemas.android.com/apk/res/com.library.activity"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/image_border" >
+
+    <ImageView
+        android:id="@+id/img_listitem_tongzhi"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:contentDescription="@string/app_name"
+        android:scaleType="centerInside"
+        android:src="@drawable/a2" />
+
+    <TextView
+        android:id="@+id/txt_listitem_tongzhi"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="1dp"
+        android:layout_toRightOf="@id/img_listitem_tongzhi"
+        android:gravity="left"
+        android:text="@string/txtInfo"
+        android:textSize="15sp"
+        android:visibility="visible" />
+
+    <cn.utils.tools.TasksCompletedView
+        android:id="@+id/tasks_view_listitem_tongzhi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/tasks_view_listitem_tongzhi"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="1dp"
+        tc:circleColor="@color/circle_color"
+        tc:radius="100dip"
+        tc:ringColor="@color/ring_color"
+        tc:strokeWidth="20dip" />
+
+</RelativeLayout>
