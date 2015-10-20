@@ -22,15 +22,9 @@ import android.widget.Toast;
 
 import com.library.fragment.FaXianFragment5;
 import com.library.fragment.HuDongFragment1;
-<<<<<<< HEAD
 import com.library.fragment.JieYueFragment2;
 import com.library.fragment.QiangZuoFragment3;
 import com.library.fragment.XinShengDaoHangFragment4;
-=======
-import com.library.fragment.JieYueFragment;
-import com.library.fragment.QiangZuoFragment32;
-import com.library.fragment.XinShengDaoHangFragment;
->>>>>>> f64752851643cd504af77dab31a8f515f90d8d20
 import com.special.ResideMenu.ResideMenu;
 import com.special.ResideMenu.ResideMenuInfo;
 import com.special.ResideMenu.ResideMenuItem;
@@ -345,93 +339,6 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
 		{
 			transaction.hide(fxs);
 		}
-=======
-		} else if (rb5.getId() == checkedId)
-		{
-			idex = 5;
-		}
-		setChioceItem(idex);
-	}
-
-	public void setChioceItem(int index)
-	{
-		if (fManager == null)
-			return;
-		// reset item and invisible allFragment
-		FragmentTransaction transaction = fManager.beginTransaction();
-		hideFragments(transaction);
-		switch (index)
-		{
-		case 1:
-			if (fhd == null)
-			{
-				fhd = new HuDongFragment1();
-				transaction.add(R.id.main_fragment, fhd);
-			} else
-			{
-				transaction.show(fhd);
-			}
-			break;
-
-		case 2:
-
-			if (fxs == null)
-			{
-				fxs = new XinShengDaoHangFragment();
-				transaction.add(R.id.main_fragment, fxs);
-			} else
-			{
-				transaction.show(fxs);
-			}
-
-			break;
-		case 3:
-			if (fjjy == null)
-			{
-				fjjy = new JieYueFragment();
-				transaction.add(R.id.main_fragment, fjjy);
-			} else
-			{
-				transaction.show(fjjy);
-			}
-			break;
-		case 4:
-			if (fqz == null)
-			{
-				fqz = new QiangZuoFragment32();
-				transaction.add(R.id.main_fragment, fqz);
-			} else
-			{
-				transaction.show(fqz);
-			}
-			break;
-
-		case 5:
-			if (ffaxin == null)
-			{
-				ffaxin = new FaXianFragment5();
-				transaction.add(R.id.main_fragment, ffaxin);
-			} else
-			{
-				transaction.show(ffaxin);
-			}
-			break;
-		}
-		transaction.commit();
-	}
-
-	private void hideFragments(FragmentTransaction transaction)
-	{
-
-		if (fhd != null)
-		{
-			transaction.hide(fhd);
-		}
-		if (fxs != null)
-		{
-			transaction.hide(fxs);
-		}
->>>>>>> f64752851643cd504af77dab31a8f515f90d8d20
 		if (fjjy != null)
 		{
 			transaction.hide(fjjy);
@@ -440,16 +347,9 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
 		{
 			transaction.hide(fqz);
 		}
-<<<<<<< HEAD
 		if (ffaxian != null)
 		{
 			transaction.hide(ffaxian);
-=======
-		if (ffaxin != null)
-		{
-			transaction.hide(ffaxin);
->>>>>>> f64752851643cd504af77dab31a8f515f90d8d20
 		}
-
 	}
 }
