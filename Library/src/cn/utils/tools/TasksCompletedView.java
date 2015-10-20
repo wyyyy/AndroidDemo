@@ -1,5 +1,6 @@
 package cn.utils.tools;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Canvas;
@@ -12,6 +13,7 @@ import android.view.View;
 import com.library.activity.R;
 
 //圆形进度条
+@SuppressLint("DrawAllocation")
 public class TasksCompletedView extends View
 {
 	// 画实心圆的画笔

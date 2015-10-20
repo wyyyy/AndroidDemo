@@ -22,9 +22,9 @@ import android.widget.Toast;
 
 import com.library.fragment.FaXianFragment5;
 import com.library.fragment.HuDongFragment1;
-import com.library.fragment.JieYueFragment;
-import com.library.fragment.QiangZuoFragment32;
-import com.library.fragment.XinShengDaoHangFragment;
+import com.library.fragment.JieYueFragment2;
+import com.library.fragment.QiangZuoFragment3;
+import com.library.fragment.XinShengDaoHangFragment4;
 import com.special.ResideMenu.ResideMenu;
 import com.special.ResideMenu.ResideMenuInfo;
 import com.special.ResideMenu.ResideMenuItem;
@@ -52,10 +52,10 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
 	private boolean is_closed = false;
 	private long mExitTime;
 	HuDongFragment1 fhd;
-	XinShengDaoHangFragment fxs;
-	JieYueFragment fjjy;
-	QiangZuoFragment32 fqz;
-	FaXianFragment5 ffaxin;
+	XinShengDaoHangFragment4 fxs;
+	JieYueFragment2 fjjy;
+	QiangZuoFragment3 fqz;
+	FaXianFragment5 ffaxian;
 	private RadioGroup rg;
 	private RadioButton rb1, rb2, rb3, rb4, rb5;
 	FragmentManager fManager;
@@ -254,6 +254,7 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
 			idex = 3;
 		} else if (rb4.getId() == checkedId)
 		{
+			idex = 4;
 		} else if (rb5.getId() == checkedId)
 		{
 			idex = 5;
@@ -282,10 +283,30 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
 			break;
 
 		case 2:
+			if (fjjy == null)
+			{
+				fjjy = new JieYueFragment2();
+				transaction.add(R.id.main_fragment, fjjy);
+			} else
+			{
+				transaction.show(fjjy);
+			}
+			break;
+		case 3:
+			if (fqz == null)
+			{
+				fqz = new QiangZuoFragment3();
+				transaction.add(R.id.main_fragment, fqz);
+			} else
+			{
+				transaction.show(fqz);
+			}
+			break;
+		case 4:
 
 			if (fxs == null)
 			{
-				fxs = new XinShengDaoHangFragment();
+				fxs = new XinShengDaoHangFragment4();
 				transaction.add(R.id.main_fragment, fxs);
 			} else
 			{
@@ -293,35 +314,14 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
 			}
 
 			break;
-		case 3:
-			if (fjjy == null)
-			{
-				fjjy = new JieYueFragment();
-				transaction.add(R.id.main_fragment, fjjy);
-			} else
-			{
-				transaction.show(fjjy);
-			}
-			break;
-		case 4:
-			if (fqz == null)
-			{
-				fqz = new QiangZuoFragment32();
-				transaction.add(R.id.main_fragment, fqz);
-			} else
-			{
-				transaction.show(fqz);
-			}
-			break;
-
 		case 5:
-			if (ffaxin == null)
+			if (ffaxian == null)
 			{
-				ffaxin = new FaXianFragment5();
-				transaction.add(R.id.main_fragment, ffaxin);
+				ffaxian = new FaXianFragment5();
+				transaction.add(R.id.main_fragment, ffaxian);
 			} else
 			{
-				transaction.show(ffaxin);
+				transaction.show(ffaxian);
 			}
 			break;
 		}
@@ -347,9 +347,9 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
 		{
 			transaction.hide(fqz);
 		}
-		if (ffaxin != null)
+		if (ffaxian != null)
 		{
-			transaction.hide(ffaxin);
+			transaction.hide(ffaxian);
 		}
 
 	}

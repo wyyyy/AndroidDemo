@@ -45,7 +45,7 @@
             android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:name="com.library.fragment.XinShengDaoHangFragment"
+            android:name="com.library.fragment.XinShengDaoHangFragment4"
             android:label="@string/title_activity_xin_sheng_dao_hang_fragment" >
         </activity>
         <activity
@@ -65,7 +65,7 @@
             android:label="@string/title_activity_hu_dong_fragment2" >
         </activity>
         <activity
-            android:name="com.library.fragment.DangQianJieYueFragment31"
+            android:name="com.library.fragment.DangQianJieYueFragment21"
             android:label="@string/title_activity_dang_qian_jie_yue_fragment" >
         </activity>
         <activity

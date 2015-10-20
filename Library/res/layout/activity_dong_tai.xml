@@ -17,7 +17,8 @@
         <RelativeLayout
             android:id="@+id/relaoutkf"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" >
+            android:layout_height="match_parent"
+            tools:ignore="UselessParent" >
 
             <EditText
                 android:id="@+id/editText1"

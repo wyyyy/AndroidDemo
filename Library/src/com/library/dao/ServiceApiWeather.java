@@ -2,41 +2,54 @@ package com.library.dao;
 
 import java.util.Map;
 
-import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
-import com.library.bean.ApiWeather.ApiWeatherRoot;
-import com.library.data.AsyncHttpClientHelp;
+import org.apache.http.Header;
 
+import com.loopj.android.http.RequestParams;
+
+/*
+ * 1.prp pars
+ * 2.pro url
+ * 3.prp header if need
+ */
 public class ServiceApiWeather implements IHttpGetData
 {
-	AsyncHttpClientHelp help = new AsyncHttpClientHelp();
-	ApiWeatherRoot rtRoot = new ApiWeatherRoot();
-	String rtStr = "";
+	String url = "";
+	Map<String, String> pars;
+	Map<String, String> mYHeader;
 
-	@Override
-	public void getData(String url, Map<String, String> pars)
+	public ServiceApiWeather()
 	{
-		long startTime = System.currentTimeMillis();
 
-		help = new AsyncHttpClientHelp();
-		// TODO Auto-generated method stub
-		// https://www.juhe.cn/docs/api/id/39
-		// key=ee37c488ea30af4dbb1d4a5a997d821c
-		String strKey = "ee37c488ea30af4dbb1d4a5a997d821c";
-		String strCityName = "上海";
-		url = "http://v.juhe.cn/weather/index?format=2&cityname=" + strCityName + "&key=" + strKey;
-		rtStr = help.SendGet(url, null);
-		long endTime = System.currentTimeMillis();
-		System.out.println("time;" + (endTime - startTime) + "ms");
 	}
 
-	public ApiWeatherRoot Str2Beans(String strConten)
+	public ServiceApiWeather(String _url, Map<String, String> _pars, Map<String, String> _mYHeader)
 	{
-		getData("", null);
-		rtRoot = new Gson().fromJson(rtStr, new TypeToken<ApiWeatherRoot>()
-		{
-		}.getType());
+		url = _url;
+		pars = _pars;
+		mYHeader = _mYHeader;
+	}
 
-		return rtRoot;
+	@Override
+	public String prpUrl()
+	{
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public RequestParams prpRequestParams(Map<String, String> pars)
+	{
+		RequestParams params = new RequestParams();
+		params.put("format", "2");
+		params.put("cityname", "");
+		params.put("key", "ee37c488ea30af4dbb1d4a5a997d821c");
+		return params;
+	}
+
+	@Override
+	public Header[] prpHeader()
+	{
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

@@ -19,6 +19,7 @@ public class MySwipeRefreshLayout extends SwipeRefreshLayout
 		final ViewParent vp = this.getParent();
 		vto.addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener()
 		{
+			@Override
 			public void onGlobalLayout()
 			{
 

@@ -50,6 +50,7 @@ public class AsyncRequestUtil
 
 	// public static AsyncHttpClient client = new AsyncHttpClient();
 
+	@SuppressWarnings("unused")
 	private void getQuest(String url, RequestParams params, AsyncHttpResponseHandler responseHandler)
 	{
 		client.get(getAbsoluteUrl(url), params, new AsyncHttpResponseHandler()
@@ -68,7 +69,7 @@ public class AsyncRequestUtil
 			}
 
 			@Override
-			public void onFailure(int statusCode, Header[] headers, byte[] errorResponse, Throwable e)
+			public void onFailure(int statusCode, Header[] headers, byte[] errorResponse, Throwable err)
 			{
 				// called when response HTTP status is "4XX" (eg. 401, 403, 404)
 			}

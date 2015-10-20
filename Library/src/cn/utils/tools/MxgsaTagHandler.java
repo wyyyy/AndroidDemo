@@ -2,6 +2,7 @@ package cn.utils.tools;
 
 import org.xml.sax.XMLReader;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.text.Editable;
 import android.text.Spanned;
@@ -14,13 +15,13 @@ public class MxgsaTagHandler implements TagHandler
 {
 	private int sIndex = 0;
 	private int eIndex = 0;
-	private final Context mContext;
 
 	public MxgsaTagHandler(Context context)
 	{
-		mContext = context;
 	}
 
+	@SuppressLint("DefaultLocale")
+	@Override
 	public void handleTag(boolean opening, String tag, Editable output, XMLReader xmlReader)
 	{
 		// TODO Auto-generated method stub
