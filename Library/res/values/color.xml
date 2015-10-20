@@ -9,5 +9,10 @@
     <color name="hongse">#CC0033</color>
     <color name="zone_title_bg">#ffee71a1</color>
     <color name="dgv_item_f0ffff">#4876FF</color>
+    <!-- ADD FOR TASK -->
+    <color name="header_bg_common">#323a45</color>
+    <color name="title_txt_color">#f1f1f3</color>
+    <color name="circle_color">#323a45</color>
+    <color name="ring_color">#14b9d6</color>
 
 </resources>

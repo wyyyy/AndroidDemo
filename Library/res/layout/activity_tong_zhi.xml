@@ -2,33 +2,26 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
- 
-    tools:context=".TongZhiFragment" >
+    tools:context=".TongZhiFragment11" >
 
-  <in.srain.cube.views.ptr.PtrClassicFrameLayout
-        android:id="@+id/rotate_header_list_view_frame"
-        xmlns:cube_ptr="http://schemas.android.com/apk/res-auto"
+    <android.support.v4.widget.SwipeRefreshLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/atv_tongzhi_swip"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/cube_mints_f1f1f1"
-        cube_ptr:ptr_duration_to_close="200"
-        cube_ptr:ptr_duration_to_close_header="1000"
-        cube_ptr:ptr_keep_header_when_refresh="true"
-        cube_ptr:ptr_pull_to_fresh="false"
-        cube_ptr:ptr_ratio_of_header_height_to_refresh="1.2"
-        cube_ptr:ptr_resistance="1.7">
+        android:layout_height="match_parent" >
 
         <ListView
-            android:id="@+id/rotate_header_list_view"
+            android:id="@+id/atv_tongzhi_list_view"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:divider="@null"
+            android:choiceMode="singleChoice"
+            android:divider="#FFF"
+            android:dividerHeight="1px"
             android:fadingEdge="none"
             android:listSelector="@android:color/transparent"
-            android:paddingLeft="12dp"
-            android:paddingRight="12dp"
-            android:scrollbarStyle="outsideOverlay"
-            android:choiceMode="singleChoice" />
+            android:paddingLeft="1dp"
+            android:paddingRight="0dp"
+            android:scrollbarStyle="outsideOverlay" />
+    </android.support.v4.widget.SwipeRefreshLayout>
 
-    </in.srain.cube.views.ptr.PtrClassicFrameLayout>
 </RelativeLayout>

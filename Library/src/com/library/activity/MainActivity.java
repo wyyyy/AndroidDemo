@@ -1,9 +1,15 @@
 package com.library.activity;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.view.KeyEvent;
 import android.view.MotionEvent;
@@ -14,17 +20,16 @@ import android.widget.RadioGroup.OnCheckedChangeListener;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.library.fragment.FaXianFragment;
-import com.library.fragment.HuDongFragment;
+import com.library.fragment.FaXianFragment5;
+import com.library.fragment.HuDongFragment1;
 import com.library.fragment.JieYueFragment;
-import com.library.fragment.QiangZuoFragment;
+import com.library.fragment.QiangZuoFragment32;
 import com.library.fragment.XinShengDaoHangFragment;
 import com.special.ResideMenu.ResideMenu;
 import com.special.ResideMenu.ResideMenuInfo;
 import com.special.ResideMenu.ResideMenuItem;
 
-public class MainActivity extends FragmentActivity implements
-		View.OnClickListener, OnCheckedChangeListener
+public class MainActivity extends FragmentActivity implements View.OnClickListener, OnCheckedChangeListener
 {
 
 	public ResideMenu resideMenu;
@@ -35,17 +40,25 @@ public class MainActivity extends FragmentActivity implements
 	private ResideMenuItem itemShoucang;
 	private ResideMenuItem itemXiangce;
 	private ResideMenuItem itemFile;
-
+	Fragment mContent = new Fragment();
 	private ResideMenuInfo info;
-
+	List<Fragment> lsitFragment = new ArrayList<Fragment>();
+	List<FraList> flist = new ArrayList<FraList>();
+	List<FraList> flistSAll = new ArrayList<FraList>();
+	List<String> lsitString = new ArrayList<String>();;
 	@SuppressWarnings("unused")
 	private TextView text1, text2, text3;
-
+	Map<String, Fragment> map = new HashMap<String, Fragment>();
 	private boolean is_closed = false;
 	private long mExitTime;
-
+	HuDongFragment1 fhd;
+	XinShengDaoHangFragment fxs;
+	JieYueFragment fjjy;
+	QiangZuoFragment32 fqz;
+	FaXianFragment5 ffaxin;
 	private RadioGroup rg;
 	private RadioButton rb1, rb2, rb3, rb4, rb5;
+	FragmentManager fManager;
 
 	/**
 	 * Called when the activity is first created.
@@ -55,13 +68,11 @@ public class MainActivity extends FragmentActivity implements
 	{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-
+		fManager = getSupportFragmentManager();
 		setUpMenu();
-		// changeFragment(new HuDongFragment());
 		setListener();
 	}
 
-	@SuppressWarnings("deprecation")
 	private void setUpMenu()
 	{
 
@@ -72,9 +83,7 @@ public class MainActivity extends FragmentActivity implements
 		rb4 = (RadioButton) findViewById(R.id.rb4);
 		rb5 = (RadioButton) findViewById(R.id.rb5);
 		rg.setOnCheckedChangeListener(this);
-		// 之前是rb1
 		rb2.setChecked(true);
-
 		// attach to current activity;
 		resideMenu = new ResideMenu(this);
 		resideMenu.setBackground(R.drawable.menu_background);
@@ -83,12 +92,11 @@ public class MainActivity extends FragmentActivity implements
 		// valid scale factor is between 0.0f and 1.0f. leftmenu'width is
 		// 150dip.
 		resideMenu.setScaleValue(0.6f);
-		// 禁止使用右侧菜单
-		resideMenu.setDirectionDisable(ResideMenu.DIRECTION_RIGHT);
+		// disable right menu
+		resideMenu.setSwipeDirectionDisable(ResideMenu.DIRECTION_RIGHT);
 
 		// create menu items;
-		itemGuanZhangEmail = new ResideMenuItem(this, R.drawable.icon_profile,
-				"馆长信箱");
+		itemGuanZhangEmail = new ResideMenuItem(this, R.drawable.icon_profile, "馆长信箱");
 		itemGrRenXinXi = new ResideMenuItem(this, R.string.MenuyInfo);
 		itemZhuangban = new ResideMenuItem(this, R.string.Menudqck);
 		itemShoucang = new ResideMenuItem(this, R.string.MenuJyjl);
@@ -102,24 +110,20 @@ public class MainActivity extends FragmentActivity implements
 		resideMenu.addMenuItem(itemXiangce, ResideMenu.DIRECTION_LEFT);
 		resideMenu.addMenuItem(itemFile, ResideMenu.DIRECTION_LEFT);
 		// 姓名和学号
-		info = new ResideMenuInfo(this, R.drawable.icon_profile, "我我我",
-				"2012012147");
+		info = new ResideMenuInfo(this, R.drawable.icon_profile, "我我我", "2012012147");
 
 	}
 
 	private void setListener()
 	{
 		resideMenu.addMenuInfo(info);
-
 		itemGuanZhangEmail.setOnClickListener(this);
 		itemGrRenXinXi.setOnClickListener(this);
 		itemZhuangban.setOnClickListener(this);
 		itemShoucang.setOnClickListener(this);
 		itemXiangce.setOnClickListener(this);
 		itemFile.setOnClickListener(this);
-
 		info.setOnClickListener(this);
-
 	}
 
 	// 点击按钮显示左边侧滑栏
@@ -199,18 +203,6 @@ public class MainActivity extends FragmentActivity implements
 		}
 	};
 
-	/*
-	 * change fragment
-	 */
-	private void changeFragment(Fragment targetFragment)
-	{
-		// resideMenu.clearIgnoredViewList();
-		getSupportFragmentManager().beginTransaction()
-				.replace(R.id.main_fragment, targetFragment, "fragment")
-				.setTransitionStyle(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
-				.commit();
-	}
-
 	// What good method is to access resideMenu？
 	public ResideMenu getResideMenu()
 	{
@@ -250,22 +242,115 @@ public class MainActivity extends FragmentActivity implements
 	@Override
 	public void onCheckedChanged(RadioGroup arg0, int checkedId)
 	{
-
+		int idex = 0;
 		if (rb1.getId() == checkedId)
 		{
-			changeFragment(new HuDongFragment());
+			idex = 1;
 		} else if (rb2.getId() == checkedId)
 		{
-			changeFragment(new JieYueFragment());
+			idex = 2;
 		} else if (rb3.getId() == checkedId)
 		{
-			changeFragment(new QiangZuoFragment());
+			idex = 3;
 		} else if (rb4.getId() == checkedId)
 		{
-			changeFragment(new XinShengDaoHangFragment());
 		} else if (rb5.getId() == checkedId)
 		{
-			changeFragment(new FaXianFragment());
+			idex = 5;
 		}
+		setChioceItem(idex);
+	}
+
+	public void setChioceItem(int index)
+	{
+		if (fManager == null)
+			return;
+		// reset item and invisible allFragment
+		FragmentTransaction transaction = fManager.beginTransaction();
+		hideFragments(transaction);
+		switch (index)
+		{
+		case 1:
+			if (fhd == null)
+			{
+				fhd = new HuDongFragment1();
+				transaction.add(R.id.main_fragment, fhd);
+			} else
+			{
+				transaction.show(fhd);
+			}
+			break;
+
+		case 2:
+
+			if (fxs == null)
+			{
+				fxs = new XinShengDaoHangFragment();
+				transaction.add(R.id.main_fragment, fxs);
+			} else
+			{
+				transaction.show(fxs);
+			}
+
+			break;
+		case 3:
+			if (fjjy == null)
+			{
+				fjjy = new JieYueFragment();
+				transaction.add(R.id.main_fragment, fjjy);
+			} else
+			{
+				transaction.show(fjjy);
+			}
+			break;
+		case 4:
+			if (fqz == null)
+			{
+				fqz = new QiangZuoFragment32();
+				transaction.add(R.id.main_fragment, fqz);
+			} else
+			{
+				transaction.show(fqz);
+			}
+			break;
+
+		case 5:
+			if (ffaxin == null)
+			{
+				ffaxin = new FaXianFragment5();
+				transaction.add(R.id.main_fragment, ffaxin);
+			} else
+			{
+				transaction.show(ffaxin);
+			}
+			break;
+		}
+		transaction.commit();
+	}
+
+	private void hideFragments(FragmentTransaction transaction)
+	{
+
+		if (fhd != null)
+		{
+			transaction.hide(fhd);
+		}
+		if (fxs != null)
+		{
+			transaction.hide(fxs);
+		}
+		if (fjjy != null)
+		{
+			transaction.hide(fjjy);
+		}
+		if (fqz != null)
+		{
+			transaction.hide(fqz);
+		}
+		if (ffaxin != null)
+		{
+			transaction.hide(ffaxin);
+		}
+
 	}
 }
