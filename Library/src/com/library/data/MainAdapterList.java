@@ -65,8 +65,8 @@ public class MainAdapterList extends BaseAdapter
 		// TODO Auto-generated method stub
 		// LayoutInflater factory = LayoutInflater.from(mycContext);
 		View iniView = factory
-				.inflate(R.layout.list_view_item_str, null);
-		TextView textView = (TextView) iniView.findViewById(R.id.txt_list_str);
+				.inflate(R.layout.list_view_item_tongzhi, null);
+		TextView textView = (TextView) iniView.findViewById(R.id.txt_listitem_tongzhi);
 		textView.setText(arrayList.get(position));// pictureName
 		return iniView;
 	}

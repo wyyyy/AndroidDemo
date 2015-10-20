@@ -48,9 +48,9 @@ public class JieYueFragment extends Fragment implements OnCheckedChangeListener
 		iv_add = (ImageView) view.findViewById(R.id.iv_add);
 
 		list = new ArrayList<Fragment>();
-		DangQianJieYueFragment dqjf = new DangQianJieYueFragment();
-		JieYueLiShiFragment jylf = new JieYueLiShiFragment();
-		WeiZhangJiaoKuanFragment wzjf = new WeiZhangJiaoKuanFragment();
+		DangQianJieYueFragment31 dqjf = new DangQianJieYueFragment31();
+		JieYueLiShiFragment22 jylf = new JieYueLiShiFragment22();
+		WeiZhangJiaoKuanFragment23 wzjf = new WeiZhangJiaoKuanFragment23();
 		list.add(dqjf);
 		list.add(jylf);
 		list.add(wzjf);
