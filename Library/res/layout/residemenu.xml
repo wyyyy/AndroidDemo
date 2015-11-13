@@ -8,6 +8,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:adjustViewBounds="true"
+        android:contentDescription="@string/imgDesc"
         android:scaleType="centerCrop" />
 
     <ImageView
@@ -15,6 +16,7 @@
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:background="@drawable/shadow"
+        android:contentDescription="@string/imgDesc"
         android:scaleType="fitXY" />
 
     <RelativeLayout

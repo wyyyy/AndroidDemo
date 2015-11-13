@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@drawable/image_border"
@@ -8,16 +7,40 @@
 
     <TextView
         android:id="@+id/txt_listitem_top_xsdh"
+        style="@style/DefaultFontStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_margin="5dp"
         android:text="@string/txtInfo"
-        android:textSize="15sp" />
+        android:textSize="18sp" />
 
-    <TextView
-        android:id="@+id/txt_listitem_btm_xsdh"
-        android:layout_width="wrap_content"
+    <RelativeLayout
+        android:id="@+id/title_layout"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="@string/txtInfo"
-        android:visibility="visible" />
+        android:paddingRight="7.0dip" >
+
+        <ImageView
+            android:id="@+id/img_rep_list_item_xsdh"
+            android:layout_width="@dimen/shf_image_width"
+            android:layout_height="@dimen/shf_image_height"
+            android:layout_alignParentRight="true"
+            android:layout_marginLeft="4.0dip"
+            android:layout_marginTop="3.0dip"
+            android:background="@drawable/small_image_holder_listpage"
+            android:contentDescription="@string/imgLoading"
+            android:scaleType="centerCrop" />
+
+        <TextView
+            android:id="@+id/txt_rep_lsit_itme_xsdh"
+            style="@style/DefaultFontStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="5dp"
+            android:layout_toLeftOf="@+id/img_rep_list_item_xsdh"
+            android:text="@string/txtInfo" />
+    </RelativeLayout>
 
 </LinearLayout>

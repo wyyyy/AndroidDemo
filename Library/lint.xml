@@ -1,3 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <lint>
+    <issue id="NestedWeights" severity="ignore" />
+    <issue id="UselessParent">
+        <ignore path="res/layout/activity_guan_cang_bu_ju.xml" />
+    </issue>
 </lint>

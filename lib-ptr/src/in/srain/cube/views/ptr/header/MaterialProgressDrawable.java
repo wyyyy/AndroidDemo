@@ -258,7 +258,8 @@ public class MaterialProgressDrawable extends Drawable implements Animatable {
         c.restoreToCount(saveCount);
     }
 
-    public int getAlpha() {
+    @Override
+	public int getAlpha() {
         return mRing.getAlpha();
     }
 
@@ -327,7 +328,8 @@ public class MaterialProgressDrawable extends Drawable implements Animatable {
     private void setupAnimators() {
         final Ring ring = mRing;
         final Animation finishRingAnimation = new Animation() {
-            public void applyTransformation(float interpolatedTime, Transformation t) {
+            @Override
+			public void applyTransformation(float interpolatedTime, Transformation t) {
                 // shrink back down and complete a full rotation before starting other circles
                 // Rotation goes between [0..1].
                 float targetRotation = (float) (Math.floor(ring.getStartingRotation()
@@ -624,7 +626,7 @@ public class MaterialProgressDrawable extends Drawable implements Animatable {
         }
 
         public void setInsets(int width, int height) {
-            final float minEdge = (float) Math.min(width, height);
+            final float minEdge = Math.min(width, height);
             float insets;
             if (mRingCenterRadius <= 0 || minEdge < 0) {
                 insets = (float) Math.ceil(mStrokeWidth / 2.0f);

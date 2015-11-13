@@ -5,7 +5,7 @@
     android:versionName="1.0" >
 
     <uses-sdk
-        android:minSdkVersion="17"
+        android:minSdkVersion="18"
         android:targetSdkVersion="23" />
 
     <uses-permission android:name="android.permission.INTERNET" />
@@ -21,21 +21,11 @@
     <uses-permission android:name="android.permission.VIBRATE" />
 
     <application
-        android:name="com.library.application.AppApplication"
+        android:name="cn.common.application.AppApplication"
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
-        <activity
-            android:name=".SplashActivity"
-            android:label="@string/title_activity_splash"
-            android:screenOrientation="portrait" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
         <activity
             android:name="com.library.activity.MainActivity"
             android:screenOrientation="portrait" >
@@ -61,7 +51,7 @@
             android:label="@string/title_activity_dong_tai" >
         </activity>
         <activity
-            android:name="com.library.fragment.HuDongFragment2"
+            android:name="com.library.fragment.HuDongFragment1"
             android:label="@string/title_activity_hu_dong_fragment2" >
         </activity>
         <activity
@@ -102,6 +92,26 @@
         </activity>
         <activity android:name="com.library.fragment.ParaSetActivity" >
         </activity>
+        <activity android:name="com.news.activity.CityListActivity" >
+        </activity>
+        <activity android:name="com.news.activity.DetailsActivity" >
+        </activity>
+        <activity android:name="com.news.activity.ImageShowActivity" >
+        </activity>
+        <activity
+            android:name="com.news.activity.SplashActivity"
+            android:label="@string/title_activity_splash"
+            android:screenOrientation="portrait" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name="com.news.fragment.NewsFragment" >
+        </activity>
+        <activity android:name="BaseActivity"></activity>
+        <activity android:name="NewMainActivity"></activity>
     </application>
 
 </manifest>

@@ -12,7 +12,7 @@
         android:layout_weight="1"
         android:gravity="center"
         android:padding="5dp"
-        android:textColor="#000"
+        android:textColor="#00Fff0"
         android:textSize="16sp" />
 
 </LinearLayout>

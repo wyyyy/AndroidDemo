@@ -9,7 +9,7 @@
         android:layout_marginBottom="15dp"
         android:background="@drawable/image_border">
 
-        <in.srain.cube.image.CubeImageView
+        <ImageView
             android:id="@+id/list_view_item_image_view"
             android:layout_width="100dp"
             android:layout_height="100dp"

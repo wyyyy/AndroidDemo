@@ -887,7 +887,7 @@ public class PtrFrameLayout extends ViewGroup {
 
     @Override
     protected ViewGroup.LayoutParams generateDefaultLayoutParams() {
-        return new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT);
+        return new LayoutParams(android.view.ViewGroup.LayoutParams.MATCH_PARENT, android.view.ViewGroup.LayoutParams.MATCH_PARENT);
     }
 
     @Override
@@ -955,7 +955,8 @@ public class PtrFrameLayout extends ViewGroup {
             mScroller = new Scroller(getContext());
         }
 
-        public void run() {
+        @Override
+		public void run() {
             boolean finish = !mScroller.computeScrollOffset() || mScroller.isFinished();
             int curY = mScroller.getCurrY();
             int deltaY = curY - mLastFlingY;

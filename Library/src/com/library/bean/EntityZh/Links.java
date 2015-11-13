@@ -4,20 +4,20 @@ import java.io.Serializable;
 
 public class Links implements Serializable
 {
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = -5873967925691000241L;
-	private String comments;
+  /**
+   * 
+   */
+  private static final long serialVersionUID = -5873967925691000241L;
+  private String comments;
 
-	public void setComments(String comments)
-	{
-		this.comments = comments;
-	}
+  public void setComments(String comments)
+  {
+    this.comments = comments;
+  }
 
-	public String getComments()
-	{
-		return this.comments;
-	}
+  public String getComments()
+  {
+    return this.comments;
+  }
 
 }

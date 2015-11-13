@@ -4,11 +4,11 @@
     android:layout_height="match_parent"
     android:gravity="center_horizontal"
     android:orientation="vertical" >
-    
-  <ImageView 
+
+    <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@drawable/a2"
-        />
-    
+        android:contentDescription="@string/imgDesc" />
+
 </LinearLayout>
